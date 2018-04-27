@@ -1,0 +1,72 @@
+accessible: true
+author: Celine Deknop
+context: ''
+environment: default
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    time: '30'
+    memory: '100'
+    output: '2'
+name: SimpleMaze
+network_grading: false
+order: 4
+problems:
+    subProblem1:
+        options:
+            grid:
+                colour: '#ccc'
+                spacing: 20
+                snap: true
+                length: 3
+            oneBasedIndex: true
+            maxBlocks: Infinity
+            scrollbars: true
+            zoom:
+                maxScale: 3.0
+                startScale: 1.0
+                scaleSpeed: 1.2
+                minScale: 0.3
+                controls: true
+                wheel: false
+            visual:
+                position: left
+            toolboxPosition: start
+            css: true
+            media: /plugins/blockly/static/blockly/media/
+            collapse: true
+            trashcan: true
+            sounds: true
+        files:
+        - maze.js
+        - interpreter.js
+        blocks_files:
+        - blocks.js
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="maze_moveForward"></block>
+              <block type="maze_turn">
+                <field name="DIR">turnLeft</field>
+              </block>
+              <block type="maze_turn">
+                <field name="DIR">turnRight</field>
+              </block>
+              <block type="maze_if">
+                <field name="DIR">isPathForward</field>
+              </block>
+              <block type="maze_ifElse">
+                <field name="DIR">isPathForward</field>
+              </block>
+              <block type="maze_forever"></block>
+            </xml>
+        name: Getting to be general
+        type: blockly
+        workspace: <xml xmlns="http://www.w3.org/1999/xhtml"></xml>
+        header: Solve the following maze, without hardcoding the paths
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
