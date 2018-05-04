@@ -1,0 +1,97 @@
+accessible: true
+author: Florian Thuin
+context: ''
+environment: default
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    output: '2'
+    memory: '100'
+    time: '30'
+name: Exercice 5
+network_grading: false
+order: 4
+problems:
+    code:
+        blocks_files:
+        - blocks.js
+        options:
+            trashcan: true
+            scrollbars: true
+            oneBasedIndex: true
+            maxBlocks: '6'
+            grid:
+                spacing: 20
+                length: 3
+                snap: true
+                colour: '#ccc'
+            zoom:
+                maxScale: 3.0
+                minScale: 0.3
+                startScale: 1.0
+                controls: true
+                scaleSpeed: 1.2
+                wheel: false
+            toolboxPosition: start
+            visual:
+                position: left
+            css: true
+            media: /static/common/js/blockly/media/
+            sounds: true
+        files:
+        - maze.js
+        - interpreter.js
+        name: Boucles
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none;">
+                <block type="maze_moveForward"></block>
+              <block type="maze_turn"><field name="DIR">turnLeft</field></block>
+              <block type="maze_turn"><field name="DIR">turnRight</field></block>
+              <block type="controls_repeat"><title name="TIMES">???</title></block>
+            </xml>
+        type: blockly
+        header: |-
+            .. image:: 01_maze/maze/small_static_avatar.png
+                :height: 40px
+
+            **Peux-tu résoudre cette énigme en utilisant le moins de blocs possible ?**
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml" id="workspaceBlocks"
+            style="display:none"></xml>
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags:
+    '0':
+        description: Exercice faisant partie du cours 1
+        name: Cours1
+        type: 2
+        visible: false
+        id: ''
+    '1':
+        type: 2
+        visible: true
+        name: Facile
+        description: Fait partie du parcours pour élèves en difficulté
+        id: ''
+    '2':
+        description: Fait partie du parcours normal
+        visible: true
+        name: Normal
+        type: 2
+        id: ''
+    '3':
+        description: Demande de créer une séquence d'instruction
+        name: Séquence
+        type: 2
+        visible: false
+        id: ''
+    '4':
+        description: utilise une boucle "répéter X fois"
+        type: 2
+        name: Boucle X fois
+        visible: false
+        id: ''
+weight: 1.0

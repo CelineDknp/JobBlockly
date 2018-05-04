@@ -16,19 +16,14 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
+    output: '2'
     time: '30'
     memory: '100'
-    output: '2'
-name: Introduction
+name: Exercice 1
 network_grading: false
 order: 0
 problems:
     code:
-        header: |-
-            .. image:: 01_maze/maze/small_static_avatar.png
-                :height: 40px
-
-            **Chère personne. Moi zombie. Devoir... atteindre... tournesol.**
         blocks_files:
         - blocks.js
         options:
@@ -36,16 +31,12 @@ problems:
             scrollbars: true
             visual:
                 position: left
-            css: true
             oneBasedIndex: true
             maxBlocks: '3'
             media: /static/common/js/blockly/media/
-            sounds: true
             toolboxPosition: start
-        workspace: |-
-            <xml xmlns="http://www.w3.org/1999/xhtml">
-              <block type="maze_moveForward"></block>
-            </xml>
+            css: true
+            sounds: true
         files:
         - maze.js
         - interpreter.js
@@ -61,9 +52,42 @@ problems:
               </block>
             </xml>
         type: blockly
+        header: |-
+            .. image:: 01_maze/maze/small_static_avatar.png
+                :height: 40px
+
+            **Chère personne. Moi zombie. Devoir... atteindre... tournesol.**
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="maze_moveForward"></block>
+            </xml>
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
-tags: {}
+tags:
+    '0':
+        name: Cours1
+        description: Exercice faisant partie du cours 1
+        type: 2
+        visible: false
+        id: ''
+    '1':
+        type: 2
+        name: Normal
+        description: Fait partie du parcours normal
+        visible: true
+        id: ''
+    '2':
+        description: Fait partie du parcours challenge
+        visible: true
+        name: Challenge
+        type: 2
+        id: ''
+    '3':
+        description: Fait partie du parcours pour élèves en difficulté
+        name: Facile
+        type: 2
+        visible: true
+        id: ''
 weight: 1.0
