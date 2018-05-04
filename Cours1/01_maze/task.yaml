@@ -1,0 +1,69 @@
+accessible: true
+author: Florian Thuin
+context: |-
+    .. container:: row
+
+        .. container:: col-xs-8 col-md-9 text-justify
+
+            Utilise le bloc
+
+                .. image:: 01_maze/bloc_avancer.png
+                    :height: 30px
+
+            pour faire avancer le zombie d'un pas.
+environment: default
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    time: '30'
+    memory: '100'
+    output: '2'
+name: Introduction
+network_grading: false
+order: 0
+problems:
+    code:
+        header: |-
+            .. image:: 01_maze/maze/small_static_avatar.png
+                :height: 40px
+
+            **Chère personne. Moi zombie. Devoir... atteindre... tournesol.**
+        blocks_files:
+        - blocks.js
+        options:
+            trashcan: true
+            scrollbars: true
+            visual:
+                position: left
+            css: true
+            oneBasedIndex: true
+            maxBlocks: '3'
+            media: /static/common/js/blockly/media/
+            sounds: true
+            toolboxPosition: start
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="maze_moveForward"></block>
+            </xml>
+        files:
+        - maze.js
+        - interpreter.js
+        name: Exécution séquentielle
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="maze_moveForward"></block>
+              <block type="maze_turn">
+                <field name="DIR">turnLeft</field>
+              </block>
+              <block type="maze_turn">
+                <field name="DIR">turnRight</field>
+              </block>
+            </xml>
+        type: blockly
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
