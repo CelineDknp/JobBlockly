@@ -7,19 +7,19 @@ To start a fresh exercice, just unzip the file in the corresponding course direc
 
 ## ------ EDIT THE INSTRUCTION ------
 By graphical interface :
-	In the INGInious "Edit task" menu, in Basic settings you can modify the overall context of the task.
-	In the Subproblems, clicking on the subproblem itself, same.
+In the INGInious "Edit task" menu, in Basic settings you can modify the overall context of the task.
+In the Subproblems, clicking on the subproblem itself, same.
 
 In the task.yaml file :
-	The general context is the third point of the file (after the 		author)
-	The subproblem context is under problem -> subProblemName -> 		header
+The general context is the third point of the file (after the author)
+The subproblem context is under problem -> subProblemName -> header
 
 ## ------ EDIT THE BLOCKS ------
 By graphical interface :
-	In the subproblem tab, select "edit toolbox/workspace graphically"
+In the subproblem tab, select "edit toolbox/workspace graphically"
 
 In the task.yaml :
-	Edit the code between the <xml> </xml> under toolbox of the subproblem
+Edit the code between the xml tags under toolbox of the subproblem
 
 ## ------ CHANGE THE MAZE ------
 In file maze.js (taskName/public/maze.js), the table from line 68 to 74 represents the mase that will be executed.
@@ -38,6 +38,6 @@ In the file taskName/student/maze.tpl.py; you can find a basic correction file. 
 - Change the exercice name on line 105, according to the subproblem's name
 
 ## ------ INFORMATIONS ABOUT OTHER FILES ------
--> taskName/public/maze directory : contains sounds and images to represent visually the maze
--> taskName/public/blocks.js : define custom blocks (here, all the maze blocks)
--> taskName/public/interpreter.js : deals with animations
+- taskName/public/maze directory : contains sounds and images to represent visually the maze
+- taskName/public/blocks.js : define custom blocks (here, all the maze blocks)
+- taskName/public/interpreter.js : deals with animations
