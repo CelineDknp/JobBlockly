@@ -129,7 +129,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'JobBlockly.tex', 'JobBlockly Documentation',
-     'Céline Deknop', 'manual'),
+     'Celine Deknop', 'manual'),
 ]
 
 

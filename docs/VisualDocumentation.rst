@@ -1,4 +1,5 @@
-# How to change the maze's visuals
+How to change the maze's visuals
+================================
 
 ## Files you'll need (all images in png form) :
 - A background (see ``background.png`` in the folder)
