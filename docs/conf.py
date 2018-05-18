@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'JobBlockly'
-copyright = '2018, Céline Deknop'
+copyright = '2018, Celine Deknop'
 author = 'Celine Deknop'
 
 # The short X.Y version
