@@ -7,8 +7,7 @@ Welcome to JobBlockly's documentation!
 ======================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
    HowToBlockly.md
    BaseBlockly.rst
 
