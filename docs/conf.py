@@ -21,7 +21,7 @@
 
 project = 'JobBlockly'
 copyright = '2018, Céline Deknop'
-author = 'Céline Deknop'
+author = 'Celine Deknop'
 
 # The short X.Y version
 version = ''
