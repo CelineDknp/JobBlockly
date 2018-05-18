@@ -1,5 +1,5 @@
 .. JobBlockly documentation master file, created by
-   sphinx-quickstart on Fri May 18 11:02:37 2018.
+   sphinx-quickstart on Fri May 18 20:47:43 2018.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
@@ -7,9 +7,10 @@ Welcome to JobBlockly's documentation!
 ======================================
 
 .. toctree::
-   :maxdepth: 1
-   HowToBlockly.md
-   BaseBlockly.rst
+   :maxdepth: 2
+   :caption: Contents:
+   Test
+   Visuals
 
 
 
