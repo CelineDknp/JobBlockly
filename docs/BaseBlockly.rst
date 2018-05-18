@@ -1,7 +1,7 @@
 How to create a *basic* Blockly task ?
 ======================================
 
-There is, first, a few steps that have to (and/or can) be acheived in the INGInious interface. Those are :
+There is, first, a few steps that are the same as for any other tasks. Those are :
 
 1. Create the exercice as you would a classical one. Set up a title, a context, your name, the options you want,... When creating a subproblem, select "blockly" as "type of task"
 2. Again, perform the set-up of the task as you normally would
