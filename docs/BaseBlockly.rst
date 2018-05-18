@@ -78,4 +78,5 @@ For such a simple task, the basic ``run`` file is sufficient, with only two line
 	        feedback.set_global_result("failed")
 	        feedback.set_global_feedback("You made a mistake ! " + make_output)
 
+
 Those two files need to go in your task folder, and the task creation is complete !

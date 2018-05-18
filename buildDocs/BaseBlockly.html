@@ -173,7 +173,7 @@
 <p>Now, let’s create a variable to hold the result. Click on the “Variables” category and select “create a variable”. Input your name, “result” for example, then select the corresponding block and plug it into the “return” spot.</p>
 <p>The basic workspace is done, it is time to create the toolbox. Click on the corresponding tab, and select the blocks that you want for the task. In our case, we selected the two previously created variables “a” and “b” as well as the “fix result as” block from the variable category and the sum operator from the math category.</p>
 <p>Click close, then save, and you are done with the graphical interface part of the task creation. You can now visualize your task on INGInious and connect blocks, but there is no correction or feedback yet.</p>
-<p>For the feedback, you’ll have to create a <cite>run</cite> and a file that contains the task correction. Let’s start with that one, that we will call <cite>sum.py</cite>. It has to first get the student’s code with an instruction like this : <cite>&#64;&#64;subProblemID&#64;&#64;</cite>. Then, you will be able to call the created function with it’s name (here “Sum”), and then run any tests you want. To comply with the usual INGInious run file, you have to output “True” if the tests pass, and some feedback followed by <cite>exit()</cite> for a failure. The following code is an example for our sum function :</p>
+<p>For the feedback, you’ll have to create a <code class="docutils literal notranslate"><span class="pre">run</span></code> and a file that contains the task correction. Let’s start with that one, that we will call <code class="docutils literal notranslate"><span class="pre">sum.py</span></code>. It has to first get the student’s code with an instruction like this : <code class="docutils literal notranslate"><span class="pre">&#64;&#64;subProblemID&#64;&#64;</span></code>. Then, you will be able to call the created function with it’s name (here “Sum”), and then run any tests you want. To comply with the usual INGInious run file, you have to output “True” if the tests pass, and some feedback followed by <code class="docutils literal notranslate"><span class="pre">exit()</span></code> for a failure. The following code is an example for our sum function :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre>#Open source licence goes here
 
 from contextlib import redirect_stdout
@@ -194,7 +194,7 @@ if __name__ == &quot;__main__&quot;:
         print(&quot;True&quot;)
 </pre></div>
 </div>
-<p>For such a simple task, the basic <cite>run</cite> file is sufficient, with only two lines to modify, where you will have to put the name of your correction file. Here is the corresponding code for our sum task:</p>
+<p>For such a simple task, the basic <code class="docutils literal notranslate"><span class="pre">run</span></code> file is sufficient, with only two lines to modify, where you will have to put the name of your correction file. Here is the corresponding code for our sum task:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span class="c">#Open source licence goes here</span>
 
 <span class="kn">import</span> <span class="nn">os</span>
@@ -220,6 +220,7 @@ if __name__ == &quot;__main__&quot;:
         <span class="n">feedback</span><span class="o">.</span><span class="n">set_global_feedback</span><span class="p">(</span><span class="s">&quot;You made a mistake ! &quot;</span> <span class="o">+</span> <span class="n">make_output</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Those two files need to go in your task folder, and the task creation is complete !</p>
 </div>
 </div>
 

@@ -25,7 +25,7 @@ The basic workspace is done, it is time to create the toolbox. Click on the corr
 
 Click close, then save, and you are done with the graphical interface part of the task creation. You can now visualize your task on INGInious and connect blocks, but there is no correction or feedback yet.
 
-For the feedback, you'll have to create a `run` and a file that contains the task correction. Let's start with that one, that we will call `sum.py`. It has to first get the student's code with an instruction like this : `@@subProblemID@@`. Then, you will be able to call the created function with it's name (here "Sum"), and then run any tests you want. To comply with the usual INGInious run file, you have to output "True" if the tests pass, and some feedback followed by `exit()` for a failure. The following code is an example for our sum function :
+For the feedback, you'll have to create a ``run`` and a file that contains the task correction. Let's start with that one, that we will call ``sum.py``. It has to first get the student's code with an instruction like this : ``@@subProblemID@@``. Then, you will be able to call the created function with it's name (here "Sum"), and then run any tests you want. To comply with the usual INGInious run file, you have to output "True" if the tests pass, and some feedback followed by ``exit()`` for a failure. The following code is an example for our sum function :
 
 .. code-block:: python
 
@@ -50,7 +50,7 @@ For the feedback, you'll have to create a `run` and a file that contains the tas
 
 
 
-For such a simple task, the basic `run` file is sufficient, with only two lines to modify, where you will have to put the name of your correction file. Here is the corresponding code for our sum task:
+For such a simple task, the basic ``run`` file is sufficient, with only two lines to modify, where you will have to put the name of your correction file. Here is the corresponding code for our sum task:
 
 .. code-block:: python
 
@@ -77,3 +77,6 @@ For such a simple task, the basic `run` file is sufficient, with only two lines 
 	    else:
 	        feedback.set_global_result("failed")
 	        feedback.set_global_feedback("You made a mistake ! " + make_output)
+
+
+Those two files need to go in your task folder, and the task creation is complete !
