@@ -6,22 +6,86 @@ There is, first, a few steps that are the same as for any other tasks. Those are
 1. Create the exercice as you would a classical one. Set up a title, a context, your name, the options you want,... When creating a subproblem, select "blockly" as "type of task"
 2. Again, perform the set-up of the task as you normally would
 3. If you want, set up the maximum number of blocks that the student can use to perform the task by entering it in the "Max number of blocks" field (by default, it is "Infinity")
-4. To keep it simple, scroll down to the bottom of the page and click on "edit toolbox/workspace graphically"
 
-Here is where you start to actually use Blockly. The screen you are on is splitted in two, the left side acting as a control pannel, and the right side showing a preview of what a student will see when performing the task.
+Now, there is two ways to configure Blockly :  either using the embedded graphical interface or by entering the blocks by hand. Since the first solution is more beginner-friendly, let's explore it first. Scroll down all the way and click "edit toolbox/workspace graphically". This is what you will see.
 
-On the control pannel, there is two tabs, reading "Toolbox" and "Workspace", as well as blocks categories ("logic", "loops",...). You can click on them and drag/drop the blocks that you want in one or the other tab. The toolbox tab will contain all available blocks to perform the exercice, which will be "infinitely selectable" by the student. On the workspace section, you can set up a few blocks that will already be there at the start of the exercice.
+.. image:: VisualBase/base.png
+   :align: center
+
+The left side is where you can configure the tool, and the right side will display a live preview of what you did so far. The left side has two tabs : the toolbox will hold the pool of blocks that the student can use to solve the task. To add blocks, simply click on one category and drag/drop the block you want in the tab. Here is an example :
+
+.. image:: VisualBase/toolbox.png
+   :align: center
+
+If you want to delete a block, simply drag it to the trashcan on the bottom right. Now, you can also add blocks to the workspace of the student, that will serve as a base for the exercice. Simply click on the "workspace" tab and drag/drop the same way.
+
+.. image:: VisualBase/workspace.png
+   :align: center
+
+Let's now see an example of what can be done for a simple exercice.
 
 Example : create the sum function
 ---------------------------------
 
-Here, we are in the case where we want the student to create a function, which means we have to provide him with it's signature. Our Sum function needs to take in two parameters, the two numbers to sum (let's call them a and b), and return the resulting sum.
+Here, we are in the case where we want the student to create a function, which means we have to provide him with it's signature in the workspace. Our Sum function needs to take in two parameters, the two numbers to sum (let's call them a and b), and return the resulting sum.
 
-First, click the "Workspace" tab and open the "Function" category. Out of the three blocks, we need the functions that returns, which reads "to do something ... return". You can set-up a tooltip if you select the blue "?" icon, and set up the parameters by clicking the blue wheel icon. Indicate your parameters name (x by default), and drag/drop the block into the right "input" block. Then, give a name to the function, here we will call it "Sum"
+First, click the "Workspace" tab and open the "Function" category. Out of the three blocks, we need the functions that returns, which is the second block on the image here.
 
-Now, let's create a variable to hold the result. Click on the "Variables" category and select "create a variable". Input your name, "result" for example, then select the corresponding block and plug it into the "return" spot.
+.. image:: VisualBase/function.png
+   :align: center
 
-The basic workspace is done, it is time to create the toolbox. Click on the corresponding tab, and select the blocks that you want for the task. In our case, we selected the two previously created variables "a" and "b" as well as the "fix result as" block from the variable category and the sum operator from the math category.
+Now, configure the function. The wheel icons allow us to add parameters. Simply name your parameter (*x* by default), then connect the block into the right space, like so :
+
+.. image:: VisualBase/param1.png
+    :width: 49 %
+.. image:: VisualBase/param2.png
+    :width: 49 %
+
+The *?* icon allows us to set a tooltip (text that show on mouseover) simply by typing in the field :
+
+.. image:: VisualBase/tooltip.png
+   :align: center
+
+Finally, we have to name our function, changing the *do somthing* into what we want, here, *Sum* :
+
+.. image:: VisualBase/name.png
+   :align: center
+
+Now, let's create a variable to hold the result. Click on the "Variables" category and select "create variable". Input your variable name, "result" for example, and it will be available in the category :
+
+.. image:: VisualBase/var1.png
+    :width: 39 %
+.. image:: VisualBase/var2.png
+    :width: 19 %
+.. image:: VisualBase/var3.png
+    :width: 39 %
+
+Finally, select the corresponding block and plug it into the "return" spot. Here is our basic workspace done, with the preview :
+
+.. image:: VisualBase/result1.png
+   :align: center
+
+Now, it is time to create the toolbox. Click on the corresponding tab, and select the blocks that you want for the task. In our case, we first need to re-create all the previous variables, the same way as we did for the *result* one (clicking on create variable). Here is what we end up with :
+
+.. image:: VisualBase/toolVar.png
+   :align: center
+
+Then, we want the *set* block, so we drag it to the toolbox. Using the arrow next to the variable name, we can select the variable we want by default (*result* in our case) :
+
+.. image:: VisualBase/pick.png
+    :width: 49 %
+.. image:: VisualBase/toolVar2.png
+    :width: 49 %
+
+Then, we add the two previously created variables "a" and "b" as well. Finally, we want the sum operator from the math category :
+
+.. image:: VisualBase/math1.png
+   :align: center
+
+And here is the final product with the preview :
+
+.. image:: VisualBase/finished.png
+   :align: center
 
 Click close, then save, and you are done with the graphical interface part of the task creation. You can now visualize your task on INGInious and connect blocks, but there is no correction or feedback yet.
 
@@ -38,7 +102,7 @@ For the feedback, you'll have to create a ``run`` and a file that contains the t
 
 	if __name__ == "__main__":
 		random.seed(55)
-		for j in range(6): #lists of 6 elements
+		for j in range(6): #let's test 6 times
 			a = random.randint(0,10)
 			b = random.randint(0,10)
 			result = Sum(a, b)
