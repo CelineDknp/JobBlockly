@@ -361,4 +361,140 @@ Again, we need to create a `run` file (same as the last one, will not be detaile
                 exit()
         print("True")
 
-To make the correction and feedback easier, we defined a function giving the correct answer, and compare this function's result the the student one; and run a few tests on random inputs. With the basic run file and this one in your task folder, it is complete.
+To make the correction and feedback easier, we defined a function giving the correct answer, and compare this function's result the the student one. We then run a few tests on random inputs. With the basic run file and this one in your task folder, it is complete.
+
+
+Example : create a custom block (if/else)
+-----------------------------------------
+
+If you feel like the existing blocks do not provide enough functionalities, you can create your own and export them. To do so, head to `this link <https://blockly-demo.appspot.com/static/demos/blockfactory/index.html>`_, which is a factory allowing you to create new blocks using Blockly itself. This is the first screen :
+
+.. image:: VisualBase/baseScreen.png
+    :align: center
+
+You will construct your block using the left side, while the right side is a live preview of both the visual and the code that will be generated. Let's construct an ``if else`` block. First, enter a name for it in the top field. It has to be unique accross all Blockly blocks, so we will call it "custom_if_else". Then, we can set a tooltip in the corresponding field, and pick a color for the block usting the "hue" block (the color won't change the behavior).
+
+.. image:: VisualBase/blockCustom1.png
+    :align: center
+
+We will now construct the slots that our new block need. Since we are doing an ``if else`` we need to attach one boolean condition (the if condition), and two slots to put statements. This can be done with the *Input* category of the factory. There is three types of inputs : value, statement and dummy. 
+
+The value input create slots to the right of the block to plug in blocks that return a value, this is what we need for our condition. Each input needs to have an unique name across the block, and a type that is accepted. In our case, we name the input "COND" (capitals are a convention but not mendatory), and we set the type to *boolean* using the block in the category *Type*.
+
+.. image:: VisualBase/blockCustom2.png
+    :align: center
+
+Now, we need the slots to put the statements. Again, click on the *Input* category and drag two *statements* blocks (dummy input won't be used in this tutorial, they simply allow to add extra space to a block for annotations but are not interactive). We need to name those inputs, respectively "IF_STAT" and "ELSE_STAT".
+
+.. image:: VisualBase/blockCustom3.png
+    :align: center
+
+Now, our block has the correct structure, but adding text to it would make it clearer. This can be done using the *Field* category. There is a lot of different field items (user input, drop down, color pickers,...), to which you can find documentation `here <https://developers.google.com/blockly/guides/create-custom-blocks/blockly-developer-tools>`_.
+
+In our case, we need two *text* fields, one in the value input, and one in the second statement input. In the first field, we write "if", and in the second "else" (here, there is no need for the values to be unique).
+
+.. image:: VisualBase/blockCustom4.png
+    :align: center
+
+Finally, we need to define the way our block interact with other using the connections drop-down list. Currently, *no connection* is selected, meaning that we can't plug the block into anything (this is the correct option for a function body for example). We need to be able to plug it into a block and to plug blocks after it, so we pick *top + bottom connections*, and here is our block done :
+
+.. image:: VisualBase/blockCustom5.png
+    :align: center
+
+Now, we need to export it. First, click on the green ``Save "custom_if_else"`` button. Then, click on the ``Block Exporter`` tab :
+
+.. image:: VisualBase/blockCustom6.png
+    :align: center
+
+Check the box next to our block name (this allows you to export multiple blocks at a time). We need the Python version of the code, so change the language of the generator and pick file names (here, *custom.json* and *custom.js*), then click ``Export`` :
+
+.. image:: VisualBase/blockCustom7.png
+    :align: center
+
+Save both files and you can close the tab, we will not use it anymore. To make it simpler, INGInious only uses one file to define all custom blocks, so we will need to copy over the code we downloaded. This is the general structure of the file we will create :
+
+.. code-block:: javascript
+
+  //License
+  'use strict';
+
+  Blockly.Blocks['block_name'] = {
+    init: function() {
+      this.jsonInit({
+        //JSON code for the block
+      });
+    }
+  };
+
+  Blockly.Python['block_name'] = function(block) {
+    //Generated code for the block
+    //Custom code to represent the block
+    return code;
+  };
+
+Using the code we generated, we get :
+
+.. code-block:: javascript
+
+  //License
+  'use strict';
+
+  Blockly.Blocks['block_name'] = {
+    init: function() {
+      this.jsonInit({
+        "type": "custom_if_else",
+        "message0": "if %1 %2 else %3",
+        "args0": [
+          {
+            "type": "input_value",
+            "name": "COND",
+            "check": "Boolean"
+          },
+          {
+            "type": "input_statement",
+            "name": "IF_STAT"
+          },
+          {
+            "type": "input_statement",
+            "name": "ELSE_STAT"
+          }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 285,
+        "tooltip": "if COND is true, execute the first block. Otherwise, execute the second",
+        "helpUrl": ""
+      });
+    }
+  };
+
+  Blockly.Python['block_name'] = function(block) {
+    var value_cond = Blockly.Python.valueToCode(block, 'COND', Blockly.Python.ORDER_ATOMIC);
+    var statements_if_stat = Blockly.Python.statementToCode(block, 'IF_STAT');
+    var statements_else_stat = Blockly.Python.statementToCode(block, 'ELSE_STAT');
+    // TODO: Assemble Python into code variable.
+    var code = '...\n';
+    return code;
+  };
+
+Now, we only need to link all the parts of our block into the corresponding python code. More details on how to get the code out of a block can be found on `this link <https://developers.google.com/blockly/guides/create-custom-blocks/generating-code>`_. Here, we simply need to write the if/else structure around the part we already got in the variables and put it in a string :
+
+.. code-block:: javascript
+
+  Blockly.Python['block_name'] = function(block) {
+    var value_cond = Blockly.Python.valueToCode(block, 'COND', Blockly.Python.ORDER_ATOMIC);
+    var statements_if_stat = Blockly.Python.statementToCode(block, 'IF_STAT');
+    var statements_else_stat = Blockly.Python.statementToCode(block, 'ELSE_STAT');
+    var code = 'if '+value_cond+" :\n"+statements_if_stat+" \nelse:\n"+statements_else_stat+"\n";
+    return code;
+  };
+
+Now, we will save all that into a file, *custom_block.js*, and head to INGInious. First, create a new task and a Blockly subproblem, then copy your file into a public directory in your task (``task_name/public``). Refresh (F5) the task edition page to see you file. Then, on the corresponding subproblem, add your file name as "Additional block file" by clicking the blue button and typing the name of the file.
+
+.. image:: VisualBase/blockCustom8.png
+    :align: center
+
+Hit "Save changes" (top or bottom of the page), then refresh again. Now, you can use your block as any other to in your task, finding it under the *Block Library* category when using the graphical interface :
+
+.. image:: VisualBase/blockCustom9.png
+    :align: center
