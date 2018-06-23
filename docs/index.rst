@@ -5,6 +5,7 @@ Welcome to JobBlockly's documentation!
    :maxdepth: 2
 
    BaseBlockly
+   MazeBlockly
    VisualDocumentation
 
 
