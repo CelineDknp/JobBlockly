@@ -5,7 +5,7 @@ The easiest way to create such a task is to start from a very basic already exis
 
 To start, unzip the files of your choice into the course directory. You can freely change the directory name (it must **not** contain spaces), the task name and instructions, etc...
 
-Now, to edit the maze itself, open the file ``maze.js`` under ``yourTask/public``. If you wish to change the graphical look of the maze, head to this part (TODO) of the documentation to learn how to do so. If not, we will start by the shape of the maze itself.
+Now, to edit the maze itself, open the file ``maze.js`` under ``yourTask/public``. If you wish to change the graphical look of the maze, head to this part :ref:`my-reference-label`. of the documentation to learn how to do so. If not, we will start by the shape of the maze itself.
 
 Scroll to the part of the file that defines ``Maze.map`` : the table represents the current maze. Above, in the ``Maze.SquareType`` variable, you can see which number correspond to which type of maze tile. By default, we have :
 
