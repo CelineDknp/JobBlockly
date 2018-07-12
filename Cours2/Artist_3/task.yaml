@@ -1,0 +1,130 @@
+accessible: true
+author: Celine Deknop
+context: Essaie le code qui est déjà présent pour comprendre ce qu'il fait. Ensuite,
+    complète-le pour résoudre l'exercice.
+environment: default
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: Exercice 3
+network_grading: false
+order: 0
+problems:
+    code:
+        blocks_files:
+        - blocks.js
+        options:
+            maxBlocks: '45'
+            sounds: true
+            trashcan: true
+            visual:
+                position: left
+            media: /static/common/js/blockly/media/
+            oneBasedIndex: true
+            toolboxPosition: start
+            scrollbars: true
+            css: true
+        files:
+        - turtle.js
+        - interpreter.js
+        type: blockly
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+              <block type="turtle_colour">
+                <value name="COLOUR">
+                  <block type="colour_random"></block>
+                </value>
+                <next>
+                  <block type="turtle_move_internal">
+                    <field name="DIR">moveForward</field>
+                    <field name="VALUE">100</field>
+                    <next>
+                      <block type="turtle_move_internal">
+                        <field name="DIR">moveBackward</field>
+                        <field name="VALUE">100</field>
+                        <next>
+                          <block type="turtle_turn_internal">
+                            <field name="DIR">turnRight</field>
+                            <field name="VALUE">45</field>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </xml>
+        header: ''
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+              <block type="turtle_move">
+                <field name="DIR">moveForward</field>
+                <value name="VALUE">
+                  <block type="math_number">
+                    <field name="NUM">100</field>
+                  </block>
+                </value>
+              </block>
+              <block type="turtle_turn_internal">
+                <field name="DIR">turnRight</field>
+                <field name="VALUE">90</field>
+              </block>
+              <block type="turtle_colour">
+                <value name="COLOUR">
+                  <block type="colour_random"></block>
+                </value>
+              </block>
+              <block type="turtle_pen">
+                <field name="PEN">penUp</field>
+              </block>
+              <block type="controls_repeat_ext">
+                <value name="TIMES">
+                  <shadow type="math_number">
+                    <field name="NUM">0</field>
+                  </shadow>
+                </value>
+              </block>
+            </xml>
+        name: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags:
+    '3':
+        type: 0
+        id: '2'
+        visible: true
+        description: ''
+        name: Instructions avec paramètres
+    '4':
+        description: ''
+        name: Boucle "répéter X fois"
+        id: '1'
+        type: 0
+        visible: true
+    '0':
+        visible: true
+        name: Lecon 2
+        type: 2
+        description: Exercice faisant partie de la leçon 2
+        id: ''
+    '1':
+        description: Faisant partie du parcours normal
+        type: 2
+        name: Normal
+        visible: false
+        id: ''
+    '2':
+        description: Faisant partie du parcours facile
+        name: Facile
+        type: 2
+        visible: false
+        id: ''
+weight: 1.0

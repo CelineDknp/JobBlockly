@@ -1,0 +1,108 @@
+accessible: true
+author: Celine Deknop
+context: La ligne médiane d’un terrain de football est perpendiculaire à ses lignes
+    de touche. Ce terrain a un périmètre de 800 pixels et il est long de 240 pixels.
+    Quelle est sa largeur ? Trace les limites et la ligne médiane.
+environment: default
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: Exercice 6
+network_grading: false
+order: 0
+problems:
+    code:
+        blocks_files:
+        - blocks.js
+        options:
+            maxBlocks: '45'
+            sounds: true
+            trashcan: true
+            visual:
+                position: left
+            media: /static/common/js/blockly/media/
+            oneBasedIndex: true
+            toolboxPosition: start
+            scrollbars: true
+            css: true
+        files:
+        - turtle.js
+        - interpreter.js
+        type: blockly
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+            </xml>
+        header: ''
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+              <block type="turtle_move">
+                <field name="DIR">moveForward</field>
+                <value name="VALUE">
+                  <block type="math_number">
+                    <field name="NUM">100</field>
+                  </block>
+                </value>
+              </block>
+              <block type="turtle_turn_internal">
+                <field name="DIR">turnRight</field>
+                <field name="VALUE">90</field>
+              </block>
+              <block type="turtle_colour">
+                <value name="COLOUR">
+                  <block type="colour_random"></block>
+                </value>
+              </block>
+              <block type="turtle_pen">
+                <field name="PEN">penUp</field>
+              </block>
+              <block type="controls_repeat_ext">
+                <value name="TIMES">
+                  <shadow type="math_number">
+                    <field name="NUM">0</field>
+                  </shadow>
+                </value>
+              </block>
+            </xml>
+        name: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags:
+    '0':
+        visible: true
+        name: Instructions avec paramètres
+        id: '1'
+        type: 0
+        description: ''
+    '1':
+        description: ''
+        id: '2'
+        type: 0
+        name: Boucles "répéter X fois"
+        visible: true
+    '2':
+        visible: true
+        description: Exercice faisant partie de la leçon 2
+        name: Lecon 2
+        type: 2
+        id: ''
+    '3':
+        type: 2
+        description: Faisant partie du parcours challenge
+        name: Challenge
+        visible: false
+        id: ''
+    '4':
+        description: Faisant partie du parcours normal
+        name: Normal
+        type: 2
+        visible: false
+        id: ''
+weight: 1.0
