@@ -2,22 +2,38 @@
 This file is a bit messed up because it tests Python code generated from code also tested in javascript equivalent.
 Try to forget the basic Python syntax for a while.
 '''
+import json
+import os
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
+data = ""
+with open(dir_path.replace("student","public/")+'maze_config.json') as f:
+  data = json.load(f)
 
 
 class BadPathException(Exception):
     pass
 
-MAP = [[0, 0, 0, 0, 0, 0, 0, 0],
-       [0, 2, 0, 0, 0, 0, 0, 0],
-       [0, 1, 1, 0, 0, 0, 0, 0],
-       [0, 0, 1, 1, 0, 0, 0, 0],
-       [0, 0, 0, 1, 1, 0, 0, 0],
-       [0, 0, 0, 0, 1, 1, 0, 0],
-       [0, 0, 0, 0, 0, 1, 3, 0],
-       [0, 0, 0, 0, 0, 0, 0, 0]]
+MAP = None
 
-ROWS = len(MAP)
-COLS = len(MAP[0])
+ROWS = 0
+COLS = 0
+
+def init(map):
+    global ROWS,COLS,RESULT,PLAYER_ORIENTATION,MAP
+    MAP = map   
+    ROWS = len(map)
+    COLS = len(map[0])
+    RESULT = RESULT_TYPE[UNSET]
+    PLAYER_ORIENTATION = DIRECTION_TYPE[data["map"]["startDirection"]]
+    for y in range(ROWS):
+        for x in range(COLS):
+            if MAP[y][x] == SQUARE_TYPE[START]:
+                PLAYER_POSITION['x'] = x
+                PLAYER_POSITION['y'] = y
+            if MAP[y][x] == SQUARE_TYPE[FINISH]:
+                FINISH_POSITION['x'] = x
+                FINISH_POSITION['y'] = y
 
 UNSET = "UNSET"
 SUCCESS = "SUCCESS"
@@ -41,13 +57,7 @@ START = "START"
 FINISH = "FINISH"
 OBSTACLE = "OBSTACLE"
 
-SQUARE_TYPE = {
-  WALL: 0,
-  OPEN: 1,
-  START: 2,
-  FINISH: 3,
-  OBSTACLE: 4
-}
+SQUARE_TYPE = data["map"]["squareType"]
 
 PLAYER_POSITION = {
     'x': None,
@@ -59,19 +69,10 @@ FINISH_POSITION = {
     'y': None
 }
 
-for y in range(ROWS):
-    for x in range(COLS):
-        if MAP[y][x] == SQUARE_TYPE[START]:
-            PLAYER_POSITION['x'] = x
-            PLAYER_POSITION['y'] = y
-        if MAP[y][x] == SQUARE_TYPE[FINISH]:
-            FINISH_POSITION['x'] = x
-            FINISH_POSITION['y'] = y
-
-EAST = "east"
-SOUTH = "south"
-WEST = "west"
-NORTH = "north"
+EAST = "EAST"
+SOUTH = "SOUTH"
+WEST = "WEST"
+NORTH = "NORTH"
 
 DIRECTION_TYPE = {
     NORTH: 0,
@@ -99,7 +100,7 @@ MOVE_POSITION = {
     }
 }
 
-PLAYER_ORIENTATION = DIRECTION_TYPE[EAST]
+PLAYER_ORIENTATION = DIRECTION_TYPE[data["map"]["startDirection"]]
 
 
 def student_code():
@@ -182,10 +183,13 @@ def notDone():
 
 
 try:
-    student_code()
-    if isDone():
-        print("True", end='', flush=True)
-    else:
-        print("Il y a une erreur dans votre code.", end='', flush=True)
+    for i in range(len(data["map"]["layout"])):
+        init(data["map"]["layout"][i])
+        student_code()
+        if notDone():
+            print(str(data["map"]["layout"][i]), end='', flush=True)
+            quit()
+    print("True", end='', flush=True)
+
 except BadPathException:
     print("Le personnage emprunte un chemin inexistant.")

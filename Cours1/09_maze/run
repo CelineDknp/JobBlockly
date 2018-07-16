@@ -22,9 +22,13 @@ if __name__ == "__main__":
         feedback.set_global_feedback("La compilation de votre code a échoué. Voici l'erreur:" + make_output)
         # feedback.set_global_feedback(rst.get_codeblock('', make_output), True)
         exit(0)
-    elif make_output == "True":
+    elif "True" in make_output:
         feedback.set_global_result("success")
+        #feedback.set_global_feedback("Vous avez résolu l'exercice. Vous avez fait"+make_output.replace("True","")+" pas.")
         feedback.set_global_feedback("Vous avez résolu l'exercice.")
+        feedback.set_problem_feedback("Bien","code") #attention! code est l'id de la sous-question
     else:
         feedback.set_global_result("failed")
-        feedback.set_global_feedback(make_output)
+        feedback.set_global_feedback("Vous n'avez pas résolu cette instance")
+        #feedback.set_state(make_output)
+        feedback.set_problem_feedback(make_output,"code")

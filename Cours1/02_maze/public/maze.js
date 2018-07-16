@@ -24,66 +24,60 @@
 "use strict";
 
 var task_directory_path = window.location.pathname + "/";
-
 window.Maze = {};
 
-Maze.MAX_BLOCKS = Infinity;
+//File to modify to change the maze configuration
+var maze_file = ""
+if(task_directory_path.includes("edit")){ //When we are editing the task
+    maze_file = task_directory_path.replace("admin","course").replace("edit/task/","")+"maze_config.json"
+}else { //When displaying the task
+    maze_file = task_directory_path + "maze_config.json";
+}
+
+var request = new XMLHttpRequest();
+request.open("GET", maze_file, false);
+request.send(null);
+request.responseText;
+var json = JSON.parse(request.responseText);
 
 // Crash type constants.
 Maze.CRASH_STOP = 1;
 Maze.CRASH_SPIN = 2;
 Maze.CRASH_FALL = 3;
 
+var visuals_directory_path = task_directory_path+"maze/"
+
 Maze.SKIN = {
-    sprite: task_directory_path + 'maze/avatar.png',
-    tiles: task_directory_path + 'maze/tiles.png',
-    marker: task_directory_path + 'maze/goalIdle.gif',
-    goalAnimation: task_directory_path + 'maze/goal.gif',
-    obstacleIdle: task_directory_path + 'maze/obstacleIdle.gif',
-    obstacleAnimation: task_directory_path + 'maze/obstacle.gif',
-    obstacleScale: 1.4,
-    background: task_directory_path + 'maze/background.png',
-    graph: false,
+    sprite: visuals_directory_path + json.visuals.sprite,
+    tiles: visuals_directory_path + json.visuals.tiles,
+    marker: visuals_directory_path + json.visuals.marker,
+    goalAnimation: visuals_directory_path + json.visuals.goalAnimation,
+    obstacleIdle: visuals_directory_path + json.visuals.obstacleIdle,
+    obstacleAnimation: visuals_directory_path + json.visuals.obstacleAnimation,
+    obstacleScale: json.visuals.obstacleScale,
+    background: visuals_directory_path + json.visuals.background,
+    graph: json.visuals.graph,
     look: '#000',
-    obstacleSound: [task_directory_path + 'maze/obstacle.mp3', task_directory_path + 'maze/obstacle.ogg'],
-    winSound: [task_directory_path + 'maze/win.mp3', task_directory_path + 'maze/win.ogg'],
-    crashSound: [task_directory_path + 'maze/failure.mp3', task_directory_path + 'maze/failure.ogg'],
+    obstacleSound: json.visuals.obstacleSound,
+    winSound: json.visuals.winSound,
+    crashSound: json.visuals.crashSound,
     crashType: Maze.CRASH_STOP
 };
 
 /**
  * Milliseconds between each animation frame.
  */
-window.stepSpeed = 250;
+window.stepSpeed = json.map.animationSpeed;
 
 /**
  * The types of squares in the maze, which is represented
  * as a 2D array of SquareType values.
  * @enum {number}
  */
-Maze.SquareType = {
-    WALL: 0,
-    OPEN: 1,
-    START: 2,
-    FINISH: 3,
-    OBSTACLE: 4,
-    STARTANDFINISH: 5
-};
+Maze.SquareType = json.map.squareType;
 
-// The maze square constants defined above are inlined here
-// for ease of reading and writing the static mazes.
-Maze.map =
-    // Level 2.
-    [
-        [0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 1, 3, 0, 0],
-        [0, 0, 0, 2, 1, 4, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0]
-    ];
+// The maze square constants
+Maze.map = json.map.layout[0];
 
 /**
  * Measure maze dimensions and set sizes.
@@ -93,9 +87,9 @@ Maze.map =
  */
 Maze.ROWS = Maze.map.length;
 Maze.COLS = Maze.map[0].length;
-Maze.SQUARE_SIZE = 50;
-Maze.PEGMAN_HEIGHT = 52;
-Maze.PEGMAN_WIDTH = 49;
+Maze.SQUARE_SIZE = json.map.squareSize;
+Maze.PEGMAN_HEIGHT = json.map.avatarHeight;
+Maze.PEGMAN_WIDTH = json.map.avatarWidth;
 
 Maze.MAZE_WIDTH = Maze.SQUARE_SIZE * Maze.COLS;
 Maze.MAZE_HEIGHT = Maze.SQUARE_SIZE * Maze.ROWS;
@@ -132,7 +126,7 @@ Maze.result = Maze.ResultType.UNSET;
 /**
  * Starting direction.
  */
-Maze.startDirection = Maze.DirectionType.EAST;
+Maze.startDirection = Maze.DirectionType[json.map.startDirection];
 
 /**
  * PIDs of animation tasks currently executing.
@@ -164,6 +158,24 @@ Maze.tile_SHAPES = {
     'null3': [0, 3],
     'null4': [1, 3]
 };
+
+Maze.updateMap = function(map){
+    Maze.map = map;
+    Maze.ROWS = Maze.map.length;
+    Maze.COLS = Maze.map[0].length;
+    Maze.MAZE_WIDTH = Maze.SQUARE_SIZE * Maze.COLS;
+    Maze.MAZE_HEIGHT = Maze.SQUARE_SIZE * Maze.ROWS;
+    Maze.PATH_WIDTH = Maze.SQUARE_SIZE / 3;
+}
+
+Maze.reload_maze = function(map) {
+    if (typeof Maze !== "undefined" && typeof Maze.reset !== "undefined") {
+        Maze.updateMap(map);
+        $("#blocklySvgZone").empty();
+        Maze.init();
+    }
+
+}
 
 /**
  * Create and layout all the nodes for the path, scenery, Pegman, and goal.
@@ -350,9 +362,9 @@ Maze.init = function() {
     // Blockly.Blocks && (Blockly.Blocks.ONE_BASED_INDEXING = false);
     // Blockly.JavaScript && (Blockly.JavaScript.ONE_BASED_INDEXING = false);
 
-    Blockly.getMainWorkspace().loadAudio_(Maze.SKIN.winSound, 'win');
-    Blockly.getMainWorkspace().loadAudio_(Maze.SKIN.crashSound, 'fail');
-    Blockly.getMainWorkspace().loadAudio_(Maze.SKIN.obstacleSound, 'obstacle');
+    Blockly.getMainWorkspace().getAudioManager().load(Maze.SKIN.winSound, 'win');
+    Blockly.getMainWorkspace().getAudioManager().load(Maze.SKIN.crashSound, 'fail');
+    Blockly.getMainWorkspace().getAudioManager().load(Maze.SKIN.obstacleSound, 'obstacle');
     // Not really needed, there are no user-defined functions or variables.
     Blockly.JavaScript.addReservedWords('moveForward,moveBackward,' +
         'turnRight,turnLeft,isPathForward,isPathRight,isPathBackward,isPathLeft');
@@ -538,12 +550,13 @@ Maze.schedule = function(startPos, endPos) {
 
     if (Maze.finish_.x == endPos[0] && Maze.finish_.y == endPos[1]) {
         Maze.pidList.push(setTimeout(function() {
-            Blockly.getMainWorkspace().playAudio('win', 0.5);
             var finishIcon = document.getElementById('finish');
-            finishIcon.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', Maze.SKIN.goalAnimation);
+            if (finishIcon.getAttribute('xlink:href') != Maze.SKIN.goalAnimation) {
+                finishIcon.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', Maze.SKIN.goalAnimation);
+                Blockly.getMainWorkspace().getAudioManager().play('win', 0.3);
+            }
         }, window.stepSpeed * 4));
     }
-
 };
 
 /**
@@ -572,14 +585,14 @@ Maze.scheduleFail = function(forward) {
         deltaY = -deltaY;
     }
 
-    var targetX = Maze.pegmanX + deltaX * 2;
-    var targetY = Maze.pegmanY + deltaY * 2;
+    var targetX = Maze.pegmanX + deltaX + 1;
+    var targetY = Maze.pegmanY + deltaY;
     var squareType = Maze.map[targetY][targetX];
 
     if (squareType === Maze.SquareType.OBSTACLE) {
         BlocklyTaskInterpreter.alert("Vous avez heurté un obstacle !");
         // Play the sound
-        Blockly.getMainWorkspace().playAudio('obstacle');
+        Blockly.getMainWorkspace().getAudioManager().play('obstacle');
 
         // Play the animation
         var direction16 = Maze.constrainDirection16(Maze.pegmanD * 4);
@@ -602,7 +615,7 @@ Maze.scheduleFail = function(forward) {
         }, window.stepSpeed * 2));
 
         Maze.pidList.push(setTimeout(function() {
-            Blockly.getMainWorkspace().playAudio('failure');
+            Blockly.getMainWorkspace().getAudioManager().play('failure');
         }, window.stepSpeed));
     } else if (Maze.SKIN.crashType == Maze.CRASH_STOP) {
         BlocklyTaskInterpreter.alert("Vous avez heurté un mur !");
@@ -613,7 +626,7 @@ Maze.scheduleFail = function(forward) {
         Maze.displayPegman(Maze.pegmanX + deltaX,
             Maze.pegmanY + deltaY,
             direction16);
-        Blockly.getMainWorkspace().playAudio('fail', 0.5);
+        Blockly.getMainWorkspace().getAudioManager().play('fail', 0.5);
         Maze.pidList.push(setTimeout(function() {
             Maze.displayPegman(Maze.pegmanX,
                 Maze.pegmanY,
@@ -623,7 +636,7 @@ Maze.scheduleFail = function(forward) {
             Maze.displayPegman(Maze.pegmanX + deltaX,
                 Maze.pegmanY + deltaY,
                 direction16);
-            Blockly.getMainWorkspace().playAudio('fail', 0.5);
+            Blockly.getMainWorkspace().getAudioManager().play('fail', 0.5);
         }, window.stepSpeed * 2));
         Maze.pidList.push(setTimeout(function() {
             Maze.displayPegman(Maze.pegmanX, Maze.pegmanY, direction16);
@@ -641,7 +654,7 @@ Maze.scheduleFail = function(forward) {
             acceleration = 0.01;
         }
         Maze.pidList.push(setTimeout(function() {
-            Blockly.getMainWorkspace().playAudio('fail', 0.5);
+            Blockly.getMainWorkspace().getAudioManager().play('fail', 0.5);
         }, window.stepSpeed * 2));
         var setPosition = function(n) {
             return function() {
@@ -670,7 +683,7 @@ Maze.scheduleFinish = function(sound) {
     var direction16 = Maze.constrainDirection16(Maze.pegmanD * 4);
     Maze.displayPegman(Maze.pegmanX, Maze.pegmanY, 16);
     if (sound) {
-        Blockly.getMainWorkspace().playAudio('win', 0.5);
+        Blockly.getMainWorkspace().getAudioManager().play('win', 0.5);
     }
     window.stepSpeed = 250; // Slow down victory animation a bit.
     Maze.pidList.push(setTimeout(function() {
@@ -682,7 +695,6 @@ Maze.scheduleFinish = function(sound) {
     Maze.pidList.push(setTimeout(function() {
         Maze.displayPegman(Maze.pegmanX, Maze.pegmanY, direction16);
     }, window.stepSpeed * 3));
-
 };
 
 /**
@@ -892,7 +904,6 @@ Maze.isPath = function(direction, id) {
 Maze.notDone = function() {
     return Maze.pegmanX != Maze.finish_.x || Maze.pegmanY != Maze.finish_.y;
 };
-
 
 if (document.getElementById('blocklySvgZone') != null) {
     window.addEventListener('load', Maze.init);

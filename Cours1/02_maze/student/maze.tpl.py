@@ -2,19 +2,19 @@
 This file is a bit messed up because it tests Python code generated from code also tested in javascript equivalent.
 Try to forget the basic Python syntax for a while.
 '''
+import json
+import os
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
+data = ""
+with open(dir_path.replace("student","public/")+'maze_config.json') as f:
+  data = json.load(f)
 
 
 class BadPathException(Exception):
     pass
 
-MAP = [[0, 0, 0, 0, 0, 0, 0, 0],
-       [0, 0, 0, 0, 0, 0, 0, 0],
-       [0, 0, 0, 0, 0, 0, 0, 0],
-       [0, 0, 0, 0, 1, 3, 0, 0],
-       [0, 0, 0, 2, 1, 4, 0, 0],
-       [0, 0, 0, 0, 0, 0, 0, 0],
-       [0, 0, 0, 0, 0, 0, 0, 0],
-       [0, 0, 0, 0, 0, 0, 0, 0]]
+MAP = data["map"]["layout"][0]
 
 ROWS = len(MAP)
 COLS = len(MAP[0])
@@ -41,13 +41,7 @@ START = "START"
 FINISH = "FINISH"
 OBSTACLE = "OBSTACLE"
 
-SQUARE_TYPE = {
-    WALL: 0,
-    OPEN: 1,
-    START: 2,
-    FINISH: 3,
-    OBSTACLE: 4
-}
+SQUARE_TYPE = data["map"]["squareType"]
 
 PLAYER_POSITION = {
     'x': None,
@@ -68,10 +62,10 @@ for y in range(ROWS):
             FINISH_POSITION['x'] = x
             FINISH_POSITION['y'] = y
 
-EAST = "east"
-SOUTH = "south"
-WEST = "west"
-NORTH = "north"
+EAST = "EAST"
+SOUTH = "SOUTH"
+WEST = "WEST"
+NORTH = "NORTH"
 
 DIRECTION_TYPE = {
     NORTH: 0,
@@ -99,11 +93,12 @@ MOVE_POSITION = {
     }
 }
 
-PLAYER_ORIENTATION = DIRECTION_TYPE[EAST]
+PLAYER_ORIENTATION = DIRECTION_TYPE[data["map"]["startDirection"]]
 
 
 def student_code():
 @   @code@@
+
 
 def constrain_direction4(direction):
     d = direction % 4
@@ -144,10 +139,8 @@ def isPathLeft():
 def moveForward():
     global PLAYER_POSITION, PLAYER_ORIENTATION, MOVE_POSITION
     if isPathForward():
-        PLAYER_POSITION['x'] = PLAYER_POSITION['x'] + \
-            MOVE_POSITION[PLAYER_ORIENTATION]['x']
-        PLAYER_POSITION['y'] = PLAYER_POSITION['y'] + \
-            MOVE_POSITION[PLAYER_ORIENTATION]['y']
+        PLAYER_POSITION['x'] = PLAYER_POSITION['x'] + MOVE_POSITION[PLAYER_ORIENTATION]['x']
+        PLAYER_POSITION['y'] = PLAYER_POSITION['y'] + MOVE_POSITION[PLAYER_ORIENTATION]['y']
     else:
         raise BadPathException()
 
