@@ -16,16 +16,13 @@ request.open("GET", turtle_file, false);
 request.send(null)
 var json = JSON.parse(request.responseText);
 
+var imagePath = ""
+if(json.imageSolution) //If there is a solution image, use it
+	imagePath = task_directory_path+json.imageName;
+
 //Code of the solution
 var solution = function(){
-	//Here, put the javascript corresponding to the solved exercice
-	var i;
-	for(i = 0; i < 2; i++){
-		Turtle.move(200);
-		Turtle.turnLeft(90);
-		Turtle.move(100);
-		Turtle.turnLeft(90);
-	}
+	//Here, put the javascript corresponding to the solved exercice (or use the image)
 }
 //Code of the decor
 var decoration = function(){
@@ -51,7 +48,6 @@ var decoration = function(){
 	Turtle.turnRight(180);
 	Turtle.penDown();
 	drawFlower();
-
 }
 
 var drawFlower = function(){
@@ -145,8 +141,10 @@ Turtle.drawMap = function() {
     //Draw the decor
     Turtle.drawDecor();
 
-    //Draw the solution
-    Turtle.drawSolution();
+    if(json.imageSolution) //We have an image
+    	Turtle.addSolution();
+    else //Draw the solution using the code
+    	Turtle.drawSolution();
 
     //Draw the turtle
     Turtle.updateImage();
@@ -201,6 +199,19 @@ Turtle.resetTurtle = function(){
 	//Clear any previous turtle
 	ctx.clearRect(0, 0, Turtle.CANVAS_WIDTH, Turtle.CANVAS_HEIGHT);
 
+}
+
+Turtle.addSolution = function(){
+	var c = document.getElementById("solution-canvas");
+	var ctx = c.getContext("2d")
+	ctx.globalAlpha = 0.4; //The solution drawing is a bit transparent
+	var img = new Image();   // Crée un nouvel élément Image
+	img.src = imagePath;
+	img.onload = function(){
+    	ctx.drawImage(img, 0, 0);
+    	Turtle.updateImage();
+  	}
+	
 }
 
 Turtle.drawSolution = function(){
@@ -338,6 +349,21 @@ Turtle.moveForward = function(length){
 
 Turtle.moveBackwards = function(length){
 	Turtle.move(-length);
+}
+
+Turtle.circle = function(radius){
+	var c;
+	if(sol)
+    	c = document.getElementById("solution-canvas");
+    else if (decor)
+    	c = document.getElementById("decor-canvas");
+    else
+    	c = document.getElementById("user-canvas");
+	var ctx = c.getContext("2d")
+	ctx.beginPath();
+	ctx.arc(Turtle.CURRENT_COORD.x, Turtle.CURRENT_COORD.y, radius, 0 , 2*Math.PI);
+	ctx.stroke();
+	Turtle.updateImage();
 }
 
 Turtle.turn = function(angle, direction){

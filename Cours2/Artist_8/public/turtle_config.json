@@ -8,5 +8,7 @@
 	"radius":15,
 	"animationRate":50,
 	"width":300,
-	"height":300
+	"height":300,
+	"imageSolution":true,
+	"imageName":"solution.png"
 }

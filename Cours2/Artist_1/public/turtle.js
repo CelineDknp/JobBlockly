@@ -4,7 +4,7 @@ var task_directory_path = window.location.pathname + "/";
 window.Turtle = {};
 window.Maze = {};
 
-//Get the json file and it's information
+//Get the json file and its informations
 var turtle_file = ""
 if(task_directory_path.includes("edit")){ //When we are editing the task
     turtle_file = task_directory_path.replace("admin","course").replace("edit/task/","")+"turtle_config.json"
@@ -16,14 +16,13 @@ request.open("GET", turtle_file, false);
 request.send(null)
 var json = JSON.parse(request.responseText);
 
+var imagePath = ""
+if(json.imageSolution)
+	imagePath = task_directory_path+json.imageName;
+
 //Code of the solution
 var solution = function(){
 	//Here, put the javascript corresponding to the solved exercice
-	var i;
-	for(i = 0; i < 4; i++){
-		Turtle.move(250);
-		Turtle.turnRight(90);
-	}
 }
 //Code of the decor
 var decoration = function(){
@@ -101,8 +100,10 @@ Turtle.drawMap = function() {
     //Draw the decor
     Turtle.drawDecor();
 
-    //Draw the solution
-    Turtle.drawSolution();
+    if(json.imageSolution) //We have an image
+    	Turtle.addSolution();
+    else //Draw the solution using the code
+    	Turtle.drawSolution();
 
     //Draw the turtle
     Turtle.updateImage();
@@ -158,6 +159,21 @@ Turtle.resetTurtle = function(){
 	ctx.clearRect(0, 0, Turtle.CANVAS_WIDTH, Turtle.CANVAS_HEIGHT);
 
 }
+
+Turtle.addSolution = function(){
+	var c = document.getElementById("solution-canvas");
+	var ctx = c.getContext("2d")
+	ctx.globalAlpha = 0.4; //The solution drawing is a bit transparent
+	var img = new Image();   // Crée un nouvel élément Image
+	img.src = imagePath;
+	console.log(img)
+	img.onload = function(){
+    	ctx.drawImage(img, 0, 0);
+    	Turtle.updateImage();
+  	}
+	
+}
+
 
 Turtle.drawSolution = function(){
 	var c = document.getElementById("solution-canvas");

@@ -18,11 +18,11 @@ def student_code():
 
 #Code of the solution
 def solution():
-  for i in range(360):
+  for i in range(8):
     penColour(randomColour())
     moveForward(100)
     moveBackward(100)
-    turnRight(1)
+    turnRight(45)
 
 def randomColour():
   colour = "%06x" % random.randint(0, 0xFFFFFF)

@@ -16,16 +16,13 @@ request.open("GET", turtle_file, false);
 request.send(null)
 var json = JSON.parse(request.responseText);
 
+var imagePath = ""
+if(json.imageSolution) //If there is a solution image, use it
+	imagePath = task_directory_path+json.imageName;
+
 //Code of the solution
 var solution = function(){
-	//Here, put the javascript corresponding to the solved exercice
-	for (var count2 = 0; count2 < 3; count2++) {
-		for (var count = 0; count < 3; count++) {
-		    Turtle.moveForward(50);
-		    Turtle.turnRight(120);
-		  }
-		  Turtle.moveForward(50);
-		}
+	//Here, put the javascript corresponding to the solved exercice (or use the image)
 }
 //Code of the decor
 var decoration = function(){
@@ -115,8 +112,10 @@ Turtle.drawMap = function() {
     //Draw the decor
     Turtle.drawDecor();
 
-    //Draw the solution
-    Turtle.drawSolution();
+    if(json.imageSolution) //We have an image
+    	Turtle.addSolution();
+    else //Draw the solution using the code
+    	Turtle.drawSolution();
 
     //Draw the turtle
     Turtle.updateImage();
@@ -171,6 +170,19 @@ Turtle.resetTurtle = function(){
 	//Clear any previous turtle
 	ctx.clearRect(0, 0, Turtle.CANVAS_WIDTH, Turtle.CANVAS_HEIGHT);
 
+}
+
+Turtle.addSolution = function(){
+	var c = document.getElementById("solution-canvas");
+	var ctx = c.getContext("2d")
+	ctx.globalAlpha = 0.4; //The solution drawing is a bit transparent
+	var img = new Image();   // Crée un nouvel élément Image
+	img.src = imagePath;
+	img.onload = function(){
+    	ctx.drawImage(img, 0, 0);
+    	Turtle.updateImage();
+  	}
+	
 }
 
 Turtle.drawSolution = function(){
