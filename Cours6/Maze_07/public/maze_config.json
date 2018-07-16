@@ -1,0 +1,42 @@
+{	
+	"map":{
+		"layout":[ 
+                [[1, 1, 1, 1, 1, 1, 1, 1],
+				 [1, 0, 0, 0, 0, 0, 0, 1],
+				 [1, 0, 1, 1, 1, 1, 1, 1],
+				 [1, 0, 1, 0, 0, 0, 0, 0],
+				 [1, 0, 1, 0, 1, 1, 1, 1],
+				 [1, 0, 1, 0, 3, 0, 0, 1],
+				 [1, 0, 1, 0, 0, 0, 0, 1],
+				 [2, 0, 1, 1, 1, 1, 1, 1]]                
+        ],
+        "maxSteps":100,
+		"animationSpeed":50,
+		"squareSize":50,
+		"squareType":{
+				"WALL": 0,
+				"OPEN": 1,
+				"START": 2,
+				"FINISH": 3,
+				"OBSTACLE": 4,
+				"STARTANDFINISH": 5
+				},
+		"startDirection":"NORTH",
+		"avatarHeight":52,
+		"avatarWidth":49
+			},
+	"visuals":{
+		"sprite":"avatar.png",
+		"tiles":"tiles.png",
+		"marker":"goalIdle.gif",
+		"goalAnimation":"goal.gif",
+		"obstacleIdle":"obstacleIdle.gif",
+		"obstacleAnimation":"obstacle.gif",
+		"obstacleScale":1.2,
+		"background":"background.png",
+		"graph":false,
+		"obstacleSound":[],
+		"winSound":[],
+		"crashSound":[]
+	}
+}

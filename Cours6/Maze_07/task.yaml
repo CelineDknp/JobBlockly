@@ -1,0 +1,75 @@
+accessible: true
+author: Florian Thuin
+context: |-
+    Peux tu rajouter juste 3 blocs pour aider le zombie à résoudre un labyrinthe plus complexe ?
+
+    Si tu le fais bien, il peut parcourir n'importe quel chemin sinueux peu importe la longueur!
+environment: default
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: Exercice 7
+network_grading: false
+order: 0
+problems:
+    code:
+        options:
+            toolboxPosition: start
+            scrollbars: true
+            trashcan: true
+            media: /static/common/js/blockly/media/
+            visual:
+                position: left
+            oneBasedIndex: true
+            maxBlocks: Infinity
+            sounds: true
+            css: true
+        files:
+        - maze.js
+        - interpreter.js
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+              <block type="maze_moveForward"></block>
+              <block type="maze_turn">
+                <field name="DIR">turnLeft</field>
+              </block>
+              <block type="maze_turn">
+                <field name="DIR">turnRight</field>
+              </block>
+              <block type="maze_ifElse">
+                <field name="DIR">isPathForward</field>
+              </block>
+              <block type="maze_forever"></block>
+            </xml>
+        name: ''
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+              <block type="maze_forever">
+                <statement name="DO">
+                  <block type="maze_ifElse">
+                    <field name="DIR">isPathForward</field>
+                    <statement name="ELSE">
+                      <block type="maze_ifElse">
+                        <field name="DIR">isPathRight</field>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+              </block>
+            </xml>
+        blocks_files:
+        - blocks.js
+        header: ''
+        type: blockly
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0

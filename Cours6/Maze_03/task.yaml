@@ -1,0 +1,61 @@
+accessible: true
+author: Florian Thuin
+context: Même chose que le puzzle précédent, mais tu dois te rappeler comment tu as
+    utilisé le bloc «Si» et le bloc « Répéter » ensemble.
+environment: default
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: Exercice 3
+network_grading: false
+order: 0
+problems:
+    code:
+        options:
+            toolboxPosition: start
+            scrollbars: true
+            trashcan: true
+            media: /static/common/js/blockly/media/
+            visual:
+                position: left
+            oneBasedIndex: true
+            maxBlocks: Infinity
+            sounds: true
+            css: true
+        files:
+        - maze.js
+        - interpreter.js
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+              <block type="maze_moveForward"></block>
+              <block type="maze_turn">
+                <field name="DIR">turnLeft</field>
+              </block>
+              <block type="maze_turn">
+                <field name="DIR">turnRight</field>
+              </block>
+              <block type="maze_if">
+                <field name="DIR">isPathForward</field>
+              </block>
+              <block type="maze_forever"></block>
+            </xml>
+        name: ''
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+            </xml>
+        blocks_files:
+        - blocks.js
+        header: ''
+        type: blockly
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
