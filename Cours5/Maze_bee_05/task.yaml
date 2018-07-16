@@ -1,0 +1,163 @@
+accessible: true
+author: Florian Thuin
+context: |
+    Écris à l'intérieur de la fonction «Vérifier la fleur et fabriquer du miel». Ta fonction doit vérifier si la fleur pourpre a 1, 2 ou 3 nectars et recueillir l'ensemble du nectar. Ensuite, avance et fabrique du miel.
+environment: default
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    time: '30'
+    memory: '100'
+    output: '2'
+name: Exercice 5
+network_grading: false
+order: 0
+problems:
+    code:
+        options:
+            toolboxPosition: start
+            grid:
+                spacing: 20
+                length: 3
+                colour: '#ccc'
+                snap: true
+            trashcan: true
+            zoom:
+                scaleSpeed: 1.2
+                startScale: 1.0
+                controls: true
+                maxScale: 3.0
+                minScale: 0.3
+                wheel: false
+            oneBasedIndex: true
+            visual:
+                position: left
+            media: /static/common/js/blockly/media/
+            css: true
+            maxBlocks: Infinity
+            scrollbars: true
+            sounds: true
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+              <block type="controls_repeat_ext" deletable="false" editable="false">
+                <value name="TIMES">
+                  <shadow type="math_number">
+                    <field name="NUM">2</field>
+                  </shadow>
+                </value>
+                <statement name="DO">
+                  <block type="maze_move" deletable="false" editable="false">
+                    <field name="DIR">moveForward</field>
+                    <next>
+                      <block type="maze_turn" deletable="false" editable="false">
+                        <field name="DIR">turnRight</field>
+                        <next>
+                          <block type="maze_move" deletable="false" editable="false">
+                            <field name="DIR">moveForward</field>
+                            <next>
+                              <block type="maze_turn" deletable="false" editable="false">
+                                <field name="DIR">turnLeft</field>
+                                <next>
+                                  <block type="procedures_callnoreturn" deletable="false" editable="false">
+                                    <mutation name="Vérifier fleur frabriquer miel"></mutation>
+                                    <next>
+                                      <block type="maze_turn" deletable="false" editable="false">
+                                        <field name="DIR">turnRight</field>
+                                        <next>
+                                          <block type="maze_move" deletable="false" editable="false">
+                                            <field name="DIR">moveForward</field>
+                                            <next>
+                                              <block type="maze_turn" deletable="false" editable="false">
+                                                <field name="DIR">turnLeft</field>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+              <block type="procedures_defnoreturn">
+                <field name="NAME">Vérifier fleur frabriquer miel</field>
+                <comment pinned="false" h="80" w="160">Décrire cette fonction…</comment>
+              </block>
+            </xml>
+        files:
+        - maze.js
+        - interpreter.js
+        blocks_files:
+        - blocks.js
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+              <block type="maze_move">
+                <field name="DIR">moveForward</field>
+              </block>
+              <block type="maze_turn">
+                <field name="DIR">turnLeft</field>
+              </block>
+              <block type="maze_turn">
+                <field name="DIR">turnRight</field>
+              </block>
+              <block type="custom_if_bee">
+                <field name="KIND">nectarRemaining</field>
+                <field name="COMP">&gt;</field>
+                <field name="NUMBER">0</field>
+              </block>
+              <block type="maze_nectar"></block>
+              <block type="controls_repeat">
+                <field name="TIMES">???</field>
+              </block>
+              <block type="maze_honey"></block>
+            </xml>
+        name: ''
+        type: blockly
+        header: |4+
+
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags:
+    '0':
+        type: 0
+        visible: true
+        description: ''
+        id: '1'
+        name: Boucles répéter X fois
+    '1':
+        type: 0
+        description: ''
+        name: Condition
+        visible: true
+        id: '4'
+    '2':
+        description: ''
+        name: Si/Sinon
+        visible: true
+        id: '5'
+        type: 0
+    '3':
+        name: Normal
+        type: 2
+        description: Fait partie du parcours normal
+        visible: false
+        id: ''
+    '4':
+        name: Challenge
+        description: Fait partie du parcours challenge
+        type: 2
+        visible: false
+        id: ''
+weight: 1.0

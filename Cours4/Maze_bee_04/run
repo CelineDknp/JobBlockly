@@ -1,0 +1,30 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+# Auteur(s) : Florian Thuin
+# This file is part of INGInious
+import os
+import subprocess
+import shlex
+from inginious import feedback
+from inginious import input
+
+
+if __name__ == "__main__":
+    os.chdir("student")
+    input.parse_template("maze.tpl.py")
+
+    p = subprocess.Popen(shlex.split("python3 maze.tpl.py"), stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
+    make_output = p.communicate()[0].decode('utf-8')
+
+    if p.returncode:
+        feedback.set_global_result("failed")
+        feedback.set_global_feedback("La compilation de votre code a échoué. Voici l'erreur:" + make_output)
+        # feedback.set_global_feedback(rst.get_codeblock('', make_output), True)
+        exit(0)
+    elif make_output == "True":
+        feedback.set_global_result("success")
+        feedback.set_global_feedback("Vous avez résolu l'exercice.")
+    else:
+        feedback.set_global_result("failed")
+        feedback.set_global_feedback(make_output)

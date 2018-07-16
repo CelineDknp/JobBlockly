@@ -1,0 +1,131 @@
+accessible: true
+author: Florian Thuin
+context: Les fonctions sont des blocs de code qui effectuent une tâche. Utilise la
+    fonction « Obtenir 5 » pour obtenir 5 nectars à la fois. Veille également à utiliser
+    une boucle pour obtenir un compte de bloc idéal.
+environment: default
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    output: '2'
+    memory: '100'
+    time: '30'
+name: Exercice 2
+network_grading: false
+order: 0
+problems:
+    code:
+        options:
+            maxBlocks: Infinity
+            scrollbars: true
+            oneBasedIndex: true
+            sounds: true
+            grid:
+                snap: true
+                length: 3
+                spacing: 20
+                colour: '#ccc'
+            visual:
+                position: left
+            zoom:
+                maxScale: 3.0
+                startScale: 1.0
+                minScale: 0.3
+                controls: true
+                scaleSpeed: 1.2
+                wheel: false
+            trashcan: true
+            css: true
+            media: /static/common/js/blockly/media/
+            toolboxPosition: start
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+              <block type="maze_move">
+                <field name="DIR">moveForward</field>
+              </block>
+              <block type="maze_turn">
+                <field name="DIR">turnLeft</field>
+              </block>
+              <block type="maze_turn">
+                <field name="DIR">turnRight</field>
+              </block>
+              <block type="procedures_callnoreturn">
+                <mutation name="Obtenir 5"></mutation>
+              </block>
+              <block type="controls_repeat">
+                <field name="TIMES">???</field>
+              </block>
+            </xml>
+        header: |4+
+
+        files:
+        - maze.js
+        - interpreter.js
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+              <block type="procedures_defnoreturn">
+                <field name="NAME">Obtenir 5</field>
+                <comment pinned="false" h="80" w="160">Récupère 5 nectar sur une fleur</comment>
+                <statement name="STACK">
+                  <block type="controls_repeat_ext">
+                    <value name="TIMES">
+                      <shadow type="math_number">
+                        <field name="NUM">5</field>
+                      </shadow>
+                    </value>
+                    <statement name="DO">
+                      <block type="maze_nectar" deletable="false" editable="false"></block>
+                    </statement>
+                  </block>
+                </statement>
+              </block>
+            </xml>
+        type: blockly
+        blocks_files:
+        - blocks.js
+        name: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags:
+    '0':
+        id: '1'
+        description: ''
+        type: 0
+        name: Boucles répéter X fois
+        visible: true
+    '1':
+        description: ''
+        name: Utilisation de fonction
+        id: '2'
+        type: 0
+        visible: true
+    '2':
+        visible: true
+        type: 2
+        description: Fait partie de la leçon 4
+        name: Lecon 4
+        id: ''
+    '3':
+        description: Fait partie du parcours facile
+        type: 2
+        name: Facile
+        visible: false
+        id: ''
+    '4':
+        type: 2
+        name: Normal
+        description: Fait partie du parcours normal
+        visible: false
+        id: ''
+    '5':
+        type: 2
+        description: Fait partie du parcours challenge
+        name: Challenge
+        visible: false
+        id: ''
+weight: 1.0

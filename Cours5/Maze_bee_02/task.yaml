@@ -1,0 +1,105 @@
+accessible: true
+author: Florian Thuin
+context: L'abeille veut seulement du nectar. Tous les objets ne sont pas des fleurs,
+    alors vérifie sous CHAQUE NUAGE pour voir s’il s’y cache une fleur. Si c'est le
+    cas, alors tu peux recueillir du nectar.
+environment: default
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    output: '2'
+    memory: '100'
+    time: '30'
+name: Exercice 2
+network_grading: false
+order: 0
+problems:
+    code:
+        options:
+            maxBlocks: Infinity
+            scrollbars: true
+            oneBasedIndex: true
+            sounds: true
+            visual:
+                position: left
+            zoom:
+                maxScale: 3.0
+                startScale: 1.0
+                minScale: 0.3
+                controls: true
+                scaleSpeed: 1.2
+                wheel: false
+            grid:
+                snap: true
+                length: 3
+                spacing: 20
+                colour: '#ccc'
+            trashcan: true
+            css: true
+            media: /static/common/js/blockly/media/
+            toolboxPosition: start
+        header: |4+
+
+        files:
+        - maze.js
+        - interpreter.js
+        name: ''
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+              <block type="maze_move">
+                <field name="DIR">moveForward</field>
+              </block>
+              <block type="maze_turn">
+                <field name="DIR">turnLeft</field>
+              </block>
+              <block type="custom_be_if_on">
+                <field name="TYPE">isOnFlower</field>
+              </block>
+              <block type="maze_turn">
+                <field name="DIR">turnRight</field>
+              </block>
+              <block type="maze_nectar"></block>
+              <block type="controls_repeat">
+                <field name="TIMES">???</field>
+              </block>
+              <block type="maze_honey"></block>
+            </xml>
+        type: blockly
+        blocks_files:
+        - blocks.js
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+            </xml>
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags:
+    '0':
+        id: '1'
+        description: ''
+        type: 0
+        name: Boucles répéter X fois
+        visible: true
+    '6':
+        visible: true
+        type: 0
+        id: '4'
+        name: Condition
+        description: ''
+    '4':
+        type: 2
+        name: Normal
+        description: Fait partie du parcours normal
+        visible: false
+        id: ''
+    '5':
+        description: Fait partie du parcours challenge
+        type: 2
+        name: Challenge
+        visible: false
+        id: ''
+weight: 1.0

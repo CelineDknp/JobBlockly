@@ -1,0 +1,12 @@
+{
+	"startX":150,
+	"startY":150,
+	"startAngle":90,
+	"strokeWidth":3,
+	"strokeColour":"#000000",
+	"colourSpecific":false,
+	"radius":15,
+	"animationRate":50,
+	"width":300,
+	"height":300
+}

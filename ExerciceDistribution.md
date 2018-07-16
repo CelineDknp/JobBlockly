@@ -36,14 +36,14 @@
 - 9 : Peut-être même un peu difficile pour un parcours normal (mon test-user a eu du mal)
 
 ## Parcours normal
-1, 3, 4, 8, 9, 10, 11, 15
+1, 3, 4, 6, 9, 10, 11, 15
 
 ## Parcours pour élèves ayant des difficultés
-1, 3, 4, 5, 8, 10, 11, 15
-+ Quelque chose entre le 8 et le 10 ?
+1, 3, 4, 5, 6, 10, 11, 15
++ Quelque chose entre le 6 et le 10 ?
 
 ## Parcours expert 
-1, 3, 8, 9, 11, 15
+1, 3, 6, 9, 11, 15
 
 
 

@@ -1,0 +1,120 @@
+accessible: true
+author: Celine Deknop
+context: 'Dessine les verres carrés. Astuce : le pont entre les verres fait 25 pixels
+    de moins que la longueur du carré.'
+environment: default
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: Exercice 1
+network_grading: false
+order: 0
+problems:
+    code:
+        blocks_files:
+        - blocks.js
+        options:
+            css: true
+            sounds: true
+            toolboxPosition: start
+            visual:
+                position: left
+            trashcan: true
+            media: /static/common/js/blockly/media/
+            maxBlocks: '45'
+            scrollbars: true
+            oneBasedIndex: true
+        files:
+        - turtle.js
+        - interpreter.js
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+            </xml>
+        header: ''
+        type: blockly
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+              <block type="turtle_turn_internal">
+                <field name="DIR">turnRight</field>
+                <field name="VALUE">90</field>
+              </block>
+              <block type="turtle_colour">
+                <value name="COLOUR">
+                  <block type="colour_picker">
+                    <field name="COLOUR">#228b22</field>
+                  </block>
+                </value>
+              </block>
+              <block type="turtle_move">
+                <field name="DIR">moveForward</field>
+                <value name="VALUE">
+                  <block type="math_number">
+                    <field name="NUM">250</field>
+                  </block>
+                </value>
+              </block>
+              <block type="turtle_jump">
+                <field name="DIR">jumpForward</field>
+                <value name="VAL">
+                  <block type="math_number">
+                    <field name="NUM">100</field>
+                  </block>
+                </value>
+              </block>
+              <block type="controls_repeat_ext">
+                <value name="TIMES">
+                  <shadow type="math_number">
+                    <field name="NUM">0</field>
+                  </shadow>
+                </value>
+              </block>
+            </xml>
+        name: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags:
+    '0':
+        name: Instructions avec paramètres
+        type: 0
+        visible: true
+        id: '1'
+        description: ''
+    '1':
+        description: ''
+        id: '2'
+        type: 0
+        name: Boucles "répéter X fois"
+        visible: true
+    '2':
+        type: 2
+        visible: true
+        description: Exercice faisant partie de la leçon 2
+        name: Lecon 3
+        id: ''
+    '3':
+        description: Faisant partie du parcours normal
+        name: Normal
+        type: 2
+        visible: false
+        id: ''
+    '4':
+        description: Faisant partie du parcours facile
+        name: Facile
+        type: 2
+        visible: false
+        id: ''
+    '5':
+        type: 2
+        description: Faisant partie du parcours challenge
+        name: Challenge
+        visible: false
+        id: ''
+weight: 1.0

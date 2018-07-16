@@ -1,15 +1,16 @@
 accessible: true
 author: Celine Deknop
-context: Ce parterre de fleurs rectangulaire a un périmètre de 600 pixels. Le côté
-    le plus long a une longueur de 200 pixels. Dessine le rectangle.
+context: |-
+    Ce parterre de fleurs rectangulaire a un périmètre de 600 pixels. Le côté le plus long a une longueur de 200 pixels. Dessine le rectangle.
+    Remarque : Tu ne dois pas repasser sur les lignes des fleurs, uniquement dessiner le rectangle
 environment: default
 evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '30'
     memory: '100'
     output: '2'
+    time: '30'
 name: Exercice 2
 network_grading: false
 order: 0
@@ -18,24 +19,25 @@ problems:
         blocks_files:
         - blocks.js
         options:
-            maxBlocks: '45'
+            css: true
             sounds: true
-            trashcan: true
+            toolboxPosition: start
             visual:
                 position: left
+            trashcan: true
             media: /static/common/js/blockly/media/
+            maxBlocks: '45'
             scrollbars: true
             oneBasedIndex: true
-            toolboxPosition: start
-            css: true
         files:
         - turtle.js
         - interpreter.js
-        header: ''
         workspace: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
               <variables></variables>
             </xml>
+        header: ''
+        type: blockly
         toolbox: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
               <variables></variables>
@@ -75,44 +77,43 @@ problems:
                 <field name="VALUE">100</field>
               </block>
             </xml>
-        type: blockly
         name: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 tags:
-    '4':
-        description: ''
-        name: Boucle répéter X fois
-        id: '1'
-        type: 0
-        visible: true
-    '5':
-        visible: true
-        name: Instructions avec paramètres
-        type: 0
-        id: '2'
-        description: ''
     '0':
+        name: Boucle répéter X fois
+        type: 0
         visible: true
-        name: Lecon 2
-        type: 2
-        description: Exercice faisant partie de la leçon 2
-        id: ''
+        id: '1'
+        description: ''
     '1':
-        description: Faisant partie du parcours normal
+        description: ''
+        id: '2'
+        type: 0
+        name: Instructions avec paramètres
+        visible: true
+    '2':
         type: 2
+        visible: true
+        description: Exercice faisant partie de la leçon 2
+        name: Lecon 2
+        id: ''
+    '3':
+        description: Faisant partie du parcours normal
         name: Normal
+        type: 2
         visible: false
         id: ''
-    '2':
+    '4':
         description: Faisant partie du parcours facile
         name: Facile
         type: 2
         visible: false
         id: ''
-    '3':
+    '5':
         type: 2
         description: Faisant partie du parcours challenge
         name: Challenge
