@@ -5,8 +5,8 @@ import os
 
 def moveForward(length):
     global current_x, current_y, current_heading, colour, current_width
-    next_x = current_x + int(length * math.sin(2 * math.pi * current_heading / 360));
-    next_y = current_y - int(length * math.cos(2 * math.pi * current_heading / 360));
+    next_x = current_x + length * math.sin(2 * math.pi * current_heading / 360);
+    next_y = current_y - length * math.cos(2 * math.pi * current_heading / 360);
     if(down):
     	draw.line([current_x, current_y, next_x, next_y], colour, width=current_width)
     current_x = next_x
@@ -14,8 +14,8 @@ def moveForward(length):
 
 def moveBackward(length):
     global current_x, current_y, current_heading, colour, current_width
-    next_x = current_x - int(length * math.sin(2 * math.pi * current_heading / 360));
-    next_y = current_y + int(length * math.cos(2 * math.pi * current_heading / 360));
+    next_x = current_x - length * math.sin(2 * math.pi * current_heading / 360);
+    next_y = current_y + length * math.cos(2 * math.pi * current_heading / 360);
     if(down):
       draw.line([current_x, current_y, next_x, next_y], colour, width=current_width)
     current_x = next_x

@@ -5,17 +5,17 @@ import os
 
 def moveForward(length):
     global current_x, current_y, current_heading, colour, current_width
-    next_x = current_x + int(length * math.sin(2 * math.pi * current_heading / 360));
-    next_y = current_y - int(length * math.cos(2 * math.pi * current_heading / 360));
+    next_x = current_x + length * math.sin(2 * math.pi * current_heading / 360);
+    next_y = current_y - length * math.cos(2 * math.pi * current_heading / 360);
     if(down):
-    	draw.line([current_x, current_y, next_x, next_y], colour, width=current_width)
+      draw.line([current_x, current_y, next_x, next_y], colour, width=current_width)
     current_x = next_x
     current_y = next_y
 
 def moveBackward(length):
     global current_x, current_y, current_heading, colour, current_width
-    next_x = current_x - int(length * math.sin(2 * math.pi * current_heading / 360));
-    next_y = current_y + int(length * math.cos(2 * math.pi * current_heading / 360));
+    next_x = current_x - length * math.sin(2 * math.pi * current_heading / 360);
+    next_y = current_y + length * math.cos(2 * math.pi * current_heading / 360);
     if(down):
       draw.line([current_x, current_y, next_x, next_y], colour, width=current_width)
     current_x = next_x
@@ -91,7 +91,7 @@ draw = ImageDraw.Draw(image1)
 
 # do the PIL image/draw (in memory) drawings
 for count2 in range(3):
-    turnRight(121)
+    turnRight(120)
     for count in range(6):
       moveForward(50)
       turnRight(60)

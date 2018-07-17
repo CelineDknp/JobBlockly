@@ -1,6 +1,7 @@
 import Image, ImageDraw
 import math
 import json
+import random
 import os
 
 def moveForward(length):
@@ -90,13 +91,12 @@ image1 = Image.new("RGBA", (width, height), (0,0,0,0))
 draw = ImageDraw.Draw(image1)
 
 # do the PIL image/draw (in memory) drawings
-for count in range(4):
-    moveForward(75)
-    turnRight(90)
-moveForward(125)
-for count2 in range(4):
-    moveForward(75)
-    turnRight(90)
+for count2 in range(36):
+    penColour(randomColour())
+    for count in range(3):
+      moveForward(100)
+      turnRight(120)
+    turnRight(10)
 
 # PIL image can be saved as .png .jpg .gif or .bmp file (among others)
 filename = "solution.png"

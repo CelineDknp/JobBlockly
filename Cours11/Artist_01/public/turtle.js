@@ -4,7 +4,7 @@ var task_directory_path = window.location.pathname + "/";
 window.Turtle = {};
 window.Maze = {};
 
-//Get the json file and it's information
+//Get the json file and its informations
 var turtle_file = ""
 if(task_directory_path.includes("edit")){ //When we are editing the task
     turtle_file = task_directory_path.replace("admin","course").replace("edit/task/","")+"turtle_config.json"
@@ -17,28 +17,15 @@ request.send(null)
 var json = JSON.parse(request.responseText);
 
 var imagePath = ""
-if(json.imageSolution) //If there is a solution image, use it
+if(json.imageSolution)
 	imagePath = task_directory_path+json.imageName;
 
 //Code of the solution
 var solution = function(){
-	//Here, put the javascript corresponding to the solved exercice (or use the image)
+	//Here, put the javascript corresponding to the solved exercice
 }
-//Code of the decor
 var decoration = function(){
 	//Here, put the code for any decor, not part of the exercice
-Turtle.moveBackwards(100);
-	Turtle.moveForward(50);
-	Turtle.turnLeft(90);
-	Turtle.moveForward(50);
-	Turtle.turnRight(90);
-	Turtle.moveForward(50);
-	Turtle.penUp();
-	Turtle.turnRight(90);
-	Turtle.moveForward(50);
-	Turtle.turnLeft(90);
-	Turtle.penDown();
-	Turtle.moveForward(100);
 }
 
 var randomColour = function(){
@@ -190,6 +177,7 @@ Turtle.addSolution = function(){
 	
 }
 
+
 Turtle.drawSolution = function(){
 	var c = document.getElementById("solution-canvas");
 	var ctx = c.getContext("2d")
@@ -323,8 +311,20 @@ Turtle.moveForward = function(length){
 }
 
 
-Turtle.moveBackwards = function(length){
+Turtle.moveBackward = function(length){
 	Turtle.move(-length);
+}
+
+Turtle.jumpForward = function(length){
+	Turtle.penUp();
+	Turtle.moveForward(length);
+	Turtle.penDown();
+}
+
+Turtle.jumpBackward = function(length){
+	Turtle.penUp();
+	Turtle.moveBackward(length);
+	Turtle.penDown();
 }
 
 Turtle.circle = function(radius){
@@ -337,7 +337,7 @@ Turtle.circle = function(radius){
     	c = document.getElementById("user-canvas");
 	var ctx = c.getContext("2d")
 	ctx.beginPath();
-	ctx.arc(Turtle.CURRENT_COORD.x, Turtle.CURRENT_COORD.y, radius, 0 , 2*Math.PI);
+	ctx.arc(Turtle.CURRENT_COORD.x, Turtle.CURRENT_COORD.y, radius, 0,2*Math.PI);
 	ctx.stroke();
 	Turtle.updateImage();
 }

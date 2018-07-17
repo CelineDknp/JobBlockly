@@ -1,0 +1,130 @@
+accessible: true
+author: Celine Deknop
+context: |-
+    Termine le code pour dessiner ces triangles. Le code pour dessiner un triangle est déjà fait pour toi.
+    Indice : les 3 triangles sont dans une rotation de 360 degrés.
+environment: default
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    time: '30'
+    memory: '100'
+    output: '2'
+name: Exercice 1
+network_grading: false
+order: 0
+problems:
+    code:
+        options:
+            media: /static/common/js/blockly/media/
+            sounds: true
+            visual:
+                position: left
+            toolboxPosition: start
+            maxBlocks: '45'
+            trashcan: true
+            oneBasedIndex: true
+            scrollbars: true
+            css: true
+        files:
+        - turtle.js
+        - interpreter.js
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+              <block type="controls_repeat_ext">
+                <value name="TIMES">
+                  <shadow type="math_number">
+                    <field name="NUM">3</field>
+                  </shadow>
+                </value>
+                <statement name="DO">
+                  <block type="turtle_move_internal">
+                    <field name="DIR">moveForward</field>
+                    <field name="VALUE">100</field>
+                    <next>
+                      <block type="turtle_turn_internal">
+                        <field name="DIR">turnLeft</field>
+                        <field name="VALUE">120</field>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </xml>
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+              <block type="turtle_move_internal">
+                <field name="DIR">moveForward</field>
+                <field name="VALUE">100</field>
+              </block>
+              <block type="turtle_turn_internal">
+                <field name="DIR">turnRight</field>
+                <field name="VALUE">90</field>
+              </block>
+              <block type="turtle_turn_internal">
+                <field name="DIR">turnLeft</field>
+                <field name="VALUE">90</field>
+              </block>
+              <block type="controls_repeat_ext">
+                <value name="TIMES">
+                  <shadow type="math_number">
+                    <field name="NUM">0</field>
+                  </shadow>
+                </value>
+              </block>
+              <block type="turtle_colour">
+                <value name="COLOUR">
+                  <block type="colour_random"></block>
+                </value>
+              </block>
+            </xml>
+        name: ''
+        type: blockly
+        header: ''
+        blocks_files:
+        - blocks.js
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags:
+    '0':
+        name: Boucle répéter X fois
+        type: 0
+        id: '1'
+        description: ''
+        visible: true
+    '1':
+        name: Instructions avec paramètres
+        type: 0
+        id: '2'
+        description: ''
+        visible: true
+    '2':
+        description: Exercice faisant partie de la leçon 2
+        type: 2
+        name: Lecon 2
+        visible: true
+        id: ''
+    '3':
+        description: Faisant partie du parcours normal
+        type: 2
+        name: Normal
+        visible: false
+        id: ''
+    '4':
+        description: Faisant partie du parcours facile
+        name: Facile
+        type: 2
+        visible: false
+        id: ''
+    '5':
+        name: Challenge
+        type: 2
+        description: Faisant partie du parcours challenge
+        visible: false
+        id: ''
+weight: 1.0
