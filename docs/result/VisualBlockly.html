@@ -1,0 +1,617 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Blockly visual tasks &mdash; JobBlockly  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="JobBlockly  documentation" href="index.html"/>
+        <link rel="next" title="How to change the maze’s visuals" href="VisualDocumentation.html"/>
+        <link rel="prev" title="How to create a basic Blockly task ?" href="BaseBlockly.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> JobBlockly
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BaseBlockly.html">How to create a <em>basic</em> Blockly task ?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Blockly visual tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#available-types-of-tasks">Available types of tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#maze-task">Maze task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#collect-and-create-task">Collect and create task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#drawing-task">Drawing task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-new-instance-of-a-task">Create a new instance of a task</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-new-maze-task">Create a new maze task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-new-collect-create-task">Create a new collect/create task</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#honey-or-redflower">Honey or redFlower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#purpleflower">PurpleFlower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloud">Cloud</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-new-drawing-task">Create a new drawing task</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-solution-image-using-create-img-py">Create solution image using <cite>create_img.py</cite></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#write-the-solution-code-in-turtle-js">Write the solution code in <cite>turtle.js</cite></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#write-solution-in-the-correction-file">Write solution in the correction file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-decoration-to-the-student-display">Add decoration to the student display</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="VisualDocumentation.html">How to change the maze’s visuals</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">JobBlockly</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Blockly visual tasks</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/VisualBlockly.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="blockly-visual-tasks">
+<h1>Blockly visual tasks<a class="headerlink" href="#blockly-visual-tasks" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="available-types-of-tasks">
+<h2>Available types of tasks<a class="headerlink" href="#available-types-of-tasks" title="Permalink to this headline">¶</a></h2>
+<p>We created a few types of tasks that include a visual and an animations and work with the Blockly plugin. This section will describe each of them and how to use them.</p>
+<div class="section" id="maze-task">
+<h3>Maze task<a class="headerlink" href="#maze-task" title="Permalink to this headline">¶</a></h3>
+<p>The first type of task is a maze, where the student needs to go from a point A to a point B, following the allowed paths and eventually avoiding ennemies. Currently, two types of visuals are available for this task : pegman and zombie.</p>
+</div>
+<div class="section" id="collect-and-create-task">
+<h3>Collect and create task<a class="headerlink" href="#collect-and-create-task" title="Permalink to this headline">¶</a></h3>
+<p>The second type of task has the general layout of a maze, but the goal is to collect and/or create all items present on the map.</p>
+</div>
+<div class="section" id="drawing-task">
+<h3>Drawing task<a class="headerlink" href="#drawing-task" title="Permalink to this headline">¶</a></h3>
+<p>The final type of visual task require the student to draw shapes on a canvas, according to the instructions.</p>
+</div>
+<div class="section" id="create-a-new-instance-of-a-task">
+<h3>Create a new instance of a task<a class="headerlink" href="#create-a-new-instance-of-a-task" title="Permalink to this headline">¶</a></h3>
+<p>The easiest way to create a new task of any of the described type is to start from a very basic already existing task, and modify the files according to what you want. Zipped examples can be found at <a class="reference external" href="https://github.com/CelineDknp/JobBlockly/tree/master/BaseExercices">this link</a>. We will describe the conventions for each type of task further in this tutorial.</p>
+<p>To start, unzip the files of your choice into the course directory. You can freely change the directory name (it must <strong>not</strong> contain spaces), the task name and instructions, etc…</p>
+</div>
+</div>
+<div class="section" id="create-a-new-maze-task">
+<h2>Create a new maze task<a class="headerlink" href="#create-a-new-maze-task" title="Permalink to this headline">¶</a></h2>
+<p>First, download the file <a class="reference external" href="https://github.com/CelineDknp/JobBlockly/tree/master/BaseExercices">task_pvz</a> or <a class="reference external" href="https://github.com/CelineDknp/JobBlockly/tree/master/BaseExercices">task_pegman</a>, unzip it to create a task and make any changes you want to the titles, instructions, etc…</p>
+<p>The only file you have to edit to use this kind of task is <code class="docutils literal notranslate"><span class="pre">maze_config.json</span></code> under <code class="docutils literal notranslate"><span class="pre">yourTask/public</span></code>. If you wish to change the graphical look of the maze, head to <a class="reference internal" href="VisualDocumentation.html"><span class="doc">this part</span></a>  of the documentation to learn how to do so. If not, we will go over every element of the json file.</p>
+<p>Here, we will only look at the <code class="docutils literal notranslate"><span class="pre">map</span></code> element of the file, since the visual part is covered by the other documentation. The first element is <code class="docutils literal notranslate"><span class="pre">layout</span></code>, which is an array of arrays. Each array will represent a map that the student has to solve in this exercice. In our example, we have :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span class="p">{</span>
+  <span class="nt">&quot;layout&quot;</span><span class="p">:[</span>
+            <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span>
+
+            <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+        <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The meaning of the numbers can be found in the item <code class="docutils literal notranslate"><span class="pre">squareType</span></code>, that you should not have to modify except if you are adding new types of elements to the maze. We will go over them in more details here :</p>
+<ul class="simple">
+<li>0 is an empty tile (that might be populated randomly with non-interactive decor) where the character can’t go</li>
+<li>1 is an open tile where the character can walk</li>
+<li>2 is the tile where the character starts the game</li>
+<li>3 is the goal to reach to win the game</li>
+<li>4 is a tile with an obstacle that will kill the character if it walks on it</li>
+<li>5 is a special value used if you want to make the start and goal tile the same one</li>
+</ul>
+<p>Our two maps will, of course, not be displayed at the same time. They are there to ensure that the student doesn’t hardcode the solution to the map he sees. You can add as much maps that you want, with a minimum of one.</p>
+<p>When a student submit his code, the correction will test each map individually (in order). If they all pass, the student succeeded. In our example, it will look like this :</p>
+<img alt="_images/pvz_success.png" class="align-center" src="_images/pvz_success.png" />
+<p>If some instance failed, a negative feedback is given and the failed instance is displayed :</p>
+<img alt="_images/pvz-fail.png" class="align-center" src="_images/pvz-fail.png" />
+<p>Let’s, for example, modify the first map to have two empty tiles, then a turn with an obstacle and the goal after the straight line. Modify <code class="docutils literal notranslate"><span class="pre">layout</span></code> to this :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span class="p">{</span>
+  <span class="nt">&quot;layout&quot;</span><span class="p">:[</span>
+            <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span>
+
+            <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+        <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Hit save, reload the page and see the updated maze :</p>
+<img alt="_images/baseMaze2.png" class="align-center" src="_images/baseMaze2.png" />
+<p>If you wish to change the orientation of the character at the start, change the <code class="docutils literal notranslate"><span class="pre">startDirection</span></code> item to one of the values <em>EAST</em> (the value our default file use), <em>SOUTH</em>, <em>WEST</em> or <em>SOUTH</em>. For example, here is the output with <code class="docutils literal notranslate"><span class="pre">&quot;startDirection&quot;:&quot;WEST&quot;</span></code> :</p>
+<img alt="_images/headWest.png" class="align-center" src="_images/headWest.png" />
+<p>If you feel like the animation speed is a little bit too quick or too slow, update the value of the <code class="docutils literal notranslate"><span class="pre">animationSpeed</span></code> item.</p>
+<p>Finally, the items <code class="docutils literal notranslate"><span class="pre">squareSize</span></code>, <code class="docutils literal notranslate"><span class="pre">avatarHeight</span></code> and <code class="docutils literal notranslate"><span class="pre">avatarWidth</span></code> can be changed to alter the overall look, but you should not touch them if you are just creating a new task.</p>
+<p>If you wish to change the subproblem id (not visible to user, so we would advise to not do it), you will have to modify the line 107 in the file <code class="docutils literal notranslate"><span class="pre">yourtask/student/maze.tpl.py</span></code> to correspond the name you picked. By default, we have :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre>def student_code():
+  @   @code@@
+</pre></div>
+</div>
+<p>If our subproblem name is <em>example</em>, we need to change the value to :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre>def student_code():
+  @   @example@@
+</pre></div>
+</div>
+<p>The task should now work as expected. If you wish to add or remove blocks from it, you can do so using the graphical user interface as you would for any other task. The blocks that are specific to a maze can be found under the <em>Block Library</em> category, and are defined in the file <code class="docutils literal notranslate"><span class="pre">blocks.js</span></code> (under <code class="docutils literal notranslate"><span class="pre">public</span></code>), which should not be modified, except if you want to add new custom blocks to it.</p>
+<img alt="_images/baseMaze3.png" class="align-center" src="_images/baseMaze3.png" />
+</div>
+<div class="section" id="create-a-new-collect-create-task">
+<h2>Create a new collect/create task<a class="headerlink" href="#create-a-new-collect-create-task" title="Permalink to this headline">¶</a></h2>
+<p>First, download the file <a class="reference external" href="https://github.com/CelineDknp/JobBlockly/tree/master/BaseExercices">task_bee</a>, unzip it to create a task and make any changes you want to the titles, instructions, etc…</p>
+<p>Same as the maze task, the only file you have to edit for this type of task is <code class="docutils literal notranslate"><span class="pre">maze_config.json</span></code> under <code class="docutils literal notranslate"><span class="pre">yourTask/public</span></code>. If you wish to change the graphical look of the task, head to <a class="reference internal" href="VisualDocumentation.html"><span class="doc">this part</span></a>  of the documentation to learn how to do so. If not, we will go over every element of the json file.</p>
+<p>Again, we will only look at the <code class="docutils literal notranslate"><span class="pre">map</span></code> element of the file. The first element is <code class="docutils literal notranslate"><span class="pre">layout</span></code>, which is a double array (there is no multiple instances correction in this kind of task). As in the previous task, it represents the map, with <code class="docutils literal notranslate"><span class="pre">squareType</span></code> giving the details about the number. Since there is no goal point in this kind of task, the only types are :</p>
+<ul class="simple">
+<li>0 is an empty tile (that might be populated randomly with non-interactive decor) where the character can’t go</li>
+<li>1 is an open tile where the character can walk</li>
+<li>2 is the tile where the character starts the game</li>
+</ul>
+<p>In our example, we have this map :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span class="p">{</span>
+  <span class="nt">&quot;layout&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The next item is the dictionnary <code class="docutils literal notranslate"><span class="pre">specialCells</span></code>; which describes the elements to collect and create, as well as a special one to hide the spot. It has four entries which are arrays of dictionaries : <em>honey</em>, <em>redFlower</em>, <em>purpleFlower</em> and <em>cloud</em>; each containing one type of special element.</p>
+<p>In our example, we have one honey, one red flower, one purple flower, one cloud and one element that is hidden underneath the cloud :</p>
+<img alt="_images/beeBase.png" class="align-center" src="_images/beeBase.png" />
+<p>Each element has it’s own characteristics, which will be detailed underneath</p>
+<div class="section" id="honey-or-redflower">
+<h3>Honey or redFlower<a class="headerlink" href="#honey-or-redflower" title="Permalink to this headline">¶</a></h3>
+<p>The honey is the element that the student will have to create, and the red flower is one of the element to collect.</p>
+<p>Here is what is in the <code class="docutils literal notranslate"><span class="pre">specialCells</span></code> element for honey and redFlower :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span class="p">{</span>
+  <span class="nt">&quot;honey&quot;</span><span class="p">:[</span>
+              <span class="p">{</span>
+                  <span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>
+                  <span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>
+                  <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">2</span>
+              <span class="p">}</span>
+          <span class="p">],</span>
+  <span class="nt">&quot;redFlower&quot;</span><span class="p">:[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+                <span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>
+                <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">2</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+                <span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+                <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+                <span class="nt">&quot;or&quot;</span><span class="p">:</span><span class="s2">&quot;honey&quot;</span>
+              <span class="p">}</span>
+          <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Each of those elements must have an <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> coordinates that will place them on the map, as well as a <code class="docutils literal notranslate"><span class="pre">value</span></code> representing how many time they must be collected or created (on the visual, it can be seen as the number on the right corner). Then, there is two optional arguments :</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">or</span></code> followed by the name of the other element (either <em>honey</em> or <em>redFlower</em>), makes it so, when the map is generated by charging the page, this element will either be of it’s type or the other one (a red flower or a honey).</li>
+<li><code class="docutils literal notranslate"><span class="pre">optional</span></code> followed by the boolean <code class="docutils literal notranslate"><span class="pre">true</span></code>, makes it so, when the map is generated, the element is present or not (at random) <a class="footnote-reference" href="#id2" id="id1">[1]</a>.</li>
+</ul>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id3">2</a>, <a class="fn-backref" href="#id4">3</a>)</em> This argument is common for all elements</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="purpleflower">
+<h3>PurpleFlower<a class="headerlink" href="#purpleflower" title="Permalink to this headline">¶</a></h3>
+<p>The purple flower is the other element to collect, its value is in a specified range, and is denoted with a <em>?</em> before the animation starts.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">specialCells</span></code> content is :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span class="p">{</span>
+  <span class="nt">&quot;purpleFlower&quot;</span><span class="p">:[</span>
+                    <span class="p">{</span>
+                        <span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
+                        <span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
+                        <span class="nt">&quot;range&quot;</span><span class="p">:[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+                    <span class="p">}</span>
+          <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This element also has the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> coordinates, but no value. Instead, it has the item <code class="docutils literal notranslate"><span class="pre">range</span></code>, which specify that it’s value will be an integer between 0 and 2 (included) in our example. It also has one non-required argument :</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">optional</span></code> followed by the boolean <code class="docutils literal notranslate"><span class="pre">true</span></code>, makes it so, when the map is generated, the element is present or not (at random) <a class="footnote-reference" href="#id2" id="id3">[1]</a>.</li>
+</ul>
+</div>
+<div class="section" id="cloud">
+<h3>Cloud<a class="headerlink" href="#cloud" title="Permalink to this headline">¶</a></h3>
+<p>This last element is used to hide parts of the map before the start of the animation (it will desapear as soon as the user clicks “run code”).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">specialCells</span></code> content is :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span class="p">{</span>
+  <span class="nt">&quot;cloud&quot;</span><span class="p">:[</span>
+              <span class="p">{</span>
+                  <span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+                  <span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">3</span>
+              <span class="p">}</span>
+          <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This element only has the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> coordinates, as well as the <code class="docutils literal notranslate"><span class="pre">optional</span></code> argument <a class="footnote-reference" href="#id2" id="id4">[1]</a>.</p>
+<p>As for the maze, if you feel like the animation speed is a little bit too quick or too slow, update the value of the <code class="docutils literal notranslate"><span class="pre">animationSpeed</span></code> item and the items <code class="docutils literal notranslate"><span class="pre">squareSize</span></code>, <code class="docutils literal notranslate"><span class="pre">avatarHeight</span></code> or <code class="docutils literal notranslate"><span class="pre">avatarWidth</span></code> should not be changed unless you are redesigning.</p>
+<p>If you wish to change the subproblem id (not visible to user, so we would advise to not do it), you will have to modify the line 138 in the file <code class="docutils literal notranslate"><span class="pre">yourtask/student/maze.tpl.py</span></code> to correspond the name you picked. By default, we have :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre>def student_code():
+  @   @code@@
+</pre></div>
+</div>
+<p>If our subproblem name is <em>example</em>, we need to change the value to :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre>def student_code():
+  @   @example@@
+</pre></div>
+</div>
+<p>The task should now work as expected. If you wish to add or remove blocks from it, you can do so using the graphical user interface as you would for any other task. The blocks that are specific to a maze can be found under the <em>Block Library</em> category, and are defined in the file <code class="docutils literal notranslate"><span class="pre">blocks.js</span></code> (under <code class="docutils literal notranslate"><span class="pre">public</span></code>), which should not be modified, except if you want to add new custom blocks to it.</p>
+</div>
+</div>
+<div class="section" id="create-a-new-drawing-task">
+<h2>Create a new drawing task<a class="headerlink" href="#create-a-new-drawing-task" title="Permalink to this headline">¶</a></h2>
+<p>First, download the file <a class="reference external" href="https://github.com/CelineDknp/JobBlockly/tree/master/BaseExercices">task_artist</a>, unzip it to create a task and make any changes you want to the titles, instructions, etc…</p>
+<p>Here is what our example looks like in INGInious. The circle with the arrow is the drawing utencil, is is referrenced further down as “the turtle” it moves (and draw) in the direction of the arrow.</p>
+<img alt="_images/turtleBase.png" class="align-center" src="_images/turtleBase.png" />
+<p>For this kind of task, you will have to edit a few files (and eventually run a Python script). Let’s first go over the json configuration file (under <code class="docutils literal notranslate"><span class="pre">yourTask/public</span></code>), <code class="docutils literal notranslate"><span class="pre">turtle_config.json</span></code>. Here is the content of our example :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span class="p">{</span>
+  <span class="nt">&quot;startX&quot;</span><span class="p">:</span><span class="mi">270</span><span class="p">,</span>
+  <span class="nt">&quot;startY&quot;</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span>
+  <span class="nt">&quot;startAngle&quot;</span><span class="p">:</span><span class="mi">180</span><span class="p">,</span>
+  <span class="nt">&quot;strokeWidth&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+  <span class="nt">&quot;strokeColour&quot;</span><span class="p">:</span><span class="s2">&quot;#000000&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;colourSpecific&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;radius&quot;</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span>
+  <span class="nt">&quot;animationRate&quot;</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span>
+  <span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="mi">290</span><span class="p">,</span>
+  <span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="mi">290</span><span class="p">,</span>
+  <span class="nt">&quot;imageSolution&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;imageName&quot;</span><span class="p">:</span><span class="s2">&quot;solution.png&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Let’s detail each item :</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">startX</span></code> is the X coordinate on which the turtle will start. (0, 0) is the top left corner.</li>
+<li><code class="docutils literal notranslate"><span class="pre">startY</span></code> is the Y coordinate on which the turtle will start.</li>
+<li><code class="docutils literal notranslate"><span class="pre">startAngle</span></code> is the starting angle (0 is facing pure north, 180 pure south)</li>
+<li><code class="docutils literal notranslate"><span class="pre">strokeWidth</span></code> is the width of the lines that will be drawn</li>
+<li><code class="docutils literal notranslate"><span class="pre">strokeColour</span></code> is the start color of the turtle (the student can modify it)</li>
+<li><code class="docutils literal notranslate"><span class="pre">colourSpecific</span></code> must be a boolean, and is true if the color of the line matters when correcting the exercice</li>
+<li><code class="docutils literal notranslate"><span class="pre">radius</span></code> defines the radius of the turtle body</li>
+<li><code class="docutils literal notranslate"><span class="pre">animationRate</span></code> defines the time (in ms) between frames</li>
+<li><code class="docutils literal notranslate"><span class="pre">width</span></code> is the width of the canvas</li>
+<li><code class="docutils literal notranslate"><span class="pre">height</span></code> is the height of the canvas</li>
+<li><code class="docutils literal notranslate"><span class="pre">imageSolution</span></code> must be a boolean specifying if the solution to be drawn on the canvas is an image or not (true if it is)</li>
+<li><code class="docutils literal notranslate"><span class="pre">imageName</span></code> not used if <code class="docutils literal notranslate"><span class="pre">imageSolution</span></code> is false, specify the name of the solution image</li>
+</ul>
+<p>The second step is to define how the expected solution will be displayed to the user. You can either create the corresponding image using the script <code class="docutils literal notranslate"><span class="pre">create_img.py</span></code> or write the code in the <code class="docutils literal notranslate"><span class="pre">turtle.js</span></code> file. We will describe both methods.</p>
+<div class="section" id="create-solution-image-using-create-img-py">
+<h3>Create solution image using <cite>create_img.py</cite><a class="headerlink" href="#create-solution-image-using-create-img-py" title="Permalink to this headline">¶</a></h3>
+<p>To use this script, you must have the Python module Pillow installed (see <a class="reference external" href="pillow.readthqedocs.io/en/3.1.x/installation.html">this link</a>).</p>
+<p>Then, write the solution to your exercice in the file <code class="docutils literal notranslate"><span class="pre">create_img.py</span></code> (from the line 95). The function names used by Blockly are available, so you can solve your exercice using blocks and copy/paste if you feel that this is easier for you <a class="footnote-reference" href="#id7" id="id6">[2]</a>. In our example, we have this :</p>
+<table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[2]</a></td><td>You will be able to reuse this code for the correction part.</td></tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+  <span class="n">moveForward</span><span class="p">(</span><span class="mi">250</span><span class="p">)</span>
+  <span class="n">turnRight</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally, in your <code class="docutils literal notranslate"><span class="pre">public</span></code> directory, run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">create_img.py</span></code>. The scripts creates your solution image named <em>solution.png</em> (you can rename it as long as you don’t forget to change the name in the config file), and it will be used as long as the <code class="docutils literal notranslate"><span class="pre">imageSolution</span></code> boolean in the <code class="docutils literal notranslate"><span class="pre">turtle_config.json</span></code> file is set at true.</p>
+</div>
+<div class="section" id="write-the-solution-code-in-turtle-js">
+<h3>Write the solution code in <cite>turtle.js</cite><a class="headerlink" href="#write-the-solution-code-in-turtle-js" title="Permalink to this headline">¶</a></h3>
+<p>If you pick that option, you must be aware that the solution to the exercice will be available to a student clever enough to find the correct Javascript file and read it carefully.</p>
+<p>Open the file <code class="docutils literal notranslate"><span class="pre">turtle.js</span></code> in the public directory, and edit the function <code class="docutils literal notranslate"><span class="pre">solution</span></code> (line 24) to execute your solution using the Javascript versions of the functions used by Blockly (they are all in the form <code class="docutils literal notranslate"><span class="pre">Turtle.function()</span></code>). In our case, we have :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">solution</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="nx">Turtle</span><span class="p">.</span><span class="nx">moveForward</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
+        <span class="nx">Turtle</span><span class="p">.</span><span class="nx">turnRight</span><span class="p">(</span><span class="mi">90</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Save the file, and this code will be used as long as the <code class="docutils literal notranslate"><span class="pre">imageSolution</span></code> boolean in the <code class="docutils literal notranslate"><span class="pre">turtle_config.json</span></code> file is set at false.</p>
+</div>
+<div class="section" id="write-solution-in-the-correction-file">
+<h3>Write solution in the correction file<a class="headerlink" href="#write-solution-in-the-correction-file" title="Permalink to this headline">¶</a></h3>
+<p>The correction file, <code class="docutils literal notranslate"><span class="pre">turtle.py</span></code> (under the <code class="docutils literal notranslate"><span class="pre">student</span></code> directory), also need to have the correct code for the task. If you have picked the option of using the <code class="docutils literal notranslate"><span class="pre">create_img.py</span></code> script, you can simply copy/paste your code from line 21.</p>
+<p>If you have picked the other option, you’ll have to translate the Javascript solution code to Python, which is just a matter of translating the loop syntax, removing semicolons and the <code class="docutils literal notranslate"><span class="pre">Turtle.</span></code> part of a function call. Here is what we have in our example :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">moveForward</span><span class="p">(</span><span class="mi">250</span><span class="p">)</span>
+    <span class="n">turnRight</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, you should have a working task. Again, if you wish to change the subproblem id (not visible to user, so we would advise to not do it), you will have to modify the line 16 in the file <code class="docutils literal notranslate"><span class="pre">yourtask/student/turle.py</span></code> to correspond the name you picked. By default, we have :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre>def student_code():
+  @   @code@@
+</pre></div>
+</div>
+<p>If our subproblem name is <em>example</em>, we need to change the value to :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre>def student_code():
+  @   @example@@
+</pre></div>
+</div>
+<p>Finally, you can also add some decor to the INGInious display to the student (that will not be considered when correcting). To do so, refer to the next section.</p>
+</div>
+<div class="section" id="add-decoration-to-the-student-display">
+<h3>Add decoration to the student display<a class="headerlink" href="#add-decoration-to-the-student-display" title="Permalink to this headline">¶</a></h3>
+<p>You may want to spice up the display with some decor, like you can see on this image :</p>
+<img alt="_images/artistDecor.png" class="align-center" src="_images/artistDecor.png" />
+<p>To do so, you’ll have to edit the <code class="docutils literal notranslate"><span class="pre">turtle.js</span></code> file (under the public directory). Go to the <code class="docutils literal notranslate"><span class="pre">decoration</span></code> function, and add any Javascript version of the Blockly code (eventually creating helper functions). The result will be drawn from the same starting point specified in <code class="docutils literal notranslate"><span class="pre">turtle_config.json</span></code> and will be shown in the task. The code for our example here is :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span class="c1">//Code of the decor</span>
+<span class="kd">var</span> <span class="nx">decoration</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="c1">//Here, put the code for any decor, not part of the exercice</span>
+  <span class="nx">Turtle</span><span class="p">.</span><span class="nx">penUp</span><span class="p">();</span>
+  <span class="nx">Turtle</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="mi">35</span><span class="p">);</span>
+  <span class="nx">Turtle</span><span class="p">.</span><span class="nx">turnLeft</span><span class="p">(</span><span class="mi">90</span><span class="p">);</span>
+  <span class="nx">Turtle</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+  <span class="nx">Turtle</span><span class="p">.</span><span class="nx">penDown</span><span class="p">();</span>
+  <span class="nx">drawFlower</span><span class="p">();</span>
+  <span class="nx">Turtle</span><span class="p">.</span><span class="nx">penUp</span><span class="p">();</span>
+  <span class="nx">Turtle</span><span class="p">.</span><span class="nx">turnRight</span><span class="p">(</span><span class="mi">90</span><span class="p">);</span>
+  <span class="nx">Turtle</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span>
+  <span class="nx">Turtle</span><span class="p">.</span><span class="nx">turnLeft</span><span class="p">(</span><span class="mi">90</span><span class="p">);</span>
+  <span class="nx">Turtle</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+  <span class="nx">Turtle</span><span class="p">.</span><span class="nx">penDown</span><span class="p">();</span>
+  <span class="nx">drawFlower</span><span class="p">();</span>
+  <span class="nx">Turtle</span><span class="p">.</span><span class="nx">penUp</span><span class="p">();</span>
+  <span class="nx">Turtle</span><span class="p">.</span><span class="nx">turnRight</span><span class="p">(</span><span class="mi">90</span><span class="p">);</span>
+  <span class="nx">Turtle</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span>
+  <span class="nx">Turtle</span><span class="p">.</span><span class="nx">turnRight</span><span class="p">(</span><span class="mi">90</span><span class="p">);</span>
+  <span class="nx">Turtle</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+  <span class="nx">Turtle</span><span class="p">.</span><span class="nx">turnRight</span><span class="p">(</span><span class="mi">180</span><span class="p">);</span>
+  <span class="nx">Turtle</span><span class="p">.</span><span class="nx">penDown</span><span class="p">();</span>
+  <span class="nx">drawFlower</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">drawFlower</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">Turtle</span><span class="p">.</span><span class="nx">penColour</span><span class="p">(</span><span class="nx">randomColour</span><span class="p">());</span>
+  <span class="nx">Turtle</span><span class="p">.</span><span class="nx">moveForward</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">11</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">Turtle</span><span class="p">.</span><span class="nx">penColour</span><span class="p">(</span><span class="nx">randomColour</span><span class="p">());</span>
+    <span class="nx">Turtle</span><span class="p">.</span><span class="nx">penDown</span><span class="p">();</span>
+    <span class="nx">Turtle</span><span class="p">.</span><span class="nx">turnRight</span><span class="p">(</span><span class="mi">36</span><span class="p">);</span>
+    <span class="nx">Turtle</span><span class="p">.</span><span class="nx">moveForward</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
+    <span class="nx">Turtle</span><span class="p">.</span><span class="nx">penUp</span><span class="p">();</span>
+    <span class="nx">Turtle</span><span class="p">.</span><span class="nx">moveBackwards</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">Turtle</span><span class="p">.</span><span class="nx">turnLeft</span><span class="p">(</span><span class="mi">36</span><span class="p">);</span>
+  <span class="nx">Turtle</span><span class="p">.</span><span class="nx">moveBackwards</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="VisualDocumentation.html" class="btn btn-neutral float-right" title="How to change the maze’s visuals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="BaseBlockly.html" class="btn btn-neutral" title="How to create a basic Blockly task ?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Celine Deknop.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,596 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How to create a basic Blockly task ? &mdash; JobBlockly  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="JobBlockly  documentation" href="index.html"/>
+        <link rel="next" title="How to change the maze’s visuals" href="VisualDocumentation.html"/>
+        <link rel="prev" title="Welcome to JobBlockly’s documentation!" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> JobBlockly
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to create a <em>basic</em> Blockly task ?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#example-create-the-sum-function-using-the-graphical-interface">Example : create the sum function (using the graphical interface)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-create-the-sum-function-by-hand">Example : create the sum function by hand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-an-only-workspace-task">Example : an “only workspace” task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-create-a-custom-block-if-else">Example : create a custom block (if/else)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="VisualDocumentation.html">How to change the maze’s visuals</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">JobBlockly</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>How to create a <em>basic</em> Blockly task ?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/BaseBlockly.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-create-a-basic-blockly-task">
+<h1>How to create a <em>basic</em> Blockly task ?<a class="headerlink" href="#how-to-create-a-basic-blockly-task" title="Permalink to this headline">¶</a></h1>
+<p>There is, first, a few steps that are the same as for any other tasks. Those are :</p>
+<ol class="arabic simple">
+<li>Create the exercice as you would a classical one. Set up a title, a context, your name, the options you want,… When creating a subproblem, select “blockly” as “type of task”</li>
+<li>Again, perform the set-up of the task as you normally would</li>
+<li>If you want, set up the maximum number of blocks that the student can use to perform the task by entering it in the “Max number of blocks” field (by default, it is “Infinity”)</li>
+</ol>
+<p>Now, there is two ways to configure Blockly :  either using the embedded graphical interface or by entering the blocks by hand. Since the first solution is more beginner-friendly, let’s explore it first. Scroll down all the way and click “edit toolbox/workspace graphically”. This is what you will see.</p>
+<img alt="_images/base.png" class="align-center" src="_images/base.png" />
+<p>The left side is where you can configure the tool, and the right side will display a live preview of what you did so far. The left side has two tabs : the toolbox will hold the pool of blocks that the student can use to solve the task. To add blocks, simply click on one category and drag/drop the block you want in the tab. Here is an example :</p>
+<img alt="_images/toolbox.png" class="align-center" src="_images/toolbox.png" />
+<p>If you want to delete a block, simply drag it to the trashcan on the bottom right. Now, you can also add blocks to the workspace of the student, that will serve as a base for the exercice. Simply click on the “workspace” tab and drag/drop the same way.</p>
+<img alt="_images/workspace.png" class="align-center" src="_images/workspace.png" />
+<p>Let’s now see an example of what can be done for a simple exercice.</p>
+<div class="section" id="example-create-the-sum-function-using-the-graphical-interface">
+<h2>Example : create the sum function (using the graphical interface)<a class="headerlink" href="#example-create-the-sum-function-using-the-graphical-interface" title="Permalink to this headline">¶</a></h2>
+<p>Here, we are in the case where we want the student to create a function, which means we have to provide him with it’s signature in the workspace. Our Sum function needs to take in two parameters, the two numbers to sum (let’s call them a and b), and return the resulting sum.</p>
+<p>First, click the “Workspace” tab and open the “Function” category. Out of the three blocks, we need the functions that returns, which is the second block on the image here.</p>
+<img alt="_images/function.png" class="align-center" src="_images/function.png" />
+<p>Now, configure the function. The wheel icons allow us to add parameters. Simply name your parameter (<em>x</em> by default), then connect the block into the right space, like so :</p>
+<a class="reference internal image-reference" href="_images/param1.png"><img alt="_images/param1.png" src="_images/param1.png" style="width: 49%;" /></a>
+<a class="reference internal image-reference" href="_images/param2.png"><img alt="_images/param2.png" src="_images/param2.png" style="width: 49%;" /></a>
+<p>The <em>?</em> icon allows us to set a tooltip (text that show on mouseover) simply by typing in the field :</p>
+<img alt="_images/tooltip.png" class="align-center" src="_images/tooltip.png" />
+<p>Finally, we have to name our function, changing the <em>do somthing</em> into what we want, here, <em>Sum</em> :</p>
+<img alt="_images/name.png" class="align-center" src="_images/name.png" />
+<p>Now, let’s create a variable to hold the result. Click on the “Variables” category and select “create variable”. Input your variable name, “result” for example, and it will be available in the category :</p>
+<a class="reference internal image-reference" href="_images/var1.png"><img alt="_images/var1.png" src="_images/var1.png" style="width: 39%;" /></a>
+<a class="reference internal image-reference" href="_images/var2.png"><img alt="_images/var2.png" src="_images/var2.png" style="width: 19%;" /></a>
+<a class="reference internal image-reference" href="_images/var3.png"><img alt="_images/var3.png" src="_images/var3.png" style="width: 39%;" /></a>
+<p>Finally, select the corresponding block and plug it into the “return” spot. Here is our basic workspace done, with the preview :</p>
+<img alt="_images/result1.png" class="align-center" src="_images/result1.png" />
+<p>Now, it is time to create the toolbox. Click on the corresponding tab, and select the blocks that you want for the task. In our case, we first need to re-create all the previous variables, the same way as we did for the <em>result</em> one (clicking on create variable). Here is what we end up with :</p>
+<img alt="_images/toolVar.png" class="align-center" src="_images/toolVar.png" />
+<p>Then, we want the <em>set</em> block, so we drag it to the toolbox. Using the arrow next to the variable name, we can select the variable we want by default (<em>result</em> in our case) :</p>
+<a class="reference internal image-reference" href="_images/pick.png"><img alt="_images/pick.png" src="_images/pick.png" style="width: 49%;" /></a>
+<a class="reference internal image-reference" href="_images/toolVar2.png"><img alt="_images/toolVar2.png" src="_images/toolVar2.png" style="width: 49%;" /></a>
+<p>Then, we add the two previously created variables “a” and “b” as well. Finally, we want the sum operator from the math category :</p>
+<img alt="_images/math1.png" class="align-center" src="_images/math1.png" />
+<p>And here is the final product with the preview :</p>
+<img alt="_images/finished.png" class="align-center" src="_images/finished.png" />
+<p>Click close, then save, and you are done with the graphical interface part of the task creation. You can now visualize your task on INGInious and connect blocks, but there is no correction or feedback yet. Here is what it will look like to the student :</p>
+<img alt="_images/studentResult.png" class="align-center" src="_images/studentResult.png" />
+<p>For the feedback, you’ll have to create a <code class="docutils literal notranslate"><span class="pre">run</span></code> and a file that contains the task correction. Let’s start with that one, that we will call <code class="docutils literal notranslate"><span class="pre">sum.py</span></code>. It has to first get the student’s code with an instruction like this : <code class="docutils literal notranslate"><span class="pre">&#64;&#64;subProblemID&#64;&#64;</span></code>. Then, you will be able to call the created function with it’s name (here “Sum”), and then run any tests you want. To comply with the usual INGInious run file, you have to output “True” if the tests pass, and some feedback followed by <code class="docutils literal notranslate"><span class="pre">exit()</span></code> for a failure. The following code is an example for our sum function :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre>#!/bin/python3
+#Open source licence goes here
+
+from contextlib import redirect_stdout
+import random
+
+@@Sum@@ #The id of your subproblem goes here
+
+if __name__ == &quot;__main__&quot;:
+    random.seed(55)
+    for j in range(6): #let&#39;s test 6 times
+        a = random.randint(0,10)
+        b = random.randint(0,10)
+        result = Sum(a, b)
+        if(result != (a+b)):
+            print(&quot;The sum you returned for the values &quot; + str(a) + &quot; and &quot; + str(b) +
+            &quot; is &quot; + str(result) + &quot; when the correct answer is &quot; + str(a+b) + &quot;.&quot;)
+            exit()
+    print(&quot;True&quot;)
+</pre></div>
+</div>
+<p>For such a simple task, the basic <code class="docutils literal notranslate"><span class="pre">run</span></code> file is sufficient, with only two lines to modify, where you will have to put the name of your correction file. Here is the corresponding code for our sum task:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="c">#!/bin/python3</span>
+<span class="c">#Open source licence goes here</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">shlex</span>
+<span class="kn">from</span> <span class="nn">inginious</span> <span class="kn">import</span> <span class="n">feedback</span>
+<span class="kn">from</span> <span class="nn">inginious</span> <span class="kn">import</span> <span class="nb">input</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="nb">input</span><span class="o">.</span><span class="n">parse_template</span><span class="p">(</span><span class="s">&quot;sum.py&quot;</span><span class="p">)</span> <span class="c">#Replace sum.py by your filename on this line and the next</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">shlex</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;python3 sum.py&quot;</span><span class="p">),</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+    <span class="n">make_output</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">communicate</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">returncode</span><span class="p">:</span>
+        <span class="n">feedback</span><span class="o">.</span><span class="n">set_global_result</span><span class="p">(</span><span class="s">&quot;failed&quot;</span><span class="p">)</span>
+        <span class="n">feedback</span><span class="o">.</span><span class="n">set_global_feedback</span><span class="p">(</span><span class="s">&quot;Your code could not be executed. Please verify that all your blocks are correctly connected.&quot;</span><span class="p">)</span>
+        <span class="nb">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">make_output</span> <span class="o">==</span> <span class="s">&quot;True</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">:</span>
+        <span class="n">feedback</span><span class="o">.</span><span class="n">set_global_result</span><span class="p">(</span><span class="s">&quot;success&quot;</span><span class="p">)</span>
+        <span class="n">feedback</span><span class="o">.</span><span class="n">set_global_feedback</span><span class="p">(</span><span class="s">&quot;You solved the task !&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">feedback</span><span class="o">.</span><span class="n">set_global_result</span><span class="p">(</span><span class="s">&quot;failed&quot;</span><span class="p">)</span>
+        <span class="n">feedback</span><span class="o">.</span><span class="n">set_global_feedback</span><span class="p">(</span><span class="s">&quot;You made a mistake ! &quot;</span> <span class="o">+</span> <span class="n">make_output</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Those two files need to go in your task folder, and the task creation is complete !</p>
+</div>
+<div class="section" id="example-create-the-sum-function-by-hand">
+<h2>Example : create the sum function by hand<a class="headerlink" href="#example-create-the-sum-function-by-hand" title="Permalink to this headline">¶</a></h2>
+<p>Both the toolbox and the workspace can also be created by hand (using xml code) when clicking on the “Edit toolbox XML” and “Edit workspace XML” buttons. We’ll go over how to configure those two to acheive the same set up as the previous example.</p>
+<p>First, xml tags must surround every other lines in both the toolbox and the workspace, like this :</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span class="nt">&lt;xml</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/xml&gt;</span>
+</pre></div>
+</div>
+<p>Then, for the toolbox, we need the variables <em>a</em>, <em>b</em> and <em>result</em>. The code for one variable is the following, only the content of the <code class="docutils literal notranslate"><span class="pre">field</span></code> tag changes to indicate the variable name. Here is the code for variable <em>a</em> :</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span class="nt">&lt;block</span> <span class="na">type=</span><span class="s">&quot;variables_get&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;VAR&quot;</span><span class="nt">&gt;</span>a<span class="nt">&lt;/field&gt;</span>
+<span class="nt">&lt;/block&gt;</span>
+</pre></div>
+</div>
+<p>We also need the sum operator block code, which is the following :</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre>  <span class="nt">&lt;block</span> <span class="na">type=</span><span class="s">&quot;math_arithmetic&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;OP&quot;</span><span class="nt">&gt;</span>ADD<span class="nt">&lt;/field&gt;</span>
+  <span class="nt">&lt;value</span> <span class="na">name=</span><span class="s">&quot;A&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;shadow</span> <span class="na">type=</span><span class="s">&quot;math_number&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;NUM&quot;</span><span class="nt">&gt;</span>1<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;/shadow&gt;</span>
+  <span class="nt">&lt;/value&gt;</span>
+  <span class="nt">&lt;value</span> <span class="na">name=</span><span class="s">&quot;B&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;shadow</span> <span class="na">type=</span><span class="s">&quot;math_number&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;NUM&quot;</span><span class="nt">&gt;</span>1<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;/shadow&gt;</span>
+  <span class="nt">&lt;/value&gt;</span>
+<span class="nt">&lt;/block&gt;</span>
+</pre></div>
+</div>
+<p>Each block will have different code, that you can find either online or by using the graphical interface. You can also customize a block by modifying the values (changing <em>ADD</em> for <em>MINUS</em> in the <code class="docutils literal notranslate"><span class="pre">field</span></code> tag will give you a minus operator block, for example).</p>
+<p>To recapitulate, this is the full code for the toolbox :</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span class="nt">&lt;xml</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;block</span> <span class="na">type=</span><span class="s">&quot;math_arithmetic&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;OP&quot;</span><span class="nt">&gt;</span>ADD<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;value</span> <span class="na">name=</span><span class="s">&quot;A&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;shadow</span> <span class="na">type=</span><span class="s">&quot;math_number&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;NUM&quot;</span><span class="nt">&gt;</span>1<span class="nt">&lt;/field&gt;</span>
+      <span class="nt">&lt;/shadow&gt;</span>
+    <span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;value</span> <span class="na">name=</span><span class="s">&quot;B&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;shadow</span> <span class="na">type=</span><span class="s">&quot;math_number&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;NUM&quot;</span><span class="nt">&gt;</span>1<span class="nt">&lt;/field&gt;</span>
+      <span class="nt">&lt;/shadow&gt;</span>
+    <span class="nt">&lt;/value&gt;</span>
+  <span class="nt">&lt;/block&gt;</span>
+  <span class="nt">&lt;block</span> <span class="na">type=</span><span class="s">&quot;variables_set&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;VAR&quot;</span><span class="nt">&gt;</span>result<span class="nt">&lt;/field&gt;</span>
+  <span class="nt">&lt;/block&gt;</span>
+  <span class="nt">&lt;block</span> <span class="na">type=</span><span class="s">&quot;variables_get&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;VAR&quot;</span><span class="nt">&gt;</span>a<span class="nt">&lt;/field&gt;</span>
+  <span class="nt">&lt;/block&gt;</span>
+  <span class="nt">&lt;block</span> <span class="na">type=</span><span class="s">&quot;variables_get&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;VAR&quot;</span><span class="nt">&gt;</span>b<span class="nt">&lt;/field&gt;</span>
+  <span class="nt">&lt;/block&gt;</span>
+  <span class="nt">&lt;block</span> <span class="na">type=</span><span class="s">&quot;variables_get&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;VAR&quot;</span><span class="nt">&gt;</span>result<span class="nt">&lt;/field&gt;</span>
+  <span class="nt">&lt;/block&gt;</span>
+<span class="nt">&lt;/xml&gt;</span>
+</pre></div>
+</div>
+<p>Now, for the workspace, we need our function again. The arguments are specified in the <code class="docutils literal notranslate"><span class="pre">mutation</span></code> tag, the name under <code class="docutils literal notranslate"><span class="pre">name</span></code> and the tooltip under <code class="docutils literal notranslate"><span class="pre">comment</span></code>. Finally, our result variable is specified by a special <code class="docutils literal notranslate"><span class="pre">value</span></code> tag, with the name <em>RETURN</em>. Here is the code for the workspace.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span class="nt">&lt;xml</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;block</span> <span class="na">type=</span><span class="s">&quot;procedures_defreturn&quot;</span> <span class="na">deletable=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;mutation&gt;</span>
+      <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;a&quot;</span><span class="nt">&gt;&lt;/arg&gt;</span>
+      <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;b&quot;</span><span class="nt">&gt;&lt;/arg&gt;</span>
+    <span class="nt">&lt;/mutation&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;NAME&quot;</span><span class="nt">&gt;</span>Sum<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;comment</span> <span class="na">pinned=</span><span class="s">&quot;false&quot;</span> <span class="na">h=</span><span class="s">&quot;80&quot;</span> <span class="na">w=</span><span class="s">&quot;160&quot;</span><span class="nt">&gt;</span>Return the sum of values a and b…<span class="nt">&lt;/comment&gt;</span>
+    <span class="nt">&lt;value</span> <span class="na">name=</span><span class="s">&quot;RETURN&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;block</span> <span class="na">type=</span><span class="s">&quot;variables_get&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;VAR&quot;</span><span class="nt">&gt;</span>result<span class="nt">&lt;/field&gt;</span>
+      <span class="nt">&lt;/block&gt;</span>
+    <span class="nt">&lt;/value&gt;</span>
+  <span class="nt">&lt;/block&gt;</span>
+<span class="nt">&lt;/xml&gt;</span>
+</pre></div>
+</div>
+<p>At this point, we have the exact same result as in the previous example. But modifying the toolbox by hand might give you a finer control over the final display. For example, we could create a <em>Variable</em> and a <em>Math</em> category, which will make the display lighter. This can be done with <code class="docutils literal notranslate"><span class="pre">category</span></code> tags, like so :</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span class="nt">&lt;xml</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;category</span> <span class="na">name=</span><span class="s">&quot;Math&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;block</span> <span class="na">type=</span><span class="s">&quot;math_arithmetic&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;OP&quot;</span><span class="nt">&gt;</span>ADD<span class="nt">&lt;/field&gt;</span>
+      <span class="nt">&lt;value</span> <span class="na">name=</span><span class="s">&quot;A&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;shadow</span> <span class="na">type=</span><span class="s">&quot;math_number&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;NUM&quot;</span><span class="nt">&gt;</span>1<span class="nt">&lt;/field&gt;</span>
+        <span class="nt">&lt;/shadow&gt;</span>
+      <span class="nt">&lt;/value&gt;</span>
+      <span class="nt">&lt;value</span> <span class="na">name=</span><span class="s">&quot;B&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;shadow</span> <span class="na">type=</span><span class="s">&quot;math_number&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;NUM&quot;</span><span class="nt">&gt;</span>1<span class="nt">&lt;/field&gt;</span>
+        <span class="nt">&lt;/shadow&gt;</span>
+      <span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/block&gt;</span>
+  <span class="nt">&lt;/category&gt;</span>
+  <span class="nt">&lt;category</span> <span class="na">name=</span><span class="s">&quot;Variables&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;block</span> <span class="na">type=</span><span class="s">&quot;variables_set&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;VAR&quot;</span><span class="nt">&gt;</span>result<span class="nt">&lt;/field&gt;</span>
+      <span class="nt">&lt;/block&gt;</span>
+      <span class="nt">&lt;block</span> <span class="na">type=</span><span class="s">&quot;variables_get&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;VAR&quot;</span><span class="nt">&gt;</span>a<span class="nt">&lt;/field&gt;</span>
+      <span class="nt">&lt;/block&gt;</span>
+      <span class="nt">&lt;block</span> <span class="na">type=</span><span class="s">&quot;variables_get&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;VAR&quot;</span><span class="nt">&gt;</span>b<span class="nt">&lt;/field&gt;</span>
+      <span class="nt">&lt;/block&gt;</span>
+      <span class="nt">&lt;block</span> <span class="na">type=</span><span class="s">&quot;variables_get&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;VAR&quot;</span><span class="nt">&gt;</span>result<span class="nt">&lt;/field&gt;</span>
+      <span class="nt">&lt;/block&gt;</span>
+  <span class="nt">&lt;/category&gt;</span>
+<span class="nt">&lt;/xml&gt;</span>
+</pre></div>
+</div>
+<p>Here is the result from the student’s point of view :</p>
+<a class="reference internal image-reference" href="_images/cat1.png"><img alt="_images/cat1.png" src="_images/cat1.png" style="width: 49%;" /></a>
+<a class="reference internal image-reference" href="_images/cat2.png"><img alt="_images/cat2.png" src="_images/cat2.png" style="width: 49%;" /></a>
+<p>To get the full documentation about what can be acheived when modifying the toolbox manually, head to <a class="reference external" href="https://developers.google.com/blockly/guides/configure/web/toolbox">this link</a> (Google documentation).</p>
+</div>
+<div class="section" id="example-an-only-workspace-task">
+<h2>Example : an “only workspace” task<a class="headerlink" href="#example-an-only-workspace-task" title="Permalink to this headline">¶</a></h2>
+<p>When creating a Blockly course, you might want your student to only re-order the blocks that are on the workspace rather than using a toolbox. This example will show you how to acheive that with the graphical interface. Here, we will take the very simple example of a function counting the number of occurence of a number n in a list and returns it.</p>
+<p>First, open the graphical editor, click on the workspace tab and create a function that takes two parameters <em>list</em> and <em>n</em>, and returns a value <em>return</em> (if you are not familiar with the graphical interface use, refer to <a class="reference internal" href="#example-create-the-sum-function-using-the-graphical-interface">Example : create the sum function (using the graphical interface)</a>)</p>
+<img alt="_images/workFun.png" class="align-center" src="_images/workFun.png" />
+<p>Then, from the <em>Variables</em> category, take the “set result to” block, and set it as the first block in the body of the function. From the <em>Math</em> category, get the “0” block, to first set result to zero. Here is the current progress :</p>
+<img alt="_images/workSet.png" class="align-center" src="_images/workSet.png" />
+<p>Next, from the <em>Loops</em> category, get the “for each item in list” block, plug it under the last one, and get the <em>list</em> variable to add it into the bloc :</p>
+<img alt="_images/workLoop.png" class="align-center" src="_images/workLoop.png" />
+<p>Add the “if” condition from the <em>Logic</em> category, and create our boolean <cite>i == n</cite> with blocks from <em>Logic</em> and <em>Variables</em></p>
+<img alt="_images/workBool.png" class="align-center" src="_images/workBool.png" />
+<p>Finally, get the “change result by” block from the <em>Variables</em> sections and connect it to the body of the if. This is our correct function :</p>
+<img alt="_images/workFin.png" class="align-center" src="_images/workFin.png" />
+<p>Now, we can purposefully add problems that the sudent will have to solve. We could change the boolean <cite>==</cite> to something else, or, in our case, move the “set result to 0” block inside the loop body, like this :</p>
+<img alt="_images/workFalse.png" class="align-center" src="_images/workFalse.png" />
+<p>Here is what the student will see on INGInious :</p>
+<img alt="_images/workStud.png" class="align-center" src="_images/workStud.png" />
+<p>Again, we need to create a <cite>run</cite> file (same as the last one, will not be detailed here) and a correction file. Here is the code for the last one :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre>#!/bin/python3
+# Open source licence goes here
+from contextlib import redirect_stdout
+import random
+
+@@count@@
+
+def countList(List, n):
+  res = 0
+  for i in List:
+    if i == n:
+        res += 1
+  return res
+
+
+if __name__ == &quot;__main__&quot;:
+    random.seed(55)
+    for i in range(6): #6 tests
+        List = []
+        for j in range(15): #lists of 15 elements
+            List.append(random.randint(0,10))
+        n = random.randint(0,10)
+        correct = countList(List, n)
+        output = Count(List, n)
+        if(correct != output):
+            print(&quot;For the list &quot;+str(List)+ &quot; and the number &quot;+str(n)+ &quot; you have returned &quot;
+            + str(output) + &quot; when the correct answer is &quot; + str(correct) + &quot;.&quot;)
+            exit()
+    print(&quot;True&quot;)
+</pre></div>
+</div>
+<p>To make the correction and feedback easier, we defined a function giving the correct answer, and compare this function’s result the the student one. We then run a few tests on random inputs. With the basic run file and this one in your task folder, it is complete.</p>
+</div>
+<div class="section" id="example-create-a-custom-block-if-else">
+<h2>Example : create a custom block (if/else)<a class="headerlink" href="#example-create-a-custom-block-if-else" title="Permalink to this headline">¶</a></h2>
+<p>If you feel like the existing blocks do not provide enough functionalities, you can create your own and export them. To do so, head to <a class="reference external" href="https://blockly-demo.appspot.com/static/demos/blockfactory/index.html">this link</a>, which is a factory allowing you to create new blocks using Blockly itself. This is the first screen :</p>
+<img alt="_images/baseScreen.png" class="align-center" src="_images/baseScreen.png" />
+<p>You will construct your block using the left side, while the right side is a live preview of both the visual and the code that will be generated. Let’s construct an <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">else</span></code> block. First, enter a name for it in the top field. It has to be unique accross all Blockly blocks, so we will call it “custom_if_else”. Then, we can set a tooltip in the corresponding field, and pick a color for the block usting the “hue” block (the color won’t change the behavior).</p>
+<img alt="_images/blockCustom1.png" class="align-center" src="_images/blockCustom1.png" />
+<p>We will now construct the slots that our new block need. Since we are doing an <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">else</span></code> we need to attach one boolean condition (the if condition), and two slots to put statements. This can be done with the <em>Input</em> category of the factory. There is three types of inputs : value, statement and dummy.</p>
+<p>The value input create slots to the right of the block to plug in blocks that return a value, this is what we need for our condition. Each input needs to have an unique name across the block, and a type that is accepted. In our case, we name the input “COND” (capitals are a convention but not mendatory), and we set the type to <em>boolean</em> using the block in the category <em>Type</em>.</p>
+<img alt="_images/blockCustom2.png" class="align-center" src="_images/blockCustom2.png" />
+<p>Now, we need the slots to put the statements. Again, click on the <em>Input</em> category and drag two <em>statements</em> blocks (dummy input won’t be used in this tutorial, they simply allow to add extra space to a block for annotations but are not interactive). We need to name those inputs, respectively “IF_STAT” and “ELSE_STAT”.</p>
+<img alt="_images/blockCustom3.png" class="align-center" src="_images/blockCustom3.png" />
+<p>Now, our block has the correct structure, but adding text to it would make it clearer. This can be done using the <em>Field</em> category. There is a lot of different field items (user input, drop down, color pickers,…), to which you can find documentation <a class="reference external" href="https://developers.google.com/blockly/guides/create-custom-blocks/blockly-developer-tools">here</a>.</p>
+<p>In our case, we need two <em>text</em> fields, one in the value input, and one in the second statement input. In the first field, we write “if”, and in the second “else” (here, there is no need for the values to be unique).</p>
+<img alt="_images/blockCustom4.png" class="align-center" src="_images/blockCustom4.png" />
+<p>Finally, we need to define the way our block interact with other using the connections drop-down list. Currently, <em>no connection</em> is selected, meaning that we can’t plug the block into anything (this is the correct option for a function body for example). We need to be able to plug it into a block and to plug blocks after it, so we pick <em>top + bottom connections</em>, and here is our block done :</p>
+<img alt="_images/blockCustom5.png" class="align-center" src="_images/blockCustom5.png" />
+<p>Now, we need to export it. First, click on the green <code class="docutils literal notranslate"><span class="pre">Save</span> <span class="pre">&quot;custom_if_else&quot;</span></code> button. Then, click on the <code class="docutils literal notranslate"><span class="pre">Block</span> <span class="pre">Exporter</span></code> tab :</p>
+<img alt="_images/blockCustom6.png" class="align-center" src="_images/blockCustom6.png" />
+<p>Check the box next to our block name (this allows you to export multiple blocks at a time). We need the Python version of the code, so change the language of the generator and pick file names (here, <em>custom.json</em> and <em>custom.js</em>), then click <code class="docutils literal notranslate"><span class="pre">Export</span></code> :</p>
+<img alt="_images/blockCustom7.png" class="align-center" src="_images/blockCustom7.png" />
+<p>Save both files and you can close the tab, we will not use it anymore. To make it simpler, INGInious only uses one file to define all custom blocks, so we will need to copy over the code we downloaded. This is the general structure of the file we will create :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span class="c1">//License</span>
+<span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+<span class="nx">Blockly</span><span class="p">.</span><span class="nx">Blocks</span><span class="p">[</span><span class="s1">&#39;block_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">jsonInit</span><span class="p">({</span>
+      <span class="c1">//JSON code for the block</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">Blockly</span><span class="p">.</span><span class="nx">Python</span><span class="p">[</span><span class="s1">&#39;block_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">block</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">//Generated code for the block</span>
+  <span class="c1">//Custom code to represent the block</span>
+  <span class="k">return</span> <span class="nx">code</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Using the code we generated, we get :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span class="c1">//License</span>
+<span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+<span class="nx">Blockly</span><span class="p">.</span><span class="nx">Blocks</span><span class="p">[</span><span class="s1">&#39;block_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">jsonInit</span><span class="p">({</span>
+      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;custom_if_else&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;message0&quot;</span><span class="o">:</span> <span class="s2">&quot;if %1 %2 else %3&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;args0&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;input_value&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;COND&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;check&quot;</span><span class="o">:</span> <span class="s2">&quot;Boolean&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;input_statement&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;IF_STAT&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;input_statement&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;ELSE_STAT&quot;</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;previousStatement&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">&quot;nextStatement&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">&quot;colour&quot;</span><span class="o">:</span> <span class="mi">285</span><span class="p">,</span>
+      <span class="s2">&quot;tooltip&quot;</span><span class="o">:</span> <span class="s2">&quot;if COND is true, execute the first block. Otherwise, execute the second&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;helpUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">Blockly</span><span class="p">.</span><span class="nx">Python</span><span class="p">[</span><span class="s1">&#39;block_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">block</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">value_cond</span> <span class="o">=</span> <span class="nx">Blockly</span><span class="p">.</span><span class="nx">Python</span><span class="p">.</span><span class="nx">valueToCode</span><span class="p">(</span><span class="nx">block</span><span class="p">,</span> <span class="s1">&#39;COND&#39;</span><span class="p">,</span> <span class="nx">Blockly</span><span class="p">.</span><span class="nx">Python</span><span class="p">.</span><span class="nx">ORDER_ATOMIC</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">statements_if_stat</span> <span class="o">=</span> <span class="nx">Blockly</span><span class="p">.</span><span class="nx">Python</span><span class="p">.</span><span class="nx">statementToCode</span><span class="p">(</span><span class="nx">block</span><span class="p">,</span> <span class="s1">&#39;IF_STAT&#39;</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">statements_else_stat</span> <span class="o">=</span> <span class="nx">Blockly</span><span class="p">.</span><span class="nx">Python</span><span class="p">.</span><span class="nx">statementToCode</span><span class="p">(</span><span class="nx">block</span><span class="p">,</span> <span class="s1">&#39;ELSE_STAT&#39;</span><span class="p">);</span>
+  <span class="c1">// TODO: Assemble Python into code variable.</span>
+  <span class="kd">var</span> <span class="nx">code</span> <span class="o">=</span> <span class="s1">&#39;...\n&#39;</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">code</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Now, we only need to link all the parts of our block into the corresponding python code. More details on how to get the code out of a block can be found on <a class="reference external" href="https://developers.google.com/blockly/guides/create-custom-blocks/generating-code">this link</a>. Here, we simply need to write the if/else structure around the part we already got in the variables and put it in a string :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span class="nx">Blockly</span><span class="p">.</span><span class="nx">Python</span><span class="p">[</span><span class="s1">&#39;block_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">block</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">value_cond</span> <span class="o">=</span> <span class="nx">Blockly</span><span class="p">.</span><span class="nx">Python</span><span class="p">.</span><span class="nx">valueToCode</span><span class="p">(</span><span class="nx">block</span><span class="p">,</span> <span class="s1">&#39;COND&#39;</span><span class="p">,</span> <span class="nx">Blockly</span><span class="p">.</span><span class="nx">Python</span><span class="p">.</span><span class="nx">ORDER_ATOMIC</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">statements_if_stat</span> <span class="o">=</span> <span class="nx">Blockly</span><span class="p">.</span><span class="nx">Python</span><span class="p">.</span><span class="nx">statementToCode</span><span class="p">(</span><span class="nx">block</span><span class="p">,</span> <span class="s1">&#39;IF_STAT&#39;</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">statements_else_stat</span> <span class="o">=</span> <span class="nx">Blockly</span><span class="p">.</span><span class="nx">Python</span><span class="p">.</span><span class="nx">statementToCode</span><span class="p">(</span><span class="nx">block</span><span class="p">,</span> <span class="s1">&#39;ELSE_STAT&#39;</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">code</span> <span class="o">=</span> <span class="s1">&#39;if &#39;</span><span class="o">+</span><span class="nx">value_cond</span><span class="o">+</span><span class="s2">&quot; :\n&quot;</span><span class="o">+</span><span class="nx">statements_if_stat</span><span class="o">+</span><span class="s2">&quot; \nelse:\n&quot;</span><span class="o">+</span><span class="nx">statements_else_stat</span><span class="o">+</span><span class="s2">&quot;\n&quot;</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">code</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Now, we will save all that into a file, <em>custom_block.js</em>, and head to INGInious. First, create a new task and a Blockly subproblem, then copy your file into a public directory in your task (<code class="docutils literal notranslate"><span class="pre">task_name/public</span></code>). Refresh (F5) the task edition page to see you file. Then, on the corresponding subproblem, add your file name as “Additional block file” by clicking the blue button and typing the name of the file.</p>
+<img alt="_images/blockCustom8.png" class="align-center" src="_images/blockCustom8.png" />
+<p>Hit “Save changes” (top or bottom of the page), then refresh again. Now, you can use your block as any other to in your task, finding it under the <em>Block Library</em> category when using the graphical interface :</p>
+<img alt="_images/blockCustom9.png" class="align-center" src="_images/blockCustom9.png" />
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="VisualDocumentation.html" class="btn btn-neutral float-right" title="How to change the maze’s visuals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to JobBlockly’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Celine Deknop.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

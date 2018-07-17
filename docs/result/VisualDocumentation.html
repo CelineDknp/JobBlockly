@@ -1,0 +1,297 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How to change the maze’s visuals &mdash; JobBlockly  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="JobBlockly  documentation" href="index.html"/>
+        <link rel="prev" title="How to create a basic Blockly task ?" href="BaseBlockly.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> JobBlockly
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BaseBlockly.html">How to create a <em>basic</em> Blockly task ?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to change the maze’s visuals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#files-you-will-need">Files you will need</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#files-to-modify">Files to modify</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">JobBlockly</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>How to change the maze’s visuals</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/VisualDocumentation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-change-the-maze-s-visuals">
+<h1>How to change the maze’s visuals<a class="headerlink" href="#how-to-change-the-maze-s-visuals" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="files-you-will-need">
+<h2>Files you will need<a class="headerlink" href="#files-you-will-need" title="Permalink to this headline">¶</a></h2>
+<p>First, you will need all those files, in the exact specified format.</p>
+<p>A background representing an 8x8 board, in png format, for example the following :</p>
+<img alt="_images/background.png" class="align-center" src="_images/background.png" />
+<p>A file representing all possible intersections of the path and, if wanted, two “passive” entities to populate the map in png.</p>
+<img alt="_images/tiles.png" class="align-center" src="_images/tiles.png" />
+<p>A sprite for the avatar in png, with the following format : 21 frames of equal size and equally spaced, with the character in the center of each one. The frames need to be ordered this way :</p>
+<ul class="simple">
+<li>The first (left) sprite is the character from the back. Then, we have a transition where it turns on it’s right in three steps</li>
+<li>The next frame, the 5th one, is the character on it’s right profile. Then, another transition with a turn to the right in three steps</li>
+<li>The 9th fame is then the character from the front. Again, the three next are a transition to the right.</li>
+<li>The 13th frame is the left profile, followed by the last transition, getting us to 16 images</li>
+<li>Finally, 5 images representing a walking animation (currently not used by the application, you can put any frame) to get to the 21.</li>
+</ul>
+<img alt="_images/avatar.png" class="align-center" src="_images/avatar.png" />
+<p>A marker representing the goal of the maze idle, when the character is on another tile. As every other “interactive” part of the maze, it is usually in gif, but a png would work as well</p>
+<img alt="_images/goalIdle.gif" class="align-center" src="_images/goalIdle.gif" />
+<p>The marker when it is reached by the character and the game is won (gif or png)</p>
+<img alt="_images/goal.gif" class="align-center" src="_images/goal.gif" />
+<p>An obstacle idle, when the character is on another tile (gif or png)</p>
+<img alt="_images/obstacleIdle.gif" class="align-center" src="_images/obstacleIdle.gif" />
+<p>The obstacle when killing the character, ending the game (gif or png)</p>
+<img alt="_images/obstacle.gif" class="align-center" src="_images/obstacle.gif" />
+<p>You may also add, but do not need to :</p>
+<ul class="simple">
+<li>mp3 and ogg files with a sound to be played when the character hit an obstacle</li>
+<li>mp3 and ogg files with a sound to be played when the character looses the game without hitting an obstacle</li>
+<li>mp3 and ogg files with a sound to be played when the character wins the game</li>
+</ul>
+<p>All of those files need to be put in the task folder, under : <code class="docutils literal notranslate"><span class="pre">taskName/public/maze</span></code></p>
+</div>
+<div class="section" id="files-to-modify">
+<h2>Files to modify<a class="headerlink" href="#files-to-modify" title="Permalink to this headline">¶</a></h2>
+<p>The only file to modify is <code class="docutils literal notranslate"><span class="pre">maze.js</span></code>, that you will find under <code class="docutils literal notranslate"><span class="pre">taskname/public</span></code>. At the beginning (line 37 to 52), you will have to tweak a few parameters of the variable <em>Maze.SKIN</em> and to replace the names of the files with your own files, like so :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="n">Maze</span><span class="o">.</span><span class="n">SKIN</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">sprite</span><span class="p">:</span> <span class="n">task_directory_path</span> <span class="o">+</span> <span class="s">&#39;maze/avatar.png&#39;</span><span class="p">,</span>
+      <span class="c">#Rest of the parameters</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Will become :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span class="n">Maze</span><span class="o">.</span><span class="n">SKIN</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">sprite</span><span class="p">:</span> <span class="n">task_directory_path</span> <span class="o">+</span> <span class="s">&#39;maze/myAvatarName.png&#39;</span><span class="p">,</span>
+  <span class="c">#Rest of the parameters</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Here is a break down of all the variables and what they correspond to :</p>
+<ul class="simple">
+<li>sprite: your avatar</li>
+<li>tiles: the tiles to show the paths</li>
+<li>marker: the marker or goal of the maze when idle</li>
+<li>goalAnimation: the marker when the game is won</li>
+<li>obstacleIdle: the obstacle when idle</li>
+<li>obstacleAnimation: the obstacle killing the character</li>
+<li>obstacleScale: the scale of the obstacle regarding the maze, the higher the bigger</li>
+<li>background: the background for the paze (png)</li>
+<li>graph and look, no need to modify</li>
+<li>obstacleSound: both sounds file for when the character hits an obstacle or <code class="docutils literal notranslate"><span class="pre">[&quot;&quot;]</span></code> if you don’t want any</li>
+<li>winSound: both sounds file for when the character wins de game or <code class="docutils literal notranslate"><span class="pre">[&quot;&quot;]</span></code> if you don’t want any</li>
+<li>crashSound: both sounds file for when the character looses the game or <code class="docutils literal notranslate"><span class="pre">[&quot;&quot;]</span></code> if you don’t want any</li>
+<li>crashType: to not modify</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="BaseBlockly.html" class="btn btn-neutral" title="How to create a basic Blockly task ?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Celine Deknop.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
