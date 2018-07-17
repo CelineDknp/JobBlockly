@@ -42,27 +42,6 @@ Maze.SKIN = {
     obstacleIdle: res_path + 'obstacle.png',
     obstacleAnimation: '',
 
-    //Unused
-    look: '#000',
-    movePegmanAnimation: res_path + 'move_avatar.png',
-    movePegmanAnimationFrameNumber: 9,
-    movePegmanAnimationSpeedScale: 1.5,
-    nectarSound: [res_path + 'getNectar.mp3', res_path + 'getNectar.ogg'],
-    nonDisappearingPegmanHittingObstacle: true,
-    turnAfterVictory: false,
-    wall0Sound: [res_path + 'wall0.mp3', res_path + 'wall0.ogg'],
-    wall1Sound: [res_path + 'wall1.mp3', res_path + 'wall1.ogg'],
-    wall2Sound: [res_path + 'wall2.mp3', res_path + 'wall2.ogg'],
-    wall3Sound: [res_path + 'wall3.mp3', res_path + 'wall3.ogg'],
-    wall4Sound: [res_path + 'wall4.mp3', res_path + 'wall4.ogg'],
-    wallPegmanAnimation: res_path + 'wall_avatar.png',
-    wallSound: [res_path + 'wall.mp3', res_path + 'wall.ogg'],
-    beeSound: true,
-    danceOnLoad: false,
-    hittingWallAnimation: res_path + 'wall.gif',
-    honeySound: [res_path + 'makeHoney.mp3', res_path + 'makeHoney.ogg'],
-    avatarIdle: res_path + 'idle_avatar.gif',
-
     crashType: Maze.CRASH_STOP
 };
 
@@ -82,7 +61,8 @@ Maze.SquareType = json.map.squareType;
 Maze.map = json.map.layout[0];
 // The special cells (flowers, honey and cloud)
 Maze.mapCells = json.map.specialCells;
-// Set the remainingValue fields
+
+// Set the remainingValue fields and other options
 for (var kind in Maze.mapCells) { //For each kind of cell
     if(kind != "cloud"){
         for(var cell of Maze.mapCells[kind]){
@@ -877,11 +857,6 @@ Maze.move = function(direction, id) {
             break;
     }
     Maze.log.push([command, id]);
-
-    // TODO maybe add this
-    // if (Maze.shouldCheckSuccessOnMove()) {
-    //     Maze.checkSuccess();
-    // }
 };
 
 /**
@@ -892,11 +867,9 @@ Maze.move = function(direction, id) {
 Maze.turn = function(direction, id) {
     if (direction) {
         // Right turn (clockwise).
-        // Maze.pegmanD++;
         Maze.log.push(['right', id]);
     } else {
         // Left turn (counterclockwise).
-        // Maze.pegmanD--;
         Maze.log.push(['left', id]);
     }
     Maze.pegmanD = Maze.constrainDirection4(Maze.pegmanD);

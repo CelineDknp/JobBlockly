@@ -187,7 +187,6 @@ Turtle.addSolution = function(){
     	ctx.drawImage(img, 0, 0);
     	Turtle.updateImage();
   	}
-	
 }
 
 
