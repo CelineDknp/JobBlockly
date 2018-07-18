@@ -1,0 +1,81 @@
+accessible: true
+author: Florian Thuin
+context: Ces fleurs pourpres ont une quantité inconnue de nectar. Utilise une boucle
+    «Tant que nectar» pour recueillir tout le nectar. Cette boucle s'exécutera tant
+    que la condition est vraie, dans ce cas «Nectar > 0».
+environment: default
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: Exercice 4
+network_grading: false
+order: 0
+problems:
+    code:
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+              <block type="maze_move">
+                <field name="DIR">moveForward</field>
+              </block>
+              <block type="maze_turn">
+                <field name="DIR">turnLeft</field>
+              </block>
+              <block type="maze_turn">
+                <field name="DIR">turnRight</field>
+              </block>
+              <block type="maze_nectar"></block>
+              <block type="maze_honey"></block>
+              <block type="controls_repeat">
+                <field name="TIMES">???</field>
+              </block>
+              <block type="custom_while_bee">
+                <field name="KIND">nectarRemaining</field>
+                <field name="COMP">&gt;</field>
+                <field name="NUMBER">0</field>
+              </block>
+            </xml>
+        options:
+            grid:
+                length: 3
+                spacing: 20
+                colour: '#ccc'
+                snap: true
+            zoom:
+                minScale: 0.3
+                startScale: 1.0
+                maxScale: 3.0
+                scaleSpeed: 1.2
+                controls: true
+                wheel: false
+            media: /static/common/js/blockly/media/
+            oneBasedIndex: true
+            scrollbars: true
+            sounds: true
+            visual:
+                position: left
+            toolboxPosition: start
+            css: true
+            maxBlocks: Infinity
+            trashcan: true
+        name: ''
+        header: ''
+        files:
+        - maze.js
+        - interpreter.js
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml" id="workspaceBlocks"
+              style="display:none"></xml>
+        type: blockly
+        blocks_files:
+        - blocks.js
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0

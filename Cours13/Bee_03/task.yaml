@@ -1,0 +1,77 @@
+accessible: true
+author: Florian Thuin
+context: Recueille tout le nectar à l’aide d’une boucle imbriquée.
+environment: default
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: Exercice 3
+network_grading: false
+order: 0
+problems:
+    code:
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="maze_move">
+                <field name="DIR">moveForward</field>
+              </block>
+              <block type="maze_turn">
+                <field name="DIR">turnLeft</field>
+              </block>
+              <block type="maze_turn">
+                <field name="DIR">turnRight</field>
+              </block>
+              <block type="maze_nectar"></block>
+              <block type="controls_repeat">
+                <field name="TIMES">???</field>
+              </block>
+              <block type="maze_honey"></block>
+            </xml>
+        options:
+            grid:
+                length: 3
+                spacing: 20
+                colour: '#ccc'
+                snap: true
+            zoom:
+                minScale: 0.3
+                startScale: 1.0
+                maxScale: 3.0
+                scaleSpeed: 1.2
+                controls: true
+                wheel: false
+            media: /static/common/js/blockly/media/
+            oneBasedIndex: true
+            scrollbars: true
+            sounds: true
+            visual:
+                position: left
+            toolboxPosition: start
+            css: true
+            maxBlocks: Infinity
+            trashcan: true
+        name: ''
+        header: |
+            .. image:: 01_maze/maze/small_static_avatar.png
+                :height: 40px
+
+            **Aide-moi à récolter tout le nectar de chaque fleur.**
+        files:
+        - maze.js
+        - interpreter.js
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml" id="workspaceBlocks"
+              style="display:none"></xml>
+        type: blockly
+        blocks_files:
+        - blocks.js
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
