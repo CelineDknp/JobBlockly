@@ -7,31 +7,32 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
+    output: '2'
     memory: '100'
     time: '30'
-    output: '2'
 name: Exercice 4
 network_grading: false
 order: 0
 problems:
     code:
-        blocks_files:
-        - blocks.js
         options:
-            maxBlocks: '45'
-            sounds: true
-            trashcan: true
+            scrollbars: true
             visual:
                 position: left
-            media: /static/common/js/blockly/media/
             oneBasedIndex: true
+            media: /static/common/js/blockly/media/
             toolboxPosition: start
-            scrollbars: true
             css: true
+            trashcan: true
+            sounds: true
+            maxBlocks: '45'
         files:
         - turtle.js
         - interpreter.js
         type: blockly
+        name: ''
+        blocks_files:
+        - blocks.js
         workspace: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
               <variables></variables>
@@ -59,9 +60,10 @@ problems:
                 </next>
               </block>
             </xml>
-        header: ''
         toolbox: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+              <category name="mouvement" colour="150">
               <variables></variables>
               <block type="turtle_move">
                 <field name="DIR">moveForward</field>
@@ -75,50 +77,60 @@ problems:
                 <field name="DIR">turnRight</field>
                 <field name="VALUE">90</field>
               </block>
+              <block type="turtle_turn_internal">
+                <field name="DIR">turnLeft</field>
+                <field name="VALUE">90</field>
+              </block>
+            </category>
+               <category name="couleur" colour="0">
+              <variables></variables>
               <block type="turtle_colour">
                 <value name="COLOUR">
                   <block type="colour_random"></block>
                 </value>
               </block>
-              <block type="turtle_pen">
-                <field name="PEN">penUp</field>
+            </category>
+              <category name="boucle" colour="120">
+              <variables></variables>
+              <block type="controls_repeat">
+                <field name="TIMES">???</field>
               </block>
-              <block type="controls_repeat_ext">
-                <value name="TIMES">
-                  <shadow type="math_number">
-                    <field name="NUM">0</field>
-                  </shadow>
-                </value>
-              </block>
+            </category>
             </xml>
-        name: ''
+        header: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 tags:
-    '3':
-        type: 0
-        id: '1'
-        visible: true
-        description: ''
-        name: Instructions avec paramètres
-    '4':
-        description: ''
-        name: Boucles "répéter X fois"
-        id: '2'
-        type: 0
-        visible: true
     '0':
+        type: 0
         visible: true
-        name: Lecon 2
-        type: 2
-        description: Exercice faisant partie de la leçon 2
-        id: ''
+        name: Instructions avec paramètres
+        description: ''
+        id: '1'
+    '1':
+        id: '2'
+        description: ''
+        type: 0
+        visible: true
+        name: Boucles "répéter X fois"
     '2':
         description: Faisant partie du parcours facile
         name: Facile
         type: 2
         visible: false
+        id: ''
+    '3':
+        name: Normal
+        description: Faisant partie du parcours normal
+        type: 2
+        visible: false
+        id: ''
+    '4':
+        type: 2
+        description: ''
+        name: Lecon5
+        visible: true
         id: ''
 weight: 1.0

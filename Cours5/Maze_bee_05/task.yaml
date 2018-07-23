@@ -7,37 +7,78 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '30'
     memory: '100'
     output: '2'
+    time: '30'
 name: Exercice 5
 network_grading: false
 order: 0
 problems:
     code:
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <category name="mouvement" colour="300">
+              <variables></variables>
+              <block type="maze_move">
+                <field name="DIR">moveForward</field>
+              </block>
+              <block type="maze_turn">
+                <field name="DIR">turnLeft</field>
+              </block>
+              <block type="maze_turn">
+                <field name="DIR">turnRight</field>
+              </block>
+            </category>
+                <category name="récupérer" colour="180">
+              <variables></variables>
+              <block type="maze_nectar"></block>
+              <block type="maze_honey"></block>
+            </category>
+                <category name="boucle" colour="120">
+              <variables></variables>
+              <block type="controls_repeat">
+                <field name="TIMES">???</field>
+              </block>
+            </category>
+            <category name="condition" colour="210">
+              <variables></variables>
+              <block type="custom_if_bee">
+                <field name="KIND">nectarRemaining</field>
+                <field name="COMP">&gt;</field>
+                <field name="NUMBER">0</field>
+              </block>
+            </category>
+            </xml>
         options:
-            toolboxPosition: start
-            grid:
-                spacing: 20
-                length: 3
-                colour: '#ccc'
-                snap: true
-            trashcan: true
             zoom:
                 scaleSpeed: 1.2
-                startScale: 1.0
                 controls: true
                 maxScale: 3.0
                 minScale: 0.3
+                startScale: 1.0
                 wheel: false
-            oneBasedIndex: true
+            grid:
+                length: 3
+                snap: true
+                spacing: 20
+                colour: '#ccc'
+            scrollbars: true
             visual:
                 position: left
+            oneBasedIndex: true
             media: /static/common/js/blockly/media/
+            toolboxPosition: start
+            trashcan: true
             css: true
-            maxBlocks: Infinity
-            scrollbars: true
             sounds: true
+            maxBlocks: Infinity
+        files:
+        - maze.js
+        - interpreter.js
+        type: blockly
+        name: ''
+        blocks_files:
+        - blocks.js
         workspace: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
               <variables></variables>
@@ -93,36 +134,6 @@ problems:
                 <comment pinned="false" h="80" w="160">Décrire cette fonction…</comment>
               </block>
             </xml>
-        files:
-        - maze.js
-        - interpreter.js
-        blocks_files:
-        - blocks.js
-        toolbox: |-
-            <xml xmlns="http://www.w3.org/1999/xhtml">
-              <variables></variables>
-              <block type="maze_move">
-                <field name="DIR">moveForward</field>
-              </block>
-              <block type="maze_turn">
-                <field name="DIR">turnLeft</field>
-              </block>
-              <block type="maze_turn">
-                <field name="DIR">turnRight</field>
-              </block>
-              <block type="custom_if_bee">
-                <field name="KIND">nectarRemaining</field>
-                <field name="COMP">&gt;</field>
-                <field name="NUMBER">0</field>
-              </block>
-              <block type="maze_nectar"></block>
-              <block type="controls_repeat">
-                <field name="TIMES">???</field>
-              </block>
-              <block type="maze_honey"></block>
-            </xml>
-        name: ''
-        type: blockly
         header: |4+
 
 stored_submissions: 0
@@ -131,33 +142,39 @@ submission_limit:
     period: -1
 tags:
     '0':
+        description: ''
         type: 0
         visible: true
-        description: ''
-        id: '1'
         name: Boucles répéter X fois
+        id: '1'
     '1':
-        type: 0
-        description: ''
-        name: Condition
-        visible: true
         id: '4'
+        description: ''
+        type: 0
+        visible: true
+        name: Condition
     '2':
+        type: 0
         description: ''
         name: Si/Sinon
-        visible: true
         id: '5'
-        type: 0
+        visible: true
     '3':
-        name: Normal
-        type: 2
         description: Fait partie du parcours normal
+        type: 2
+        name: Normal
         visible: false
         id: ''
     '4':
-        name: Challenge
-        description: Fait partie du parcours challenge
         type: 2
+        description: Fait partie du parcours challenge
+        name: Challenge
         visible: false
+        id: ''
+    '5':
+        visible: true
+        description: Fait partie de la leçon 7
+        name: Lecon 7
+        type: 2
         id: ''
 weight: 1.0

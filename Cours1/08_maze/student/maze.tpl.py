@@ -14,10 +14,26 @@ with open(dir_path.replace("student","public/")+'maze_config.json') as f:
 class BadPathException(Exception):
     pass
 
-MAP = data["map"]["layout"][0]
+MAP = None
 
-ROWS = len(MAP)
-COLS = len(MAP[0])
+ROWS = 0
+COLS = 0
+
+def init(map):
+    global ROWS,COLS,RESULT,PLAYER_ORIENTATION,MAP
+    MAP = map   
+    ROWS = len(map)
+    COLS = len(map[0])
+    RESULT = RESULT_TYPE[UNSET]
+    PLAYER_ORIENTATION = DIRECTION_TYPE[data["map"]["startDirection"]]
+    for y in range(ROWS):
+        for x in range(COLS):
+            if MAP[y][x] == SQUARE_TYPE[START]:
+                PLAYER_POSITION['x'] = x
+                PLAYER_POSITION['y'] = y
+            if MAP[y][x] == SQUARE_TYPE[FINISH]:
+                FINISH_POSITION['x'] = x
+                FINISH_POSITION['y'] = y
 
 UNSET = "UNSET"
 SUCCESS = "SUCCESS"
@@ -52,15 +68,6 @@ FINISH_POSITION = {
     'x': None,
     'y': None
 }
-
-for y in range(ROWS):
-    for x in range(COLS):
-        if MAP[y][x] == SQUARE_TYPE[START]:
-            PLAYER_POSITION['x'] = x
-            PLAYER_POSITION['y'] = y
-        if MAP[y][x] == SQUARE_TYPE[FINISH]:
-            FINISH_POSITION['x'] = x
-            FINISH_POSITION['y'] = y
 
 EAST = "EAST"
 SOUTH = "SOUTH"
@@ -176,10 +183,13 @@ def notDone():
 
 
 try:
-    student_code()
-    if isDone():
-        print("True", end='', flush=True)
-    else:
-        print("Il y a une erreur dans votre code.", end='', flush=True)
+    for i in range(len(data["map"]["layout"])):
+        init(data["map"]["layout"][i])
+        student_code()
+        if notDone():
+            print(str(data["map"]["layout"][i]), end='', flush=True)
+            quit()
+    print("True", end='', flush=True)
+
 except BadPathException:
     print("Le personnage emprunte un chemin inexistant.")

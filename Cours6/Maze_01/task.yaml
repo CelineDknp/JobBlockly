@@ -6,8 +6,8 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    memory: '100'
     output: '2'
+    memory: '100'
     time: '30'
 name: Exercice 1
 network_grading: false
@@ -15,19 +15,27 @@ order: 0
 problems:
     code:
         options:
-            toolboxPosition: start
             scrollbars: true
-            trashcan: true
-            media: /static/common/js/blockly/media/
             visual:
                 position: left
             oneBasedIndex: true
-            maxBlocks: '2'
-            sounds: true
+            media: /static/common/js/blockly/media/
+            toolboxPosition: start
             css: true
+            sounds: true
+            trashcan: true
+            maxBlocks: '2'
         files:
         - maze.js
         - interpreter.js
+        type: blockly
+        name: ''
+        blocks_files:
+        - blocks.js
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+            </xml>
         toolbox: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
               <variables></variables>
@@ -40,18 +48,40 @@ problems:
               </block>
               <block type="maze_forever"></block>
             </xml>
-        name: ''
-        workspace: |-
-            <xml xmlns="http://www.w3.org/1999/xhtml">
-              <variables></variables>
-            </xml>
-        blocks_files:
-        - blocks.js
         header: ''
-        type: blockly
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
-tags: {}
+tags:
+    '4':
+        type: 0
+        description: ''
+        name: Boucle "répéter jusqu'à"
+        visible: true
+        id: '1'
+    '0':
+        type: 2
+        visible: true
+        name: Lecon 8
+        description: ''
+        id: ''
+    '1':
+        description: ''
+        type: 2
+        name: Facile
+        visible: false
+        id: ''
+    '2':
+        description: ''
+        name: Normal
+        type: 2
+        visible: false
+        id: ''
+    '3':
+        name: Challenge
+        description: ''
+        type: 2
+        visible: false
+        id: ''
 weight: 1.0

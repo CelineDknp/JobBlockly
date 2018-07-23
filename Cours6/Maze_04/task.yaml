@@ -7,8 +7,8 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    memory: '100'
     output: '2'
+    memory: '100'
     time: '30'
 name: Exercice 4
 network_grading: false
@@ -16,21 +16,31 @@ order: 0
 problems:
     code:
         options:
-            toolboxPosition: start
             scrollbars: true
-            trashcan: true
-            media: /static/common/js/blockly/media/
             visual:
                 position: left
             oneBasedIndex: true
-            maxBlocks: Infinity
-            sounds: true
+            media: /static/common/js/blockly/media/
+            toolboxPosition: start
             css: true
+            trashcan: true
+            sounds: true
+            maxBlocks: Infinity
         files:
         - maze.js
         - interpreter.js
+        type: blockly
+        name: ''
+        blocks_files:
+        - blocks.js
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+            </xml>
         toolbox: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+              <category name="mouvement" colour="330">
               <variables></variables>
               <block type="maze_moveForward"></block>
               <block type="maze_turn">
@@ -39,23 +49,52 @@ problems:
               <block type="maze_turn">
                 <field name="DIR">turnRight</field>
               </block>
+            </category>
+              <category name="boucle" colour="120">
+              <variables></variables>
+              <block type="maze_forever"></block>
+            </category>
+              <category name="condition" colour="225">
+              <variables></variables>
               <block type="maze_if">
                 <field name="DIR">isPathForward</field>
               </block>
-              <block type="maze_forever"></block>
+            </category>
             </xml>
-        name: ''
-        workspace: |-
-            <xml xmlns="http://www.w3.org/1999/xhtml">
-              <variables></variables>
-            </xml>
-        blocks_files:
-        - blocks.js
         header: ''
-        type: blockly
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
-tags: {}
+tags:
+    '0':
+        type: 0
+        visible: true
+        name: 'Boucle '
+        description: ''
+        id: '1'
+    '1':
+        id: '2'
+        description: ''
+        type: 0
+        visible: true
+        name: Condition
+    '2':
+        description: ''
+        name: Lecon 8
+        visible: true
+        type: 2
+        id: ''
+    '3':
+        description: ''
+        name: Facile
+        type: 2
+        visible: false
+        id: ''
+    '4':
+        type: 2
+        description: ''
+        name: Normal
+        visible: false
+        id: ''
 weight: 1.0

@@ -31,7 +31,7 @@ To start, unzip the files of your choice into the course directory. You can free
 Create a new maze task
 ------------------------
 
-First, download the file `task_pvz <https://github.com/CelineDknp/JobBlockly/tree/master/BaseExercices>`_ or `task_pegman <https://github.com/CelineDknp/JobBlockly/tree/master/BaseExercices>`_, unzip it to create a task and make any changes you want to the titles, instructions, etc...
+First, download the file `task_pvz <https://github.com/CelineDknp/JobBlockly/tree/master/BaseExercices>`_, `task_pegman <https://github.com/CelineDknp/JobBlockly/tree/master/BaseExercices>`_ or `task_4_ennemies <https://github.com/CelineDknp/JobBlockly/tree/master/BaseExercices>`_, unzip it to create a task and make any changes you want to the titles, instructions, etc...
 
 The only file you have to edit to use this kind of task is ``maze_config.json`` under ``yourTask/public``. If you wish to change the graphical look of the maze, head to :doc:`this part <../VisualDocumentation>`  of the documentation to learn how to do so. If not, we will go over every element of the json file.
 
@@ -119,8 +119,6 @@ If you wish to change the orientation of the character at the start, change the 
     :align: center
 
 If you feel like the animation speed is a little bit too quick or too slow, update the value of the ``animationSpeed`` item.
-
-Finally, the items ``squareSize``, ``avatarHeight`` and ``avatarWidth`` can be changed to alter the overall look, but you should not touch them if you are just creating a new task.
 
 If you wish to change the subproblem id (not visible to user, so we would advise to not do it), you will have to modify the line 107 in the file ``yourtask/student/maze.tpl.py`` to correspond the name you picked. By default, we have :
 
@@ -260,7 +258,7 @@ The ``specialCells`` content is :
 
 This element only has the ``x`` and ``y`` coordinates, as well as the ``optional`` argument [1]_.
 
-As for the maze, if you feel like the animation speed is a little bit too quick or too slow, update the value of the ``animationSpeed`` item and the items ``squareSize``, ``avatarHeight`` or ``avatarWidth`` should not be changed unless you are redesigning.
+As for the maze, if you feel like the animation speed is a little bit too quick or too slow, update the value of the ``animationSpeed`` item.
 
 If you wish to change the subproblem id (not visible to user, so we would advise to not do it), you will have to modify the line 138 in the file ``yourtask/student/maze.tpl.py`` to correspond the name you picked. By default, we have :
 

@@ -8,39 +8,17 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    output: '2'
     memory: '100'
+    output: '2'
     time: '30'
 name: Exercice 4
 network_grading: false
 order: 0
 problems:
     code:
-        options:
-            maxBlocks: Infinity
-            scrollbars: true
-            oneBasedIndex: true
-            sounds: true
-            grid:
-                snap: true
-                length: 3
-                spacing: 20
-                colour: '#ccc'
-            visual:
-                position: left
-            zoom:
-                maxScale: 3.0
-                startScale: 1.0
-                minScale: 0.3
-                controls: true
-                scaleSpeed: 1.2
-                wheel: false
-            trashcan: true
-            css: true
-            media: /static/common/js/blockly/media/
-            toolboxPosition: start
         toolbox: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
+              <category name="mouvement" colour="300">
               <variables></variables>
               <block type="maze_move">
                 <field name="DIR">moveForward</field>
@@ -51,26 +29,57 @@ problems:
               <block type="maze_turn">
                 <field name="DIR">turnRight</field>
               </block>
+            </category>
+                <category name="récupérer" colour="180">
+              <variables></variables>
+              <block type="maze_nectar"></block>
+              <block type="maze_honey"></block>
+            </category>
+                <category name="boucle" colour="120">
+              <variables></variables>
+              <block type="controls_repeat">
+                <field name="TIMES">???</field>
+              </block>
+            </category>
+            <category name="condition" colour="210">
+              <variables></variables>
               <block type="custom_if_bee">
                 <field name="KIND">nectarRemaining</field>
                 <field name="COMP">&gt;</field>
                 <field name="NUMBER">0</field>
               </block>
-              <block type="maze_nectar"></block>
-              <block type="controls_repeat">
-                <field name="TIMES">???</field>
-              </block>
-              <block type="maze_honey"></block>
+            </category>
             </xml>
-        header: |4+
-
+        options:
+            zoom:
+                scaleSpeed: 1.2
+                controls: true
+                maxScale: 3.0
+                minScale: 0.3
+                startScale: 1.0
+                wheel: false
+            grid:
+                length: 3
+                snap: true
+                spacing: 20
+                colour: '#ccc'
+            scrollbars: true
+            visual:
+                position: left
+            oneBasedIndex: true
+            media: /static/common/js/blockly/media/
+            toolboxPosition: start
+            trashcan: true
+            css: true
+            sounds: true
+            maxBlocks: Infinity
         files:
         - maze.js
         - interpreter.js
         type: blockly
+        name: ''
         blocks_files:
         - blocks.js
-        name: ''
         workspace: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
               <variables></variables>
@@ -87,39 +96,47 @@ problems:
               </block>
               <block type="maze_nectar"></block>
             </xml>
+        header: |4+
+
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 tags:
     '0':
-        id: '1'
         description: ''
         type: 0
+        visible: true
         name: Boucles répéter X fois
-        visible: true
+        id: '1'
     '1':
-        description: ''
-        name: Condition
         id: '4'
+        description: ''
         type: 0
         visible: true
+        name: Condition
     '2':
         type: 0
-        id: '5'
         description: ''
         name: Si/Sinon
+        id: '5'
         visible: true
     '3':
+        description: Fait partie du parcours normal
         type: 2
         name: Normal
-        description: Fait partie du parcours normal
         visible: false
         id: ''
     '4':
         type: 2
-        name: Challenge
         description: Fait partie du parcours challenge
+        name: Challenge
         visible: false
+        id: ''
+    '5':
+        visible: true
+        description: Fait partie de la leçon 7
+        name: Lecon 7
+        type: 2
         id: ''
 weight: 1.0

@@ -16,6 +16,7 @@ problems:
     code:
         toolbox: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
+              <category name="mouvement" colour="300">
               <variables></variables>
               <block type="maze_move">
                 <field name="DIR">moveForward</field>
@@ -26,8 +27,14 @@ problems:
               <block type="maze_turn">
                 <field name="DIR">turnRight</field>
               </block>
+            </category>
+                <category name="récupérer" colour="180">
+              <variables></variables>
               <block type="maze_nectar"></block>
               <block type="maze_honey"></block>
+            </category>
+                <category name="boucle" colour="120">
+              <variables></variables>
               <block type="controls_repeat">
                 <field name="TIMES">???</field>
               </block>
@@ -36,44 +43,87 @@ problems:
                 <field name="COMP">&gt;</field>
                 <field name="NUMBER">0</field>
               </block>
+            </category>
             </xml>
         options:
+            zoom:
+                scaleSpeed: 1.2
+                controls: true
+                maxScale: 3.0
+                minScale: 0.3
+                startScale: 1.0
+                wheel: false
             grid:
                 length: 3
                 spacing: 20
-                colour: '#ccc'
                 snap: true
-            zoom:
-                minScale: 0.3
-                startScale: 1.0
-                maxScale: 3.0
-                scaleSpeed: 1.2
-                controls: true
-                wheel: false
-            media: /static/common/js/blockly/media/
-            oneBasedIndex: true
+                colour: '#ccc'
             scrollbars: true
-            sounds: true
             visual:
                 position: left
+            oneBasedIndex: true
+            media: /static/common/js/blockly/media/
             toolboxPosition: start
-            css: true
-            maxBlocks: Infinity
             trashcan: true
-        name: ''
-        header: ''
+            css: true
+            sounds: true
+            maxBlocks: Infinity
         files:
         - maze.js
         - interpreter.js
+        type: blockly
+        name: ''
+        blocks_files:
+        - blocks.js
         workspace: |-
             <xml xmlns="http://www.w3.org/1999/xhtml" id="workspaceBlocks"
               style="display:none"></xml>
-        type: blockly
-        blocks_files:
-        - blocks.js
+        header: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
-tags: {}
+tags:
+    '0':
+        description: ''
+        type: 0
+        name: Boucle imbriquée
+        id: '2'
+        visible: false
+    '1':
+        id: '1'
+        description: ''
+        type: 0
+        name: Boucle répéter X fois
+        visible: false
+    '2':
+        type: 0
+        description: ''
+        name: Boucle tant qye
+        id: '3'
+        visible: false
+    '3':
+        description: ''
+        type: 2
+        name: Challenge
+        visible: false
+        id: ''
+    '4':
+        type: 2
+        name: Facile
+        description: ''
+        visible: false
+        id: ''
+    '5':
+        visible: true
+        description: ''
+        name: Lecon 13
+        type: 2
+        id: ''
+    '6':
+        description: ''
+        type: 2
+        name: Normal
+        visible: false
+        id: ''
 weight: 1.0

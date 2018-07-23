@@ -1,5 +1,5 @@
-How to create a *basic* Blockly task ?
-======================================
+Creation of a *basic* Blockly task
+==================================
 
 There is, first, a few steps that are the same as for any other tasks. Those are :
 
@@ -406,7 +406,7 @@ Now, we need to export it. First, click on the green ``Save "custom_if_else"`` b
 .. image:: VisualBase/blockCustom6.png
     :align: center
 
-Check the box next to our block name (this allows you to export multiple blocks at a time). We need the Python version of the code, so change the language of the generator and pick file names (here, *custom.json* and *custom.js*), then click ``Export`` :
+Check the box next to our block name (this allows you to export multiple blocks at a time). For the generator, we need the Python version of the code, so change the language using the dropdown. For the definition, either Javascript or JSON works, it just has to be integrated differently. Pick file names (here, *custom.json* and *custom.js*), then click ``Export`` :
 
 .. image:: VisualBase/blockCustom7.png
     :align: center
@@ -419,11 +419,7 @@ Save both files and you can close the tab, we will not use it anymore. To make i
   'use strict';
 
   Blockly.Blocks['block_name'] = {
-    init: function() {
-      this.jsonInit({
-        //JSON code for the block
-      });
-    }
+    //JSON or javascript code for the bloc
   };
 
   Blockly.Python['block_name'] = function(block) {
@@ -432,7 +428,19 @@ Save both files and you can close the tab, we will not use it anymore. To make i
     return code;
   };
 
-Using the code we generated, we get :
+For the first function, which is the block description, you can use the javascript code as it has been generated, or put the JSON into this format :
+
+.. code-block:: javascript
+  
+   Blockly.Blocks['block_name'] = {
+    init: function() {
+      this.jsonInit({
+        //JSON code for the block
+      });
+    }
+  };
+
+In that case, don't forget to remove the extra **[{}]** that surround the json description, as shown in the next snippet of code. Using our generated files, we get :
 
 .. code-block:: javascript
 

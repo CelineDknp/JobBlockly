@@ -36,7 +36,7 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="JobBlockly  documentation" href="index.html"/>
-        <link rel="prev" title="How to create a basic Blockly task ?" href="BaseBlockly.html"/> 
+        <link rel="prev" title="Blockly visual tasks" href="VisualBlockly.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -86,10 +86,19 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="BaseBlockly.html">How to create a <em>basic</em> Blockly task ?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BaseBlockly.html">Creation of a <em>basic</em> Blockly task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VisualBlockly.html">Blockly visual tasks</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">How to change the maze’s visuals</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#files-you-will-need">Files you will need</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#files-to-modify">Files to modify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#files-you-will-need">Files you will need</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#files-for-a-maze-task">Files for a maze task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#files-for-a-collect-and-create-task">Files for a collect and create task</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#file-to-modify">File to modify</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#files-used-by-a-maze">Files used by a maze</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#files-used-by-collect-and-create">Files used by collect and create</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -159,7 +168,7 @@
 <h1>How to change the maze’s visuals<a class="headerlink" href="#how-to-change-the-maze-s-visuals" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="files-you-will-need">
 <h2>Files you will need<a class="headerlink" href="#files-you-will-need" title="Permalink to this headline">¶</a></h2>
-<p>First, you will need all those files, in the exact specified format.</p>
+<p>Depending on the type of task you want to create visuals for, you will need different files. The following ones are common for all of them and have to be in the exact specified format.</p>
 <p>A background representing an 8x8 board, in png format, for example the following :</p>
 <img alt="_images/background.png" class="align-center" src="_images/background.png" />
 <p>A file representing all possible intersections of the path and, if wanted, two “passive” entities to populate the map in png.</p>
@@ -173,13 +182,15 @@
 <li>Finally, 5 images representing a walking animation (currently not used by the application, you can put any frame) to get to the 21.</li>
 </ul>
 <img alt="_images/avatar.png" class="align-center" src="_images/avatar.png" />
+<div class="section" id="files-for-a-maze-task">
+<h3>Files for a maze task<a class="headerlink" href="#files-for-a-maze-task" title="Permalink to this headline">¶</a></h3>
 <p>A marker representing the goal of the maze idle, when the character is on another tile. As every other “interactive” part of the maze, it is usually in gif, but a png would work as well</p>
 <img alt="_images/goalIdle.gif" class="align-center" src="_images/goalIdle.gif" />
 <p>The marker when it is reached by the character and the game is won (gif or png)</p>
 <img alt="_images/goal.gif" class="align-center" src="_images/goal.gif" />
-<p>An obstacle idle, when the character is on another tile (gif or png)</p>
+<p>Now, for the obstacles, there is two ways : either you provide just one type of ennemy that can attack from every “side”, or you want more variety, and can create four ennemies, that are accessed from : the top, the bottom, the right and the left. No matter which you choose, you will need, for each ennemies and “idle” and a “attacking” image. For example, here we have an idle obstacle (when the character is on another tile), in gif or png :</p>
 <img alt="_images/obstacleIdle.gif" class="align-center" src="_images/obstacleIdle.gif" />
-<p>The obstacle when killing the character, ending the game (gif or png)</p>
+<p>The same obstacle when killing the character, ending the game (gif or png)</p>
 <img alt="_images/obstacle.gif" class="align-center" src="_images/obstacle.gif" />
 <p>You may also add, but do not need to :</p>
 <ul class="simple">
@@ -187,40 +198,95 @@
 <li>mp3 and ogg files with a sound to be played when the character looses the game without hitting an obstacle</li>
 <li>mp3 and ogg files with a sound to be played when the character wins the game</li>
 </ul>
+</div>
+<div class="section" id="files-for-a-collect-and-create-task">
+<h3>Files for a collect and create task<a class="headerlink" href="#files-for-a-collect-and-create-task" title="Permalink to this headline">¶</a></h3>
+<p>An item to collect that will have a fixed value (that do not change when refreshing the page):</p>
+<img alt="_images/redFlower.png" class="align-center" src="_images/redFlower.png" />
+<p>An item to collect that have a changing value :</p>
+<img alt="_images/purpleFlower.png" class="align-center" src="_images/purpleFlower.png" />
+<p>An item to create :</p>
+<img alt="_images/honey.png" class="align-center" src="_images/honey.png" />
+<p>An item to hide some tiles, and a disapearing version of the item (you might need to refresh the page to see the animation):</p>
+<img alt="_images/cloud.png" class="align-center" src="_images/cloud.png" />
+<img alt="_images/cloud_hide.gif" class="align-center" src="_images/cloud_hide.gif" />
 <p>All of those files need to be put in the task folder, under : <code class="docutils literal notranslate"><span class="pre">taskName/public/maze</span></code></p>
 </div>
-<div class="section" id="files-to-modify">
-<h2>Files to modify<a class="headerlink" href="#files-to-modify" title="Permalink to this headline">¶</a></h2>
-<p>The only file to modify is <code class="docutils literal notranslate"><span class="pre">maze.js</span></code>, that you will find under <code class="docutils literal notranslate"><span class="pre">taskname/public</span></code>. At the beginning (line 37 to 52), you will have to tweak a few parameters of the variable <em>Maze.SKIN</em> and to replace the names of the files with your own files, like so :</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span class="n">Maze</span><span class="o">.</span><span class="n">SKIN</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="n">sprite</span><span class="p">:</span> <span class="n">task_directory_path</span> <span class="o">+</span> <span class="s">&#39;maze/avatar.png&#39;</span><span class="p">,</span>
-      <span class="c">#Rest of the parameters</span>
+</div>
+<div class="section" id="file-to-modify">
+<h2>File to modify<a class="headerlink" href="#file-to-modify" title="Permalink to this headline">¶</a></h2>
+<p>The only file to modify is <code class="docutils literal notranslate"><span class="pre">maze_config.json</span></code>, that you will find under <code class="docutils literal notranslate"><span class="pre">taskname/public</span></code>. Here, we only consider the <code class="docutils literal notranslate"><span class="pre">visual</span></code> item (the other one concerns the layout of the task). Here is the common variables :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span class="p">{</span>
+  <span class="nt">&quot;visuals&quot;</span><span class="p">:{</span>
+    <span class="nt">&quot;sprite&quot;</span><span class="p">:</span><span class="s2">&quot;avatar.png&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;tiles&quot;</span><span class="p">:</span><span class="s2">&quot;tiles.png&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;obstacleScale&quot;</span><span class="p">:</span><span class="mf">1.7</span><span class="p">,</span>
+    <span class="nt">&quot;background&quot;</span><span class="p">:</span><span class="s2">&quot;background.png&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;graph&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;obstacleSound&quot;</span><span class="p">:[],</span>
+    <span class="nt">&quot;winSound&quot;</span><span class="p">:[],</span>
+    <span class="nt">&quot;crashSound&quot;</span><span class="p">:[]</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Will become :</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span class="n">Maze</span><span class="o">.</span><span class="n">SKIN</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="n">sprite</span><span class="p">:</span> <span class="n">task_directory_path</span> <span class="o">+</span> <span class="s">&#39;maze/myAvatarName.png&#39;</span><span class="p">,</span>
-  <span class="c">#Rest of the parameters</span>
+<p>Here, the <code class="docutils literal notranslate"><span class="pre">background</span></code> variable correspond to the 8x8 background, the <code class="docutils literal notranslate"><span class="pre">tiles</span></code> is all of the paths, and the <code class="docutils literal notranslate"><span class="pre">sprite</span></code> variable will hold your avatar image. <code class="docutils literal notranslate"><span class="pre">obstacleScale</span></code> scales items regarding the character, <code class="docutils literal notranslate"><span class="pre">graph</span></code> allows to draw a grid on the map, and the three last variables can hold your sounds if you have them.</p>
+<p>To change a file, simply rename your file or change the name in the file, like so :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre>{
+  &quot;visuals&quot;:{
+    &quot;sprite&quot;:&quot;myAvatarName.png&quot;,
+    #Rest of the parameters
+  }
+}
+</pre></div>
+</div>
+<div class="section" id="files-used-by-a-maze">
+<h3>Files used by a maze<a class="headerlink" href="#files-used-by-a-maze" title="Permalink to this headline">¶</a></h3>
+<p>If you are creating a maze, in <code class="docutils literal notranslate"><span class="pre">visuals</span></code>, you have the following items :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span class="p">{</span>
+  <span class="nt">&quot;visuals&quot;</span><span class="p">:{</span>
+    <span class="nt">&quot;marker&quot;</span><span class="p">:</span><span class="s2">&quot;goal.gif&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;goalAnimation&quot;</span><span class="p">:</span><span class="s2">&quot;goal_win.gif&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;obstacleIdle&quot;</span><span class="p">:</span><span class="s2">&quot;obstacleIdle.gif&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;obstacleAnimation&quot;</span><span class="p">:</span><span class="s2">&quot;obstacle.gif&quot;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Here is a break down of all the variables and what they correspond to :</p>
+<p>The first two contains your end marker as well as a win animation, and are always the same. The next two concern the obstacle, and must be used as described if you have only one ennemy. If you have four, you must define them like so :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span class="p">{</span>
+  <span class="nt">&quot;visuals&quot;</span><span class="p">:{</span>
+    <span class="nt">&quot;obstacleIdle&quot;</span><span class="p">:[</span><span class="s2">&quot;obstacleDownIdle.gif&quot;</span><span class="p">,</span> <span class="s2">&quot;obstacleLeftIdle.gif&quot;</span><span class="p">,</span> <span class="s2">&quot;obstacleUpIdle.gif&quot;</span><span class="p">,</span> <span class="s2">&quot;obstacleRightIdle.gif&quot;</span><span class="p">],</span>
+    <span class="nt">&quot;obstacleAnimation&quot;</span><span class="p">:[</span><span class="s2">&quot;obstacleDown.gif&quot;</span><span class="p">,</span> <span class="s2">&quot;obstacleLeft.gif&quot;</span><span class="p">,</span> <span class="s2">&quot;obstacleUp.gif&quot;</span><span class="p">,</span> <span class="s2">&quot;obstacleRight.gif&quot;</span><span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The order you put your animations in is very important, and must be like so : obstacle when the character is comming from a tile down it, from a tile to it’s left, from up it, from a tile to it’s right. Of course, it must correcpond to the other version.</p>
+</div>
+<div class="section" id="files-used-by-collect-and-create">
+<h3>Files used by collect and create<a class="headerlink" href="#files-used-by-collect-and-create" title="Permalink to this headline">¶</a></h3>
+<p>If you are creating a collect and create task, you have the following additional variables :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span class="p">{</span>
+  <span class="nt">&quot;visuals&quot;</span><span class="p">:{</span>
+      <span class="nt">&quot;redFlower&quot;</span><span class="p">:</span><span class="s2">&quot;redFlower.png&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;purpleFlower&quot;</span><span class="p">:</span><span class="s2">&quot;purpleFlower.png&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;honey&quot;</span><span class="p">:</span><span class="s2">&quot;honey.png&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;cloud&quot;</span><span class="p">:</span><span class="s2">&quot;cloud.png&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;cloudAnimation&quot;</span><span class="p">:</span><span class="s2">&quot;cloud_hide.gif&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The variables correspond to :</p>
 <ul class="simple">
-<li>sprite: your avatar</li>
-<li>tiles: the tiles to show the paths</li>
-<li>marker: the marker or goal of the maze when idle</li>
-<li>goalAnimation: the marker when the game is won</li>
-<li>obstacleIdle: the obstacle when idle</li>
-<li>obstacleAnimation: the obstacle killing the character</li>
-<li>obstacleScale: the scale of the obstacle regarding the maze, the higher the bigger</li>
-<li>background: the background for the paze (png)</li>
-<li>graph and look, no need to modify</li>
-<li>obstacleSound: both sounds file for when the character hits an obstacle or <code class="docutils literal notranslate"><span class="pre">[&quot;&quot;]</span></code> if you don’t want any</li>
-<li>winSound: both sounds file for when the character wins de game or <code class="docutils literal notranslate"><span class="pre">[&quot;&quot;]</span></code> if you don’t want any</li>
-<li>crashSound: both sounds file for when the character looses the game or <code class="docutils literal notranslate"><span class="pre">[&quot;&quot;]</span></code> if you don’t want any</li>
-<li>crashType: to not modify</li>
+<li>redFlower : the collectable that has a fixed value</li>
+<li>purpleFlower : the collectable that has a variable value</li>
+<li>honey : the creatable item</li>
+<li>cloud : the item used to hide a tile</li>
+<li>cloudAnimation : the animation revealing the tile</li>
 </ul>
+</div>
 </div>
 </div>
 
@@ -235,7 +301,7 @@
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="BaseBlockly.html" class="btn btn-neutral" title="How to create a basic Blockly task ?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="VisualBlockly.html" class="btn btn-neutral" title="Blockly visual tasks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

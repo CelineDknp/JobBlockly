@@ -2,34 +2,39 @@ accessible: true
 author: Celine Deknop
 context: |-
     Boucle ce dessin 6 fois. De combien as-tu besoin de tourner à chaque fois ?
+
     Indice : Combien font 360 divisé par 6 ?
 environment: default
 evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '30'
-    memory: '100'
     output: '2'
+    memory: '100'
+    time: '30'
 name: Exercice 4
 network_grading: false
 order: 0
 problems:
     code:
         options:
-            media: /static/common/js/blockly/media/
-            sounds: true
+            scrollbars: true
             visual:
                 position: left
-            toolboxPosition: start
-            maxBlocks: '45'
-            trashcan: true
             oneBasedIndex: true
-            scrollbars: true
+            media: /static/common/js/blockly/media/
+            toolboxPosition: start
             css: true
+            trashcan: true
+            sounds: true
+            maxBlocks: '45'
         files:
         - turtle.js
         - interpreter.js
+        type: blockly
+        name: ''
+        blocks_files:
+        - blocks.js
         workspace: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
               <variables></variables>
@@ -94,6 +99,8 @@ problems:
         toolbox: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
               <variables></variables>
+              <category name="mouvement" colour="300">
+              <variables></variables>
               <block type="turtle_move_internal">
                 <field name="DIR">moveForward</field>
                 <field name="VALUE">100</field>
@@ -104,6 +111,9 @@ problems:
               <block type="turtle_turn">
                 <field name="DIR">turnRight</field>
               </block>
+            </category>
+               <category name="boucle" colour="105">
+              <variables></variables>
               <block type="controls_repeat_ext">
                 <value name="TIMES">
                   <shadow type="math_number">
@@ -111,56 +121,51 @@ problems:
                   </shadow>
                 </value>
               </block>
-              <block type="turtle_colour">
-                <value name="COLOUR">
-                  <block type="colour_random"></block>
-                </value>
+            </category>
+                <category name="couleur" colour="0">
+              <variables></variables>
+              <block type="turtle_colour_internal">
+                <field name="COLOUR">#843179</field>
               </block>
+              <block type="turtle_colour_internal">
+                <field name="COLOUR">#0000cd</field>
+              </block>
+            </category>
             </xml>
-        name: ''
-        type: blockly
         header: ''
-        blocks_files:
-        - blocks.js
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 tags:
     '0':
-        name: Boucle répéter X fois
         type: 0
+        visible: true
+        name: Boucles imbriquées
+        description: ''
         id: '1'
-        description: ''
-        visible: true
     '1':
-        name: Instructions avec paramètres
-        type: 0
-        id: '2'
-        description: ''
-        visible: true
-    '2':
-        description: Exercice faisant partie de la leçon 2
+        description: Exercice faisant partie de la leçon 11
         type: 2
-        name: Lecon 2
         visible: true
+        name: Lecon 11
+        id: ''
+    '2':
+        description: Faisant partie du parcours normal
+        name: Normal
+        type: 2
+        visible: false
         id: ''
     '3':
-        description: Faisant partie du parcours normal
+        name: Facile
+        description: Faisant partie du parcours facile
         type: 2
-        name: Normal
         visible: false
         id: ''
     '4':
-        description: Faisant partie du parcours facile
-        name: Facile
-        type: 2
-        visible: false
-        id: ''
-    '5':
-        name: Challenge
         type: 2
         description: Faisant partie du parcours challenge
+        name: Challenge
         visible: false
         id: ''
 weight: 1.0

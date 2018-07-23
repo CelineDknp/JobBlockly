@@ -1,5 +1,5 @@
 accessible: true
-name: Cours1
+name: Cours 2 - Maze
 admins:
 - ''
 tutors: []
@@ -15,3 +15,4 @@ registration_ac_list:
 is_lti: false
 lti_keys: {}
 lti_send_back_grade: false
+description: ''

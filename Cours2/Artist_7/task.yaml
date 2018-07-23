@@ -15,22 +15,61 @@ network_grading: false
 order: 0
 problems:
     code:
-        blocks_files:
-        - blocks.js
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+              <category name="mouvement" colour="150">
+              <variables></variables>
+              <block type="turtle_move">
+                <field name="DIR">moveForward</field>
+                <value name="VALUE">
+                  <block type="math_number">
+                    <field name="NUM">100</field>
+                  </block>
+                </value>
+              </block>
+              <block type="turtle_turn_internal">
+                <field name="DIR">turnRight</field>
+                <field name="VALUE">90</field>
+              </block>
+              <block type="turtle_turn_internal">
+                <field name="DIR">turnLeft</field>
+                <field name="VALUE">90</field>
+              </block>
+            </category>
+               <category name="couleur" colour="0">
+              <variables></variables>
+              <block type="turtle_colour">
+                <value name="COLOUR">
+                  <block type="colour_random"></block>
+                </value>
+              </block>
+            </category>
+              <category name="boucle" colour="120">
+              <variables></variables>
+              <block type="controls_repeat">
+                <field name="TIMES">???</field>
+              </block>
+            </category>
+            </xml>
         options:
-            css: true
-            sounds: true
-            toolboxPosition: start
+            scrollbars: true
             visual:
                 position: left
-            media: /static/common/js/blockly/media/
-            maxBlocks: '45'
-            scrollbars: true
-            trashcan: true
             oneBasedIndex: true
+            media: /static/common/js/blockly/media/
+            css: true
+            trashcan: true
+            toolboxPosition: start
+            sounds: true
+            maxBlocks: '45'
         files:
         - turtle.js
         - interpreter.js
+        type: blockly
+        name: ''
+        blocks_files:
+        - blocks.js
         workspace: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
               <variables></variables>
@@ -55,35 +94,6 @@ problems:
               </block>
             </xml>
         header: ''
-        type: blockly
-        toolbox: |-
-            <xml xmlns="http://www.w3.org/1999/xhtml">
-              <variables></variables>
-              <block type="turtle_move_internal">
-                <field name="DIR">moveForward</field>
-                <field name="VALUE">50</field>
-              </block>
-              <block type="turtle_turn_internal">
-                <field name="DIR">turnRight</field>
-                <field name="VALUE">90</field>
-              </block>
-              <block type="turtle_colour">
-                <value name="COLOUR">
-                  <block type="colour_random"></block>
-                </value>
-              </block>
-              <block type="turtle_pen">
-                <field name="PEN">penUp</field>
-              </block>
-              <block type="controls_repeat_ext">
-                <value name="TIMES">
-                  <shadow type="math_number">
-                    <field name="NUM">0</field>
-                  </shadow>
-                </value>
-              </block>
-            </xml>
-        name: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
@@ -92,31 +102,37 @@ tags:
     '0':
         type: 0
         name: Boucles impbriquées
+        description: ''
         id: '3'
-        description: ''
         visible: false
-    '3':
-        id: '1'
-        visible: true
-        description: ''
-        name: Boucle répéter X fois
-        type: 0
-    '4':
-        description: ''
-        id: '2'
-        visible: true
-        name: Instructions avec paramètres
-        type: 0
     '1':
+        id: '1'
+        description: ''
+        type: 0
+        visible: true
+        name: Boucle répéter X fois
+    '2':
+        description: ''
+        name: Instructions avec paramètres
+        id: '2'
+        type: 0
+        visible: true
+    '3':
+        name: Normal
         description: Faisant partie du parcours normal
         type: 2
-        name: Normal
         visible: false
         id: ''
-    '2':
+    '4':
         type: 2
-        description: Faisant partie du parcours facile
         name: Facile
+        description: Faisant partie du parcours facile
         visible: false
+        id: ''
+    '5':
+        visible: true
+        description: ''
+        name: Lecon 5
+        type: 2
         id: ''
 weight: 1.0

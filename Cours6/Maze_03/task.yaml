@@ -15,22 +15,10 @@ network_grading: false
 order: 0
 problems:
     code:
-        options:
-            toolboxPosition: start
-            scrollbars: true
-            trashcan: true
-            media: /static/common/js/blockly/media/
-            visual:
-                position: left
-            oneBasedIndex: true
-            maxBlocks: Infinity
-            sounds: true
-            css: true
-        files:
-        - maze.js
-        - interpreter.js
         toolbox: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+              <category name="mouvement" colour="330">
               <variables></variables>
               <block type="maze_moveForward"></block>
               <block type="maze_turn">
@@ -39,23 +27,80 @@ problems:
               <block type="maze_turn">
                 <field name="DIR">turnRight</field>
               </block>
+            </category>
+              <category name="boucle" colour="120">
+              <variables></variables>
+              <block type="maze_forever"></block>
+            </category>
+              <category name="condition" colour="225">
+              <variables></variables>
               <block type="maze_if">
                 <field name="DIR">isPathForward</field>
               </block>
-              <block type="maze_forever"></block>
+            </category>
             </xml>
+        options:
+            scrollbars: true
+            visual:
+                position: left
+            oneBasedIndex: true
+            media: /static/common/js/blockly/media/
+            toolboxPosition: start
+            css: true
+            trashcan: true
+            sounds: true
+            maxBlocks: Infinity
+        files:
+        - maze.js
+        - interpreter.js
+        type: blockly
         name: ''
+        blocks_files:
+        - blocks.js
         workspace: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
               <variables></variables>
             </xml>
-        blocks_files:
-        - blocks.js
         header: ''
-        type: blockly
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
-tags: {}
+tags:
+    '0':
+        type: 0
+        visible: true
+        name: 'Boucle '
+        id: '1'
+        description: ''
+    '1':
+        id: '2'
+        description: ''
+        type: 0
+        visible: true
+        name: Condition
+    '2':
+        description: ''
+        name: Challenge
+        type: 2
+        visible: false
+        id: ''
+    '3':
+        name: Facile
+        description: ''
+        type: 2
+        visible: false
+        id: ''
+    '4':
+        type: 2
+        description: ''
+        name: Lecon 8
+        visible: true
+        id: ''
+    '5':
+        description: ''
+        name: Normal
+        type: 2
+        visible: false
+        id: ''
 weight: 1.0

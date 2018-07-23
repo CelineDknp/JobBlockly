@@ -37,7 +37,7 @@
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="JobBlockly  documentation" href="index.html"/>
         <link rel="next" title="How to change the maze’s visuals" href="VisualDocumentation.html"/>
-        <link rel="prev" title="How to create a basic Blockly task ?" href="BaseBlockly.html"/> 
+        <link rel="prev" title="Creation of a basic Blockly task" href="BaseBlockly.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -87,7 +87,7 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="BaseBlockly.html">How to create a <em>basic</em> Blockly task ?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BaseBlockly.html">Creation of a <em>basic</em> Blockly task</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Blockly visual tasks</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#available-types-of-tasks">Available types of tasks</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#maze-task">Maze task</a></li>
@@ -201,7 +201,7 @@
 </div>
 <div class="section" id="create-a-new-maze-task">
 <h2>Create a new maze task<a class="headerlink" href="#create-a-new-maze-task" title="Permalink to this headline">¶</a></h2>
-<p>First, download the file <a class="reference external" href="https://github.com/CelineDknp/JobBlockly/tree/master/BaseExercices">task_pvz</a> or <a class="reference external" href="https://github.com/CelineDknp/JobBlockly/tree/master/BaseExercices">task_pegman</a>, unzip it to create a task and make any changes you want to the titles, instructions, etc…</p>
+<p>First, download the file <a class="reference external" href="https://github.com/CelineDknp/JobBlockly/tree/master/BaseExercices">task_pvz</a>, <a class="reference external" href="https://github.com/CelineDknp/JobBlockly/tree/master/BaseExercices">task_pegman</a> or <a class="reference external" href="https://github.com/CelineDknp/JobBlockly/tree/master/BaseExercices">task_4_ennemies</a>, unzip it to create a task and make any changes you want to the titles, instructions, etc…</p>
 <p>The only file you have to edit to use this kind of task is <code class="docutils literal notranslate"><span class="pre">maze_config.json</span></code> under <code class="docutils literal notranslate"><span class="pre">yourTask/public</span></code>. If you wish to change the graphical look of the maze, head to <a class="reference internal" href="VisualDocumentation.html"><span class="doc">this part</span></a>  of the documentation to learn how to do so. If not, we will go over every element of the json file.</p>
 <p>Here, we will only look at the <code class="docutils literal notranslate"><span class="pre">map</span></code> element of the file, since the visual part is covered by the other documentation. The first element is <code class="docutils literal notranslate"><span class="pre">layout</span></code>, which is an array of arrays. Each array will represent a map that the student has to solve in this exercice. In our example, we have :</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span class="p">{</span>
@@ -270,7 +270,6 @@
 <p>If you wish to change the orientation of the character at the start, change the <code class="docutils literal notranslate"><span class="pre">startDirection</span></code> item to one of the values <em>EAST</em> (the value our default file use), <em>SOUTH</em>, <em>WEST</em> or <em>SOUTH</em>. For example, here is the output with <code class="docutils literal notranslate"><span class="pre">&quot;startDirection&quot;:&quot;WEST&quot;</span></code> :</p>
 <img alt="_images/headWest.png" class="align-center" src="_images/headWest.png" />
 <p>If you feel like the animation speed is a little bit too quick or too slow, update the value of the <code class="docutils literal notranslate"><span class="pre">animationSpeed</span></code> item.</p>
-<p>Finally, the items <code class="docutils literal notranslate"><span class="pre">squareSize</span></code>, <code class="docutils literal notranslate"><span class="pre">avatarHeight</span></code> and <code class="docutils literal notranslate"><span class="pre">avatarWidth</span></code> can be changed to alter the overall look, but you should not touch them if you are just creating a new task.</p>
 <p>If you wish to change the subproblem id (not visible to user, so we would advise to not do it), you will have to modify the line 107 in the file <code class="docutils literal notranslate"><span class="pre">yourtask/student/maze.tpl.py</span></code> to correspond the name you picked. By default, we have :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre>def student_code():
   @   @code@@
@@ -386,7 +385,7 @@
 </pre></div>
 </div>
 <p>This element only has the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> coordinates, as well as the <code class="docutils literal notranslate"><span class="pre">optional</span></code> argument <a class="footnote-reference" href="#id2" id="id4">[1]</a>.</p>
-<p>As for the maze, if you feel like the animation speed is a little bit too quick or too slow, update the value of the <code class="docutils literal notranslate"><span class="pre">animationSpeed</span></code> item and the items <code class="docutils literal notranslate"><span class="pre">squareSize</span></code>, <code class="docutils literal notranslate"><span class="pre">avatarHeight</span></code> or <code class="docutils literal notranslate"><span class="pre">avatarWidth</span></code> should not be changed unless you are redesigning.</p>
+<p>As for the maze, if you feel like the animation speed is a little bit too quick or too slow, update the value of the <code class="docutils literal notranslate"><span class="pre">animationSpeed</span></code> item.</p>
 <p>If you wish to change the subproblem id (not visible to user, so we would advise to not do it), you will have to modify the line 138 in the file <code class="docutils literal notranslate"><span class="pre">yourtask/student/maze.tpl.py</span></code> to correspond the name you picked. By default, we have :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre>def student_code():
   @   @code@@
@@ -555,7 +554,7 @@
         <a href="VisualDocumentation.html" class="btn btn-neutral float-right" title="How to change the maze’s visuals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="BaseBlockly.html" class="btn btn-neutral" title="How to create a basic Blockly task ?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="BaseBlockly.html" class="btn btn-neutral" title="Creation of a basic Blockly task" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

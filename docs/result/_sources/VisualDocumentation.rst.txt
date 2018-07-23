@@ -4,7 +4,7 @@ How to change the maze's visuals
 Files you will need
 -------------------
 
-First, you will need all those files, in the exact specified format.
+Depending on the type of task you want to create visuals for, you will need different files. The following ones are common for all of them and have to be in the exact specified format.
 
 A background representing an 8x8 board, in png format, for example the following :
 
@@ -27,6 +27,9 @@ A sprite for the avatar in png, with the following format : 21 frames of equal s
 .. image:: NeededVisuals/avatar.png
     :align: center
 
+Files for a maze task
+.....................
+
 A marker representing the goal of the maze idle, when the character is on another tile. As every other "interactive" part of the maze, it is usually in gif, but a png would work as well
 
 .. image:: NeededVisuals/goalIdle.gif
@@ -38,12 +41,12 @@ The marker when it is reached by the character and the game is won (gif or png)
 .. image:: NeededVisuals/goal.gif
     :align: center
 
-An obstacle idle, when the character is on another tile (gif or png)
+Now, for the obstacles, there is two ways : either you provide just one type of ennemy that can attack from every "side", or you want more variety, and can create four ennemies, that are accessed from : the top, the bottom, the right and the left. No matter which you choose, you will need, for each ennemies and "idle" and a "attacking" image. For example, here we have an idle obstacle (when the character is on another tile), in gif or png :
 
 .. image:: NeededVisuals/obstacleIdle.gif
     :align: center
 
-The obstacle when killing the character, ending the game (gif or png)
+The same obstacle when killing the character, ending the game (gif or png)
 
 .. image:: NeededVisuals/obstacle.gif
     :align: center
@@ -54,43 +57,118 @@ You may also add, but do not need to :
 * mp3 and ogg files with a sound to be played when the character looses the game without hitting an obstacle 
 * mp3 and ogg files with a sound to be played when the character wins the game
 
+Files for a collect and create task
+...................................
+
+An item to collect that will have a fixed value (that do not change when refreshing the page):
+
+.. image:: NeededVisuals/redFlower.png
+    :align: center
+
+An item to collect that have a changing value :
+
+.. image:: NeededVisuals/purpleFlower.png
+    :align: center
+
+An item to create :
+
+.. image:: NeededVisuals/honey.png
+    :align: center
+
+An item to hide some tiles, and a disapearing version of the item (you might need to refresh the page to see the animation):
+
+.. image:: NeededVisuals/cloud.png
+    :align: center
+
+.. image:: NeededVisuals/cloud_hide.gif
+    :align: center
+
 
 All of those files need to be put in the task folder, under : ``taskName/public/maze``
 
-Files to modify
+File to modify
 ---------------
 
-The only file to modify is ``maze.js``, that you will find under ``taskname/public``. At the beginning (line 37 to 52), you will have to tweak a few parameters of the variable *Maze.SKIN* and to replace the names of the files with your own files, like so :
+The only file to modify is ``maze_config.json``, that you will find under ``taskname/public``. Here, we only consider the ``visual`` item (the other one concerns the layout of the task). Here is the common variables :
 
-.. code-block:: python
+.. code-block:: json
 
-  Maze.SKIN = {
-  	sprite: task_directory_path + 'maze/avatar.png',
-  	#Rest of the parameters
+  {
+    "visuals":{
+      "sprite":"avatar.png",
+      "tiles":"tiles.png",
+      "obstacleScale":1.7,
+      "background":"background.png",
+      "graph":false,
+      "obstacleSound":[],
+      "winSound":[],
+      "crashSound":[]
+    }
   }
 
-Will become :
+Here, the ``background`` variable correspond to the 8x8 background, the ``tiles`` is all of the paths, and the ``sprite`` variable will hold your avatar image. ``obstacleScale`` scales items regarding the character, ``graph`` allows to draw a grid on the map, and the three last variables can hold your sounds if you have them.
 
-.. code-block:: python
+To change a file, simply rename your file or change the name in the file, like so :
 
-  Maze.SKIN = {
-    sprite: task_directory_path + 'maze/myAvatarName.png',
-    #Rest of the parameters
+.. code-block:: json
+
+  {
+    "visuals":{
+      "sprite":"myAvatarName.png",
+      #Rest of the parameters
+    }
   }
 
+Files used by a maze
+....................
 
-Here is a break down of all the variables and what they correspond to :
+If you are creating a maze, in ``visuals``, you have the following items :
 
-* sprite: your avatar
-* tiles: the tiles to show the paths
-* marker: the marker or goal of the maze when idle
-* goalAnimation: the marker when the game is won
-* obstacleIdle: the obstacle when idle
-* obstacleAnimation: the obstacle killing the character
-* obstacleScale: the scale of the obstacle regarding the maze, the higher the bigger
-* background: the background for the paze (png)
-* graph and look, no need to modify
-* obstacleSound: both sounds file for when the character hits an obstacle or ``[""]`` if you don't want any
-* winSound: both sounds file for when the character wins de game or ``[""]`` if you don't want any
-* crashSound: both sounds file for when the character looses the game or ``[""]`` if you don't want any
-* crashType: to not modify
+.. code-block:: json
+
+  {
+    "visuals":{
+      "marker":"goal.gif",
+      "goalAnimation":"goal_win.gif",
+      "obstacleIdle":"obstacleIdle.gif",
+      "obstacleAnimation":"obstacle.gif"
+    }
+  }
+
+The first two contains your end marker as well as a win animation, and are always the same. The next two concern the obstacle, and must be used as described if you have only one ennemy. If you have four, you must define them like so :
+
+.. code-block:: json
+
+  {
+    "visuals":{
+      "obstacleIdle":["obstacleDownIdle.gif", "obstacleLeftIdle.gif", "obstacleUpIdle.gif", "obstacleRightIdle.gif"],
+      "obstacleAnimation":["obstacleDown.gif", "obstacleLeft.gif", "obstacleUp.gif", "obstacleRight.gif"]
+    }
+  }
+
+The order you put your animations in is very important, and must be like so : obstacle when the character is comming from a tile down it, from a tile to it's left, from up it, from a tile to it's right. Of course, it must correcpond to the other version.
+
+Files used by collect and create
+................................
+
+If you are creating a collect and create task, you have the following additional variables :
+
+.. code-block:: json
+
+  {
+    "visuals":{
+        "redFlower":"redFlower.png",
+        "purpleFlower":"purpleFlower.png",
+        "honey":"honey.png",
+        "cloud":"cloud.png",
+        "cloudAnimation":"cloud_hide.gif"
+    }
+  }
+
+The variables correspond to :
+
+* redFlower : the collectable that has a fixed value
+* purpleFlower : the collectable that has a variable value
+* honey : the creatable item
+* cloud : the item used to hide a tile
+* cloudAnimation : the animation revealing the tile

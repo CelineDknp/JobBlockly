@@ -6,45 +6,14 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '30'
     memory: '100'
     output: '2'
+    time: '30'
 name: Exercice 4
 network_grading: false
 order: 3
 problems:
     code:
-        options:
-            toolboxPosition: start
-            grid:
-                spacing: 20
-                length: 3
-                colour: '#ccc'
-                snap: true
-            trashcan: true
-            zoom:
-                minScale: 0.3
-                scaleSpeed: 1.2
-                startScale: 1.0
-                maxScale: 3.0
-                controls: true
-                wheel: false
-            oneBasedIndex: true
-            visual:
-                position: left
-            media: /static/common/js/blockly/media/
-            css: true
-            maxBlocks: '2'
-            scrollbars: true
-            sounds: true
-        workspace: |-
-            <xml xmlns="http://www.w3.org/1999/xhtml" id="workspaceBlocks"
-            style="display:none"></xml>
-        files:
-        - maze.js
-        - interpreter.js
-        blocks_files:
-        - blocks.js
         toolbox: |-
             <xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none;">
                 <block type="maze_moveForward"></block>
@@ -52,52 +21,83 @@ problems:
               <block type="maze_turn"><field name="DIR">turnRight</field></block>
               <block type="controls_repeat"><title name="TIMES">5</title></block>
             </xml>
+        options:
+            zoom:
+                scaleSpeed: 1.2
+                controls: true
+                maxScale: 3.0
+                minScale: 0.3
+                startScale: 1.0
+                wheel: false
+            grid:
+                length: 3
+                spacing: 20
+                snap: true
+                colour: '#ccc'
+            scrollbars: true
+            visual:
+                position: left
+            oneBasedIndex: true
+            media: /static/common/js/blockly/media/
+            trashcan: true
+            toolboxPosition: start
+            css: true
+            sounds: true
+            maxBlocks: '2'
+        files:
+        - maze.js
+        - interpreter.js
+        type: blockly
         name: ''
+        blocks_files:
+        - blocks.js
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml" id="workspaceBlocks"
+            style="display:none"></xml>
         header: |-
             .. image:: 01_maze/maze/small_static_avatar.png
                 :height: 40px
 
             **Essaie le bloc « Répéter » pour utiliser moins de blocs...**
-        type: blockly
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 tags:
     '0':
+        description: utilise une boucle "répéter X fois"
+        type: 0
+        visible: true
+        name: Boucle X fois
+        id: '3'
+    '1':
+        id: '1'
+        description: Introduit un concept de base
+        type: 0
+        name: Base
+        visible: false
+    '3':
+        description: Fait partie du parcours challenge
         type: 2
-        description: Exercice faisant partie du cours 1
-        name: Cours1
+        name: Challenge
         visible: false
         id: ''
-    '1':
-        type: 2
-        description: Fait partie du parcours challenge
-        name: Challenge
-        visible: true
-        id: ''
-    '2':
-        description: Fait partie du parcours pour élèves en difficulté
-        name: Facile
-        visible: true
-        type: 2
-        id: ''
-    '3':
-        name: Normal
-        type: 2
-        visible: true
-        description: Fait partie du parcours normal
-        id: ''
     '4':
-        name: Base
-        description: Introduit un concept de base
         type: 2
+        name: Facile
+        description: Fait partie du parcours pour élèves en difficulté
         visible: false
         id: ''
     '5':
+        description: Fait partie du parcours normal
+        name: Normal
         type: 2
-        name: Boucle X fois
-        description: utilise une boucle "répéter X fois"
         visible: false
+        id: ''
+    '6':
+        description: ''
+        type: 2
+        name: Lecon 2
+        visible: true
         id: ''
 weight: 1.0

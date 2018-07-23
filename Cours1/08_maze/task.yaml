@@ -1,90 +1,111 @@
 accessible: true
 author: Florian Thuin
-context: ''
+context: |-
+    Cette fois, utilise la boucle "répéter jusqu'à".
+
+    Attention, ton code doit être capable de traverser autant de cases que nécéssaire jusqu'à la plante !
 environment: default
 evaluate: best
 groups: false
 input_random: '0'
 limits:
-    output: '2'
     memory: '100'
     time: '30'
+    output: '2'
 name: Exercice 8
 network_grading: false
-order: 7
+order: 8
 problems:
     code:
-        options:
-            zoom:
-                maxScale: 3.0
-                minScale: 0.3
-                startScale: 1.0
-                controls: true
-                scaleSpeed: 1.2
-                wheel: false
-            trashcan: true
-            scrollbars: true
-            oneBasedIndex: true
-            maxBlocks: '14'
-            grid:
-                spacing: 20
-                length: 3
-                snap: true
-                colour: '#ccc'
-            toolboxPosition: start
-            visual:
-                position: left
-            css: true
-            media: /static/common/js/blockly/media/
-            sounds: true
-        blocks_files:
-        - blocks.js
-        files:
-        - maze.js
-        - interpreter.js
-        name: Plein de boucles !
         toolbox: |-
             <xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none;">
                 <block type="maze_moveForward"></block>
               <block type="maze_turn"><field name="DIR">turnLeft</field></block>
               <block type="maze_turn"><field name="DIR">turnRight</field></block>
-              <block type="controls_repeat"><title name="TIMES">???</title></block>
+              <block type="maze_forever"></block>
             </xml>
+        options:
+            scrollbars: true
+            grid:
+                length: 3
+                snap: true
+                spacing: 20
+                colour: '#ccc'
+            css: true
+            toolboxPosition: start
+            zoom:
+                scaleSpeed: 1.2
+                controls: true
+                maxScale: 3.0
+                minScale: 0.3
+                startScale: 1.0
+                wheel: false
+            visual:
+                position: left
+            oneBasedIndex: true
+            media: /static/common/js/blockly/media/
+            maxBlocks: '2'
+            trashcan: true
+            sounds: true
+        files:
+        - maze.js
+        - interpreter.js
         type: blockly
+        name: ''
+        blocks_files:
+        - blocks.js
+        workspace: <xml xmlns="http://www.w3.org/1999/xhtml" id="workspaceBlocks"
+            style="display:none"></xml>
         header: |-
             .. image:: 01_maze/maze/small_static_avatar.png
                 :height: 40px
 
-            **Utilise le bloc « Répéter » pour amener le zombie au tournesol. (Évite les plantes carnivores!)**
-        workspace: <xml xmlns="http://www.w3.org/1999/xhtml" id="workspaceBlocks"
-            style="display:none"></xml>
+            **Crée une boucle avec le bloc « Répéter jusqu’à ».**
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 tags:
     '0':
-        name: Boucle X fois
-        description: utilise une boucle "répéter X fois"
-        type: 2
-        visible: false
-        id: ''
-    '1':
-        type: 2
-        name: Cours1
-        description: Exercice faisant partie du cours 1
-        visible: false
-        id: ''
-    '2':
-        description: Fait partie du parcours pour élèves en difficulté
+        type: 0
         visible: true
-        name: Facile
-        type: 2
-        id: ''
-    '3':
+        id: '5'
+        name: Boucle jusqu'à
+        description: Demande d'utiliser des boucles "jusqu'à"
+    '1':
+        id: '1'
+        visible: true
+        name: Base
+        description: Introduit un concept de base
+        type: 0
+    '2':
+        visible: true
+        id: '2'
+        type: 0
         description: Demande de créer une séquence d'instruction
         name: Séquence
+    '3':
+        description: Fait partie du parcours challenge
+        name: Challenge
         type: 2
         visible: false
+        id: ''
+    '5':
+        description: Fait partie du parcours pour élèves en difficulté
+        name: Facile
+        type: 2
+        visible: false
+        id: ''
+    '6':
+        description: Fait partie du parcours normal
+        name: Normal
+        type: 2
+        visible: false
+        id: ''
+    '7':
+        description: ''
+        visible: true
+        name: Lecon 2
+        type: 2
         id: ''
 weight: 1.0

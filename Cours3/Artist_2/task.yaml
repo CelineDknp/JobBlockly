@@ -17,26 +17,66 @@ network_grading: false
 order: 0
 problems:
     code:
-        blocks_files:
-        - blocks.js
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+              <category name="mouvement" colour="165">
+              <variables></variables>
+              <block type="turtle_turn_internal">
+                <field name="DIR">turnRight</field>
+                <field name="VALUE">90</field>
+              </block>
+              <block type="turtle_move">
+                <field name="DIR">moveForward</field>
+                <value name="VALUE">
+                  <block type="math_number">
+                    <field name="NUM">250</field>
+                  </block>
+                </value>
+              </block>
+              <block type="turtle_jump">
+                <field name="DIR">jumpForward</field>
+                <value name="VAL">
+                  <block type="math_number">
+                    <field name="NUM">100</field>
+                  </block>
+                </value>
+              </block>
+            </category>
+               <category name="boucle" colour="105">
+              <variables></variables>
+              <block type="controls_repeat">
+                <field name="TIMES">???</field>
+              </block>
+            </category>
+            <category name="fonction" colour="315">
+              <block type="procedures_callnoreturn">
+                <mutation name="Dessiner un carré"></mutation>
+              </block>
+            </category>
+            </xml>
         options:
-            css: true
-            sounds: true
-            toolboxPosition: start
+            scrollbars: true
             visual:
                 position: left
-            trashcan: true
-            media: /static/common/js/blockly/media/
-            scrollbars: true
-            maxBlocks: '45'
             oneBasedIndex: true
+            media: /static/common/js/blockly/media/
+            css: true
+            trashcan: true
+            toolboxPosition: start
+            sounds: true
+            maxBlocks: '45'
         files:
         - turtle.js
         - interpreter.js
+        type: blockly
+        name: ''
+        blocks_files:
+        - blocks.js
         workspace: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
               <variables></variables>
-              <block type="procedures_defnoreturn" deletable="false" editable="false">
+              <block type="procedures_defnoreturn" deletable="false" editable="false" id="1">
                 <field name="NAME">Dessiner un carré</field>
                 <comment pinned="false" h="80" w="160">Dessine un carré de 75 sur 75</comment>
                 <statement name="STACK">
@@ -67,94 +107,51 @@ problems:
               </block>
             </xml>
         header: ''
-        type: blockly
-        toolbox: |-
-            <xml xmlns="http://www.w3.org/1999/xhtml">
-              <variables></variables>
-              <block type="turtle_turn_internal">
-                <field name="DIR">turnRight</field>
-                <field name="VALUE">90</field>
-              </block>
-              <block type="turtle_colour">
-                <value name="COLOUR">
-                  <block type="colour_picker">
-                    <field name="COLOUR">#228b22</field>
-                  </block>
-                </value>
-              </block>
-              <block type="turtle_move">
-                <field name="DIR">moveForward</field>
-                <value name="VALUE">
-                  <block type="math_number">
-                    <field name="NUM">250</field>
-                  </block>
-                </value>
-              </block>
-              <block type="turtle_jump">
-                <field name="DIR">jumpForward</field>
-                <value name="VAL">
-                  <block type="math_number">
-                    <field name="NUM">100</field>
-                  </block>
-                </value>
-              </block>
-              <block type="procedures_callnoreturn">
-                <mutation name="Dessiner un carré"></mutation>
-              </block>
-              <block type="controls_repeat_ext">
-                <value name="TIMES">
-                  <shadow type="math_number">
-                    <field name="NUM">0</field>
-                  </shadow>
-                </value>
-              </block>
-            </xml>
-        name: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 tags:
     '0':
+        visible: true
         name: Instructions avec paramètres
-        visible: true
         type: 0
-        description: ''
         id: '1'
-    '1':
         description: ''
+    '1':
         id: '2'
+        description: ''
         type: 0
+        visible: true
         name: Boucles "répéter X fois"
-        visible: true
     '2':
-        type: 0
-        visible: true
         description: Utilisation d'une fonction
         name: Appel de fonctions
         id: '3'
-    '3':
         visible: true
-        description: Exercice faisant partie de la leçon 2
-        name: Lecon 3
-        type: 2
-        id: ''
-    '4':
-        description: Faisant partie du parcours normal
+        type: 0
+    '3':
         name: Normal
+        description: Faisant partie du parcours normal
         type: 2
         visible: false
         id: ''
-    '5':
+    '4':
         type: 2
         description: Faisant partie du parcours facile
         name: Facile
         visible: false
         id: ''
-    '6':
-        type: 2
-        name: Challenge
+    '5':
         description: Faisant partie du parcours challenge
+        name: Challenge
+        type: 2
         visible: false
+        id: ''
+    '6':
+        description: ''
+        type: 2
+        name: Lecon 3
+        visible: true
         id: ''
 weight: 1.0

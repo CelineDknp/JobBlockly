@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>How to create a basic Blockly task ? &mdash; JobBlockly  documentation</title>
+  <title>Creation of a basic Blockly task &mdash; JobBlockly  documentation</title>
   
 
   
@@ -36,7 +36,7 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="JobBlockly  documentation" href="index.html"/>
-        <link rel="next" title="How to change the maze’s visuals" href="VisualDocumentation.html"/>
+        <link rel="next" title="Blockly visual tasks" href="VisualBlockly.html"/>
         <link rel="prev" title="Welcome to JobBlockly’s documentation!" href="index.html"/> 
 
   
@@ -87,13 +87,14 @@
             
             
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">How to create a <em>basic</em> Blockly task ?</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Creation of a <em>basic</em> Blockly task</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#example-create-the-sum-function-using-the-graphical-interface">Example : create the sum function (using the graphical interface)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#example-create-the-sum-function-by-hand">Example : create the sum function by hand</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#example-an-only-workspace-task">Example : an “only workspace” task</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#example-create-a-custom-block-if-else">Example : create a custom block (if/else)</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="VisualBlockly.html">Blockly visual tasks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="VisualDocumentation.html">How to change the maze’s visuals</a></li>
 </ul>
 
@@ -139,7 +140,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>How to create a <em>basic</em> Blockly task ?</li>
+      <li>Creation of a <em>basic</em> Blockly task</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -158,8 +159,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="how-to-create-a-basic-blockly-task">
-<h1>How to create a <em>basic</em> Blockly task ?<a class="headerlink" href="#how-to-create-a-basic-blockly-task" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="creation-of-a-basic-blockly-task">
+<h1>Creation of a <em>basic</em> Blockly task<a class="headerlink" href="#creation-of-a-basic-blockly-task" title="Permalink to this headline">¶</a></h1>
 <p>There is, first, a few steps that are the same as for any other tasks. Those are :</p>
 <ol class="arabic simple">
 <li>Create the exercice as you would a classical one. Set up a title, a context, your name, the options you want,… When creating a subproblem, select “blockly” as “type of task”</li>
@@ -440,18 +441,14 @@ if __name__ == &quot;__main__&quot;:
 <img alt="_images/blockCustom5.png" class="align-center" src="_images/blockCustom5.png" />
 <p>Now, we need to export it. First, click on the green <code class="docutils literal notranslate"><span class="pre">Save</span> <span class="pre">&quot;custom_if_else&quot;</span></code> button. Then, click on the <code class="docutils literal notranslate"><span class="pre">Block</span> <span class="pre">Exporter</span></code> tab :</p>
 <img alt="_images/blockCustom6.png" class="align-center" src="_images/blockCustom6.png" />
-<p>Check the box next to our block name (this allows you to export multiple blocks at a time). We need the Python version of the code, so change the language of the generator and pick file names (here, <em>custom.json</em> and <em>custom.js</em>), then click <code class="docutils literal notranslate"><span class="pre">Export</span></code> :</p>
+<p>Check the box next to our block name (this allows you to export multiple blocks at a time). For the generator, we need the Python version of the code, so change the language using the dropdown. For the definition, either Javascript or JSON works, it just has to be integrated differently. Pick file names (here, <em>custom.json</em> and <em>custom.js</em>), then click <code class="docutils literal notranslate"><span class="pre">Export</span></code> :</p>
 <img alt="_images/blockCustom7.png" class="align-center" src="_images/blockCustom7.png" />
 <p>Save both files and you can close the tab, we will not use it anymore. To make it simpler, INGInious only uses one file to define all custom blocks, so we will need to copy over the code we downloaded. This is the general structure of the file we will create :</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span class="c1">//License</span>
 <span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
 
 <span class="nx">Blockly</span><span class="p">.</span><span class="nx">Blocks</span><span class="p">[</span><span class="s1">&#39;block_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">jsonInit</span><span class="p">({</span>
-      <span class="c1">//JSON code for the block</span>
-    <span class="p">});</span>
-  <span class="p">}</span>
+  <span class="c1">//JSON or javascript code for the bloc</span>
 <span class="p">};</span>
 
 <span class="nx">Blockly</span><span class="p">.</span><span class="nx">Python</span><span class="p">[</span><span class="s1">&#39;block_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">block</span><span class="p">)</span> <span class="p">{</span>
@@ -461,7 +458,17 @@ if __name__ == &quot;__main__&quot;:
 <span class="p">};</span>
 </pre></div>
 </div>
-<p>Using the code we generated, we get :</p>
+<p>For the first function, which is the block description, you can use the javascript code as it has been generated, or put the JSON into this format :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre> <span class="nx">Blockly</span><span class="p">.</span><span class="nx">Blocks</span><span class="p">[</span><span class="s1">&#39;block_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">jsonInit</span><span class="p">({</span>
+      <span class="c1">//JSON code for the block</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>In that case, don’t forget to remove the extra <strong>[{}]</strong> that surround the json description, as shown in the next snippet of code. Using our generated files, we get :</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span class="c1">//License</span>
 <span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
 
@@ -531,7 +538,7 @@ if __name__ == &quot;__main__&quot;:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="VisualDocumentation.html" class="btn btn-neutral float-right" title="How to change the maze’s visuals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="VisualBlockly.html" class="btn btn-neutral float-right" title="Blockly visual tasks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="Welcome to JobBlockly’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
