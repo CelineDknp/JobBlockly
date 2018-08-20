@@ -1,0 +1,79 @@
+accessible: true
+author: Celine Deknop
+context: |-
+    Avant de trier toute une liste, attaquons-nous à un problème plus simple : trouver le plus petit élément.
+
+    Peux-tu créer un algorithme qui retourne le plus petit élément de la liste avec ces blocs ?
+
+    Attention, souviens-toi bien que la liste ne sera pas dans l'ordre ! Tu peux appuyer sur le bouton vert en haut à gauche pour voir ce que tu code fait : la bouteille A est en rouge et la B en bleu. Est-ce que la plus petite valeur est bien en rouge à la fin de l'animation ?
+environment: default
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '10'
+name: 1. Le plus léger (blocs custom)
+network_grading: false
+problems:
+    algo:
+        options:
+            css: true
+            zoom:
+                scaleSpeed: 1.2
+                maxScale: 3.0
+                minScale: 0.3
+                controls: true
+                startScale: 1.0
+                wheel: false
+            grid:
+                snap: true
+                colour: '#ccc'
+                length: 3
+                spacing: 20
+            maxBlocks: '100'
+            scrollbars: true
+            toolboxPosition: start
+            media: plugins/blockly/static/blockly/media/
+            visual:
+                position: left
+        files:
+        - svg_min.js
+        - insertion_sort.js
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+              <block type="new_list" deletable="false" editable="false"></block>
+            </xml>
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+            <category name="bouteilles" colour="225">
+              <variables></variables>
+              <block type="create_plus_leger"></block>
+              <block type="get_other"></block>
+              <block type="b_lighter_a"></block>
+              <block type="b_is_a"></block>
+            </category>
+            <category name="condition" colour="180">
+              <variables></variables>
+              <block type="controls_if"></block>
+            </category>
+
+            <category name="boucles" colour="120">
+              <variables></variables>
+              <block type="custom_for_elem"></block>
+            </category>
+            </xml>
+        type: blockly
+        name: ''
+        blocks_files:
+        - customblocks.js
+        header: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0

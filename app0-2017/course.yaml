@@ -1,0 +1,25 @@
+name: '[APP0] Game of Spies'
+admins:
+- gegoa
+- taffin
+- obonaventure
+- duchenef
+- reinbold
+- detiennen
+- ogoletti
+- bnothomb
+accessible: true
+tutors: []
+groups_student_choice: false
+use_classrooms: true
+registration: true
+registration_password: null
+registration_ac: null
+registration_ac_list:
+- ''
+allow_unregister: true
+description: ''
+allow_preview: false
+is_lti: false
+lti_keys: {}
+lti_send_back_grade: false

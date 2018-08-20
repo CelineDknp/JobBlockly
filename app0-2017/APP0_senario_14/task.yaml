@@ -1,0 +1,91 @@
+accessible: true
+author: Celine Deknop
+context: ''
+environment: default
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    time: '30'
+    memory: '100'
+    output: '2'
+name: Scénario 14
+network_grading: false
+order: 0
+problems:
+    code:
+        options:
+            scrollbars: true
+            toolboxPosition: start
+            visual:
+                position: left
+            css: true
+            media: /static/common/js/blockly/media/
+            maxBlocks: Infinity
+            sounds: true
+            oneBasedIndex: true
+            trashcan: true
+        files:
+        - maze.js
+        - interpreter.js
+        type: blockly
+        name: ''
+        blocks_files:
+        - blocks.js
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+
+              <category name="Boolean" colour="225">
+              <variables></variables>
+              <block type="can_move"></block>
+              <block type="is_in_front_of_enemy"></block>
+              <block type="is_on_target"></block>
+              <block type="logic_negate"></block>
+            </category><category name="Condition" colour="180">
+              <variables></variables>
+              <block type="controls_if"></block>
+              <block type="logic_compare">
+                <field name="OP">EQ</field>
+              </block>
+              <block type="custom_if_else"></block>
+              <block type="logic_operation">
+                <field name="OP">AND</field>
+              </block>
+              <block type="logic_boolean">
+                <field name="BOOL">TRUE</field>
+              </block>
+            </category>
+              <category name="Actions" colour="300">
+              <variables></variables>
+              <block type="maze_turn">
+                <field name="DIR">turnLeft</field>
+              </block>
+              <block type="maze_moveForward"></block>
+              <block type="spy_on_target"></block>
+            </category>
+            <category name="Loop" colour="105">
+              <variables></variables>
+              <block type="controls_whileUntil">
+                <field name="MODE">WHILE</field>
+              </block>
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
+            </category><category name="Information" colour="210">
+              <variables></variables>
+              <block type="get_player_pos">
+                <field name="VALUE">X</field>
+              </block>
+              <block type="get_target_pos">
+                <field name="VALUE">X</field>
+              </block>
+              <block type="get_player_dir"></block>
+            </category></xml>
+        workspace: ''
+        header: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0

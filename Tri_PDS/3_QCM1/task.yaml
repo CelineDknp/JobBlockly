@@ -1,0 +1,62 @@
+accessible: true
+author: ''
+context: |-
+    Peux-tu compter les comparaisons nécéssaires pour trouver les éléments les plus légers des listes suivantes ?
+
+    Attention, souviens-toi que l'ordinateur ne peut pas se rendre compte qu'il a l'élément le plus léger avant de les avoir tous examinés !
+environment: mcq
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: 2. Questions - le plus léger
+network_grading: false
+problems:
+    qcm:
+        header: Combien faut-il faire de comparaisons pour trouver le plus petit élément
+            de la liste [1,2,3,4] ?
+        name: ''
+        choices:
+        -   feedback: N'oublie pas que l'ordinateur ne sait voir que deux chiffres
+                à la fois !
+            text: '1'
+        -   text: '3'
+            valid: true
+        -   text: '4'
+            feedback: On ne peut pas faire 4 comparaisons différentes !
+        -   text: '2'
+        limit: 0
+        type: multiple_choice
+    qcm2:
+        choices:
+        -   text: '1'
+        -   text: '2'
+        -   text: '3'
+            valid: true
+        -   text: '4'
+        header: Combien faut-il faire de comparaisons pour trouver le plus petit élément
+            de la liste [4,3,2,1] ?
+        limit: 0
+        name: ''
+        type: multiple_choice
+    qcm3:
+        choices:
+        -   text: '1'
+        -   text: '2'
+        -   valid: true
+            text: '3'
+        -   text: '4'
+        name: ''
+        header: Combien faut-il faire de comparaisons pour trouver le plus petit élément
+            de la liste [2,1,3,1] ?
+        type: multiple_choice
+        limit: 0
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0

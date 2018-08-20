@@ -57,6 +57,27 @@ You may also add, but do not need to :
 * mp3 and ogg files with a sound to be played when the character looses the game without hitting an obstacle 
 * mp3 and ogg files with a sound to be played when the character wins the game
 
+Particular case of Maze : APP0
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+The type of task *APP0* is a particular case of a maze, where you do not have any animations for ennemies or goal (since the visuals are changing each year). Furthermore, there is no path drawn on the map (all free spaces are blank tiles), and there is an illustration for a wall. The json file is the following :
+
+.. code-block:: json
+
+  {
+    "visuals":{
+      "sprite":"avatar.png",
+      "marker":"nedstark.png",
+      "obstacleIdle":"wolf.png",
+      "wall":"wall.png",
+      "obstacleScale":1.2,
+      "background":"testBackPlain.png",
+      "graph":"black"
+    },
+  }
+
+
+
 Files for a collect and create task
 ...................................
 

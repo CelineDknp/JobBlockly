@@ -1,0 +1,128 @@
+accessible: true
+author: Celine Deknop
+context: ''
+environment: default
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: Scénario
+network_grading: false
+order: 0
+problems:
+    code:
+        name: ''
+        options:
+            zoom:
+                startScale: 1.0
+                maxScale: 3.0
+                controls: true
+                minScale: 0.3
+                scaleSpeed: 1.2
+                wheel: false
+            toolboxPosition: start
+            oneBasedIndex: true
+            visual:
+                position: left
+            sounds: true
+            trashcan: true
+            css: true
+            media: /static/common/js/blockly/media/
+            maxBlocks: Infinity
+            scrollbars: true
+        type: blockly
+        header: ''
+        blocks_files:
+        - blocks.js
+        files:
+        - maze.js
+        - interpreter.js
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+
+              <category name="Boolean" colour="225">
+              <variables></variables>
+              <block type="can_move"></block>
+              <block type="is_in_front_of_enemy"></block>
+              <block type="is_on_target"></block>
+              <block type="logic_negate"></block>
+              <block type="logic_boolean">
+                <field name="BOOL">TRUE</field>
+              </block>
+            </category><category name="Condition" colour="180">
+              <variables></variables>
+              <block type="controls_if"></block>
+              <block type="logic_compare">
+                <field name="OP">EQ</field>
+              </block>
+              <block type="custom_if_else"></block>
+              <block type="logic_operation">
+                <field name="OP">AND</field>
+              </block>
+            </category>
+              <category name="Actions" colour="300">
+              <variables></variables>
+              <block type="maze_turn">
+                <field name="DIR">turnLeft</field>
+              </block>
+              <block type="maze_moveForward"></block>
+              <block type="spy_on_target"></block>
+            </category>
+            <category name="Loop" colour="105">
+              <variables></variables>
+              <block type="controls_whileUntil">
+                <field name="MODE">WHILE</field>
+              </block>
+            </category><category name="Information" colour="210">
+              <variables></variables>
+              <block type="get_player_pos">
+                <field name="VALUE">X</field>
+              </block>
+              <block type="get_target_pos">
+                <field name="VALUE">X</field>
+              </block>
+              <block type="get_player_dir"></block>
+            </category>
+            <category name="Values" colour="0">
+              <variables></variables>
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
+              <block type="north_value"></block>
+              <block type="south_value"></block>
+              <block type="east_value"></block>
+              <block type="west_value"></block>
+            </category>
+               <category name="Functions" colour="270">
+              <variables></variables>
+              <block type="procedures_defnoreturn">
+                <field name="NAME">fonction sans return</field>
+                <comment pinned="false" h="80" w="160">Décrire cette fonction…</comment>
+              </block>
+              <block type="procedures_defreturn">
+                <field name="NAME">fonction return</field>
+                <comment pinned="false" h="80" w="160">Décrire cette fonction…</comment>
+              </block>
+            </category>
+
+            <category name="Variables" colour="345">
+              <variables>
+                <variable type="">variable</variable>
+              </variables>
+              <block type="variables_set">
+                <field name="VAR" variabletype="">variable</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR" variabletype="">variable</field>
+              </block>
+            </category></xml>
+        workspace: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0

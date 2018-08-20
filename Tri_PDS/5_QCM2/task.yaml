@@ -1,0 +1,63 @@
+accessible: true
+author: ''
+context: Maintenant, peux-tu compter les comparaisons nécéssaires pour trier en entier
+    les listes suivantes ?
+environment: mcq
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: 4. Questions - tri par sélection
+network_grading: false
+problems:
+    qcm:
+        header: Combien faut-il faire de comparaisons pour trier la liste [1,2,3,4]
+            ?
+        name: ''
+        choices:
+        -   text: '4'
+            feedback: N'oublie pas que l'ordinateur ne sait voir que deux chiffres
+                à la fois !
+        -   text: '5'
+        -   text: '6'
+            valid: true
+            feedback: Correct ! Peux-tu trouver une formule pour le calculer facilement
+                ?
+        -   text: '7'
+            feedback: On ne peut pas faire 7 comparaisons différentes si on met les
+                éléments déjà triés à part !
+        limit: 0
+        type: multiple_choice
+    qcm2:
+        choices:
+        -   text: '4'
+        -   text: '5'
+        -   text: '6'
+            valid: true
+        -   text: '7'
+        header: Combien faut-il faire de comparaisons pour trier la liste [4,3,2,1]
+            ?
+        limit: 0
+        name: ''
+        type: multiple_choice
+    qcm3:
+        choices:
+        -   text: '4'
+        -   text: '5'
+        -   valid: true
+            text: '6'
+        -   text: '7'
+        name: ''
+        header: Combien faut-il faire de comparaisons pour trier la liste [2,1,3,1]
+            ?
+        type: multiple_choice
+        limit: 0
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0

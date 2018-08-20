@@ -1,0 +1,99 @@
+accessible: true
+author: Ilias Boutchichi
+context: Ici, tu peux voir le pire cas du tri par insertion. Combien fait-il de comparaisons
+    ? Est-ce similaire au tri par sélection ?
+environment: default
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    time: '10'
+    output: '2'
+name: 7.5 Tri par insertion - pire cas
+network_grading: false
+problems:
+    algo:
+        options:
+            grid:
+                colour: '#ccc'
+                length: 3
+                spacing: 20
+                snap: true
+            zoom:
+                minScale: 0.3
+                scaleSpeed: 1.2
+                controls: true
+                maxScale: 3.0
+                startScale: 1.0
+                wheel: false
+            maxBlocks: '8'
+            visual:
+                position: left
+            css: true
+            toolboxPosition: start
+            media: plugins/blockly/static/blockly/media/
+            scrollbars: true
+        name: ''
+        header: ''
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+              <block type="new_list" deletable="false" editable="false">
+                <next>
+                  <block type="for_each_list">
+                    <statement name="CONTENT">
+                      <block type="assign_tmp">
+                        <next>
+                          <block type="assign_index_j">
+                            <next>
+                              <block type="for_each_greater">
+                                <statement name="CONTENT">
+                                  <block type="assign_greater_elem">
+                                    <next>
+                                      <block type="decrease_j"></block>
+                                    </next>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="put_x"></block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </xml>
+        type: blockly
+        blocks_files:
+        - customblocks.js
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+            <category name="Assignements" colour="330">
+              <variables></variables>
+              <block type="assign_tmp"></block>
+              <block type="assign_index_j"></block>
+              <block type="decrease_j"></block>
+            </category><category name="Boucles" colour="120">
+              <variables></variables>
+              <block type="for_each_greater"></block>
+              <block type="for_each_list"></block>
+            </category><category name="Liste" colour="210">
+              <variables></variables>
+              <block type="assign_greater_elem"></block>
+              <block type="put_x"></block>
+            </category></xml>
+        files:
+        - svg_min.js
+        - insertion_sort.js
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0

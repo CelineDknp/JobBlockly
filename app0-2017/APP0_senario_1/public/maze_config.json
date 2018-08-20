@@ -1,0 +1,96 @@
+{	
+	"map":{
+		"layout":[ 
+               [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+				[1, 4, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 4, 1],
+				[1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1],
+				[1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
+				[1, 4, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 4, 1, 4, 1],
+				[1, 1, 1, 2, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 3],
+				[1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1],
+				[1, 4, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 4, 1, 1],
+				[1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1],
+				[1, 1, 0, 4, 1, 1, 1, 1, 1, 1, 1, 4, 1, 0, 1, 1],
+				[1, 1, 1, 1, 1, 0, 1, 4, 1, 1, 0, 1, 1, 1, 0, 1],
+				[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]],
+
+				[[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+				[1, 4, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 4, 1],
+				[1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1],
+				[1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
+				[1, 4, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 4, 1, 4, 1],
+				[1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 2, 1, 0, 1, 1, 1],
+				[1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1],
+				[1, 4, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 4, 1, 1],
+				[1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1],
+				[1, 1, 0, 4, 1, 1, 1, 1, 1, 1, 1, 4, 1, 0, 1, 1],
+				[1, 1, 1, 1, 1, 0, 1, 4, 1, 1, 0, 1, 1, 1, 0, 1],
+				[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3]]              
+        ],
+        "maxSteps":100,
+		"animationSpeed":50,
+		"squareSize":50,
+		"squareType":{
+				"WALL": 0,
+				"OPEN": 1,
+				"START": 2,
+				"FINISH": 3,
+				"OBSTACLE": 4,
+				"STARTANDFINISH": 5
+				},
+		"startDirection":"EAST",
+		"avatarHeight":52,
+		"avatarWidth":49
+			},
+	"visuals":{
+		"sprite":"avatar.png",
+		"marker":"nedstark.png",
+		"obstacleIdle":"wolf.png",
+		"wall":"wall.png",
+		"obstacleScale":1.2,
+		"background":"testBackPlain.png",
+		"graph":"black",
+		"obstacleSound":"['sword.wav']",
+		"winSound":"['tadaa.wav']",
+		"crashSound":"[]"
+		},
+	"blocs":{
+		"move":{
+			"name":"move",
+			"tooltip":"Avance le joueur d'un espace"
+		},
+		"turn":{
+			"name1":"turn right",
+			"name2":"turn left",
+			"tooltip":"Tourne le joueur à gauche ou à droite de 90 degrés."
+		},
+		"getPlayerPosition":{
+			"name":"get",
+			"tooltip": "Retourne la position x ou y du joueur"
+		},
+		"getTargetPosition":{
+			"name":"getTarget",
+			"tooltip":"Retourne la position x ou y de Ned Stark"
+		},
+		"getPlayerDirection":{
+			"name":"getDirection",
+			"tooltip":"Retourne la direction dans laquelle est tournée le joueur"
+		},
+		"canMove":{
+			"name":"canMove",
+			"tooltip":"Retourne vrai si le personnage peut avancer"
+		},
+		"isInFrontOfEnemy":{
+			"name":"isInFrontOfWolf",
+			"tooltip":"Retourne vrai si le personnage est en face d'un loup"
+		},
+		"isOnTarget":{
+			"name":"isOnTarget",
+			"tooltip":"Retourne vrai si le personnage est sur la case de Ned"
+		},
+		"finish":{
+			"name":"spyOnTarget",
+			"tooltip":"Si Philip et Elizabeth sont sur la même case que Ned, espionne. Sinon, affiche un message à l'écran."
+		}
+	}
+}

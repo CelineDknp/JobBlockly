@@ -90,7 +90,10 @@
 <li class="toctree-l1"><a class="reference internal" href="VisualBlockly.html">Blockly visual tasks</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">How to change the maze’s visuals</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#files-you-will-need">Files you will need</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#files-for-a-maze-task">Files for a maze task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#files-for-a-maze-task">Files for a maze task</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#particular-case-of-maze-app0">Particular case of Maze : APP0</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#files-for-a-collect-and-create-task">Files for a collect and create task</a></li>
 </ul>
 </li>
@@ -198,6 +201,23 @@
 <li>mp3 and ogg files with a sound to be played when the character looses the game without hitting an obstacle</li>
 <li>mp3 and ogg files with a sound to be played when the character wins the game</li>
 </ul>
+<div class="section" id="particular-case-of-maze-app0">
+<h4>Particular case of Maze : APP0<a class="headerlink" href="#particular-case-of-maze-app0" title="Permalink to this headline">¶</a></h4>
+<p>The type of task <em>APP0</em> is a particular case of a maze, where you do not have any animations for ennemies or goal (since the visuals are changing each year). Furthermore, there is no path drawn on the map (all free spaces are blank tiles), and there is an illustration for a wall. The json file is the following :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span class="p">{</span>
+  <span class="nt">&quot;visuals&quot;</span><span class="p">:{</span>
+    <span class="nt">&quot;sprite&quot;</span><span class="p">:</span><span class="s2">&quot;avatar.png&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;marker&quot;</span><span class="p">:</span><span class="s2">&quot;nedstark.png&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;obstacleIdle&quot;</span><span class="p">:</span><span class="s2">&quot;wolf.png&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;wall&quot;</span><span class="p">:</span><span class="s2">&quot;wall.png&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;obstacleScale&quot;</span><span class="p">:</span><span class="mf">1.2</span><span class="p">,</span>
+    <span class="nt">&quot;background&quot;</span><span class="p">:</span><span class="s2">&quot;testBackPlain.png&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;graph&quot;</span><span class="p">:</span><span class="s2">&quot;black&quot;</span>
+  <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="files-for-a-collect-and-create-task">
 <h3>Files for a collect and create task<a class="headerlink" href="#files-for-a-collect-and-create-task" title="Permalink to this headline">¶</a></h3>

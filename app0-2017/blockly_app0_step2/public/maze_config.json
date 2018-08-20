@@ -1,0 +1,94 @@
+{	
+	"map":{
+		"layout":[ 
+                [[0, 0, 0, 0, 0, 0, 0, 0],
+				[1, 1, 1, 0, 0, 0, 0, 0],
+				[1, 1, 1, 1, 0, 0, 0, 0],
+				[1, 1, 1, 1, 1, 1, 0, 0],
+				[2, 1, 1, 0, 1, 3, 0, 0],
+				[1, 1, 1, 1, 1, 1, 0, 0]],
+ 
+                [[0, 0, 0, 0, 0, 0, 0, 0],
+				[1, 1, 1, 0, 0, 0, 0, 0],
+				[1, 1, 1, 1, 0, 0, 0, 0],
+				[1, 1, 1, 1, 1, 1, 0, 0],
+				[2, 0, 1, 1, 1, 3, 0, 0],
+				[1, 1, 1, 1, 1, 1, 0, 0]],
+ 
+                [[0, 0, 0, 0, 0, 0, 0, 0],
+				[1, 1, 1, 0, 0, 0, 0, 0],
+				[1, 1, 1, 1, 0, 0, 0, 0],
+				[1, 1, 1, 1, 1, 1, 0, 0],
+				[2, 1, 1, 1, 0, 3, 0, 0],
+				[1, 1, 1, 1, 1, 1, 0, 0]]                
+        ],
+        "maxSteps":100,
+		"animationSpeed":50,
+		"squareSize":50,
+		"squareType":{
+				"WALL": 0,
+				"OPEN": 1,
+				"START": 2,
+				"FINISH": 3,
+				"OBSTACLE": 4,
+				"STARTANDFINISH": 5
+				},
+		"startDirection":"EAST",
+		"avatarHeight":52,
+		"avatarWidth":49
+			},
+	"visuals":{
+		"sprite":"maze/avatar.png",
+		"tiles":"maze/tiles.png",
+		"marker":"maze/nedstark.png",
+		"goalAnimation":"maze/goal.gif",
+		"obstacleIdle":"maze/wolf.png",
+		"obstacleAnimation":"maze/spies-dead.png",
+		"wall":"maze/wall.png",
+		"obstacleScale":1.2,
+		"background":"maze/testBackPlain.png",
+		"graph":"black",
+		"obstacleSound":"[task_directory_path + 'maze/obstacle.mp3', task_directory_path + 'maze/obstacle.ogg']",
+		"winSound":"['maze/win.mp3', 'maze/win.ogg']",
+		"crashSound":"['maze/failure.mp3', 'maze/failure.ogg']"
+		},
+	"blocs":{
+		"move":{
+			"name":"move",
+			"tooltip":"Avance le joueur d'un espace"
+		},
+		"turn":{
+			"name1":"turn right",
+			"name2":"turn left",
+			"tooltip":"Tourne le joueur à gauche ou à droite de 90 degrés."
+		},
+		"getPlayerPosition":{
+			"name":"get",
+			"tooltip": "Retourne la position x ou y du joueur"
+		},
+		"getTargetPosition":{
+			"name":"getTarget",
+			"tooltip":"Retourne la position x ou y de Ned Stark"
+		},
+		"getPlayerDirection":{
+			"name":"getDirection",
+			"tooltip":"Retourne la direction dans laquelle est tournée le joueur"
+		},
+		"canMove":{
+			"name":"canMove",
+			"tooltip":"Retourne vrai si le personnage peut avancer"
+		},
+		"isInFrontOfEnemy":{
+			"name":"isInFrontOfWolf",
+			"tooltip":"Retourne vrai si le personnage est en face d'un loup"
+		},
+		"isOnTarget":{
+			"name":"isOnTarget",
+			"tooltip":"Retourne vrai si le personnage est sur la case de Ned"
+		},
+		"finish":{
+			"name":"spyOnTarget",
+			"tooltip":"Si Philip et Elizabeth sont sur la même case que Ned, espionne. Sinon, affiche un message à l'écran."
+		}
+	}
+}
