@@ -43,16 +43,19 @@
 		"avatarWidth":49
 			},
 	"visuals":{
-		"sprite":"avatar.png",
-		"marker":"nedstark.png",
-		"obstacleIdle":"wolf.png",
-		"wall":"wall.png",
+		"sprite":"maze/avatar.png",
+		"tiles":"maze/tiles.png",
+		"marker":"maze/nedstark.png",
+		"goalAnimation":"maze/goal.gif",
+		"obstacleIdle":"maze/wolf.png",
+		"obstacleAnimation":"maze/spies-dead.png",
+		"wall":"maze/wall.png",
 		"obstacleScale":1.2,
-		"background":"testBackPlain.png",
+		"background":"maze/testBackPlain.png",
 		"graph":"black",
-		"obstacleSound":"['sword.wav']",
-		"winSound":"['tadaa.wav']",
-		"crashSound":"[]"
+		"obstacleSound":"[task_directory_path + 'maze/obstacle.mp3', task_directory_path + 'maze/obstacle.ogg']",
+		"winSound":"['maze/win.mp3', 'maze/win.ogg']",
+		"crashSound":"['maze/failure.mp3', 'maze/failure.ogg']"
 		},
 	"blocs":{
 		"move":{

@@ -9,7 +9,7 @@ limits:
     time: '30'
     memory: '100'
     output: '2'
-name: Scénario 1
+name: Scénario 2
 network_grading: false
 order: 0
 problems:
